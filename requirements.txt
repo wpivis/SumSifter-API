@@ -1,0 +1,8 @@
+Flask==3.0.3
+Flask_Caching==2.3.0
+Flask_Cors==4.0.1
+openai==0.28.0
+pydantic==2.8.0
+python-dotenv==1.0.1
+python_docx==1.1.2
+typing_extensions==4.12.2
