@@ -9,13 +9,11 @@ cache = Cache()
 def create_app(config_class=Config):
     app = Flask(__name__)
     CORS(app, resources={r"/*": {"origins": "*"}})
-    
+
     app.config.from_object(config_class)
 
-    app.config["SECRET_KEY"] = "super secret key todo"
     app.config["CACHE_TYPE"] = "SimpleCache"
-    app.config["CACHE_DEFAULT_TIMEOUT"] = 3600 # timeout in seconds  
-
+    app.config["CACHE_DEFAULT_TIMEOUT"] = 3600 # timeout in seconds
     cache.init_app(app)
 
     # Initialize Flask extensions here

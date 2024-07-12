@@ -3,18 +3,17 @@ from typing import Optional
 from app.summaries import bp
 from pydantic import BaseModel, ValidationError
 from flask import request, jsonify
-from .document_reader import DocumentReader
 import openai
-from dotenv import load_dotenv
 import os
 import uuid
 import json
 
+from config import Config
+from .document_reader import DocumentReader
+
 from app import cache
 
-load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
+openai.api_key = Config.OPENAI_API_KEY
 
 class GenerateSummaryRequestModel(BaseModel):
     conversationId: Optional[str] = None
@@ -33,8 +32,8 @@ def index():
 SYSTEM_PROMPT = """
 You will be provided with an article with each sentence that ends with a sentence ID in the form of "(S1)", "(S2)", and so on.
 
-You will be prompted to provide a summary of the article. 
-The summary must be a list of sentences that are present in the article. 
+You will be prompted to provide a summary of the article.
+The summary must be a list of sentences that are present in the article.
 Each sentence in the summary must be attributed to sentences in the original article by citing the sentence IDs.
 
 Use the following json format to answer.
@@ -58,6 +57,16 @@ def categories():
         req = GenerateSummaryRequestModel.model_validate(request.json)
     except ValidationError as e:
         return jsonify(e.errors()), 400
+
+    if Config.FAKE_RESPONSE:
+        print("responding with fake response")
+        with open("./fake_response/summary.json", "r") as f:
+            fake_response = json.load(f)
+            return jsonify({
+                "conversationId": req.conversationId if req.conversationId else str(uuid.uuid4()),
+                "summary": fake_response["summary"],
+                "source": fake_response["source"],
+            })
 
     if req.conversationId is None:
         # New conversation
