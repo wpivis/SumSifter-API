@@ -97,9 +97,9 @@ def categories():
         conversation = cache.get(conversationId)
 
     if req.promptType == "source":
-        prompt = f"Provide response specific to the following sentence from the original article: {req.sourceTargetText}\n\n----------\n{req.prompt}"
+        prompt = f"Update the summary with response specific to the following sentence from the original article: {req.sourceTargetText}\n\n----------\n{req.prompt}"
     else:
-        prompt = req.prompt
+        prompt = f"Update the summary with response specific to the following sentence from the previous summary: {req.summaryTargetText}\n\n----------\n{req.prompt}"
 
     # add new prompt to conversation list
     conversation["messages"].append({"role": "user", "content": prompt})
