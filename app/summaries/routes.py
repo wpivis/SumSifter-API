@@ -4,6 +4,7 @@ from app.summaries import bp
 from pydantic import BaseModel, ValidationError
 from flask import request, jsonify
 import openai
+from dotenv import load_dotenv
 import os
 import uuid
 import json
@@ -30,20 +31,21 @@ def index():
 
 
 SYSTEM_PROMPT = """
-You will be provided with an article with each sentence that ends with a sentence ID in the form of "(S1)", "(S2)", and so on.
+You will be provided with an article in markdown format with each sentence that ends with a sentence ID in the form of "(S1)", "(S2)", and so on. Ensure that you read the article carefully before providing a summary.
 
 You will be prompted to provide a summary of the article.
 The summary must be a list of sentences that are present in the article.
 Each sentence in the summary must be attributed to sentences in the original article by citing the sentence IDs.
+Maintain the markdown format.
 
 Use the following json format to answer.
 {
     "summary": [
         {"text": "Sentence 1", "sources": ["S1", "S2"]},
-        {"text": "Sentence 22", "sources": ["S3", "S4"]},
-        {"text": "Sentence 33", "sources": ["S5", "S6"]},
-        {"text": "Sentence 44", "sources": ["S7", "S8"]},
-        {"text": "Sentence 55", "sources": ["S9", "S10"]}
+        {"text": "Sentence 2", "sources": ["S3", "S4"]},
+        {"text": "Sentence 3", "sources": ["S5", "S6"]},
+        {"text": "Sentence 4", "sources": ["S7", "S8"]},
+        {"text": "Sentence 5", "sources": ["S9", "S10"]}
     ]
 }
 
@@ -76,17 +78,25 @@ def categories():
         document = DocumentReader(f"documents/{req.documentId}")
         document.read()
 
+        # Convert document to markdown and save
+        markdown_content = document.convert_to_markdown()
+        document.save_markdown(f"documents/{req.documentId}.md")
+
+        # Parse the markdown content to generate the source list
+        source_list = document.parse_markdown()
+
         conversation = {
             "document": {
                 "id": req.documentId,
                 "sentences": document.sentences,
                 "sentence_sequence": document.sentence_sequence,
+                "markdown": markdown_content,  # Include markdown content
             },
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {
                     "role": "user",
-                    "content": f"Original Article: \n\n {document.sentences}",
+                    "content": f"Original Article:\n\n{markdown_content}",  # Use markdown content
                 },
             ],
         }
@@ -123,6 +133,6 @@ def categories():
         {
             "conversationId": conversationId,
             "summary": formatted_response["summary"],
-            "source": source,
+            "source": source_list,  # Use the parsed markdown content for the source list
         }
     )
