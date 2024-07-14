@@ -4,8 +4,6 @@ from app.summaries import bp
 from pydantic import BaseModel, ValidationError
 from flask import request, jsonify
 import openai
-from dotenv import load_dotenv
-import os
 import uuid
 import json
 
@@ -96,7 +94,8 @@ def categories():
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {
                     "role": "user",
-                    "content": f"Original Article:\n\n{markdown_content}",  # Use markdown content
+                    # "content": f"Original Article:\n\n{markdown_content}",  # Use markdown content
+                    "content": f"Original Article:\n\n{document.sentences}",  # Use markdown content
                 },
             ],
         }
@@ -133,6 +132,7 @@ def categories():
         {
             "conversationId": conversationId,
             "summary": formatted_response["summary"],
-            "source": source_list,  # Use the parsed markdown content for the source list
+            # "source": source_list,  # Use the parsed markdown content for the source list
+            "source": source,
         }
     )
