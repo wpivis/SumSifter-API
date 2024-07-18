@@ -14,14 +14,19 @@ class DocumentReader:
         sentence_sequence = []
 
         idx = 0
+        prev_element = None
         for para in self.document.paragraphs:
+            if para.text.strip() == "":
+                continue
             if para.style.name == "Title":
+                prev_element = "title"
                 idx += 1
                 markdown_lines[str(idx)] = f"# {para.text}"
                 sentence_sequence.append(
                     {"id": f"{idx}", "text": para.text, "sources": []}
                 )
             elif para.style.name.startswith("Heading"):
+                prev_element = "heading"
                 idx += 1
                 level = para.style.name.split()[
                     -1
@@ -31,6 +36,7 @@ class DocumentReader:
                     {"id": f"{idx}", "text": markdown_lines[str(idx)], "sources": []}
                 )
             else:
+                prev_element = "paragraph"
                 for text in para.text.split("."):
                     idx += 1
                     markdown_lines[str(idx)] = text.strip()
@@ -43,9 +49,10 @@ class DocumentReader:
                             "sources": [],
                         }
                     )
-            idx += 1
-            markdown_lines[idx] = ""
-            sentence_sequence.append({"id": str(idx), "text": "\n", "sources": []})
+            if prev_element == "paragraph":
+                idx += 1
+                markdown_lines[idx] = ""
+                sentence_sequence.append({"id": str(idx), "text": "\n", "sources": []})
 
         self.sentence_sequence = sentence_sequence
         self.markdown_content = markdown_lines
