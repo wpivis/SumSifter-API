@@ -29,22 +29,24 @@ def index():
 
 
 SYSTEM_PROMPT = """
-You will be provided with an article in markdown format with each sentence that ends with a sentence ID in the form of "(S1)", "(S2)", and so on. Ensure that you read the article carefully before providing a summary.
+You will be provided with an article in a json format with texts in markdown.
+The texts are broken down into blocks and are assigned an id.
 
 You will be prompted to provide a summary of the article.
-The summary must be a list of sentences that are present in the article.
-Each sentence in the summary must be attributed to sentences in the original article by citing the sentence IDs.
-Maintain the markdown format.
+The sentences in the summary must be attributed to id(s) of the block in the
+original article.
+
+You can use markdown within the summary.
 
 Use the following json format to answer.
 {
-    "summary": [
-        {"text": "Sentence 1", "sources": ["S1", "S2"]},
-        {"text": "Sentence 2", "sources": ["S3", "S4"]},
-        {"text": "Sentence 3", "sources": ["S5", "S6"]},
-        {"text": "Sentence 4", "sources": ["S7", "S8"]},
-        {"text": "Sentence 5", "sources": ["S9", "S10"]}
-    ]
+	"summary": [
+    	{"text": "Block 1", "sources": ["1", "2"]},
+    	{"text": "Block 2", "sources": ["3", "4"]},
+    	{"text": "Block 3", "sources": ["5", "6"]},
+    	{"text": "Block 4", "sources": ["7", "8"]},
+    	{"text": "Block 5", "sources": ["9", "10"]}
+	]
 }
 
 Do not include any text outside of the JSON format.
@@ -74,15 +76,10 @@ def categories():
 
         # get document
         document = DocumentReader(f"documents/{req.documentId}")
-        document.read()
 
-        # Convert document to markdown and save
+        # Convert document to markdown 
         markdown_content = document.convert_to_markdown()
-        document.save_markdown(f"documents/{req.documentId}.md")
-
-        # Parse the markdown content to generate the source list
-        source_list = document.parse_markdown()
-
+        
         conversation = {
             "document": {
                 "id": req.documentId,
@@ -94,8 +91,7 @@ def categories():
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {
                     "role": "user",
-                    # "content": f"Original Article:\n\n{markdown_content}",  # Use markdown content
-                    "content": f"Original Article:\n\n{document.sentences}",  # Use markdown content
+                    "content": f"Original Article:\n\n{markdown_content}",  # Use markdown content
                 },
             ],
         }
@@ -122,6 +118,11 @@ def categories():
     response_text = response["choices"][0]["message"]["content"].strip()
 
     formatted_response = json.loads(response_text)
+    # add index to formatted_response
+    for i, block in enumerate(formatted_response["summary"]):
+        block["id"] = str(i + 1)
+
+
     conversation["messages"].append({"role": "assistant", "content": response_text})
 
     source = conversation["document"]["sentence_sequence"]
@@ -132,7 +133,6 @@ def categories():
         {
             "conversationId": conversationId,
             "summary": formatted_response["summary"],
-            # "source": source_list,  # Use the parsed markdown content for the source list
             "source": source,
         }
     )

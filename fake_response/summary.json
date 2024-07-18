@@ -1,366 +1,481 @@
 {
   "source": [
     {
-      "id": "S1",
-      "text": " SCADS 2024 Problem Book"
+      "id": "1",
+      "sources": [],
+      "text": " SCADS 2024 Problem Book."
     },
     {
-      "id": "S2",
+      "id": "2",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S3",
-      "text": "Violet B"
+      "id": "3",
+      "sources": [],
+      "text": "Violet B."
     },
     {
-      "id": "S4",
-      "text": ", Susanna Bitters, John M"
+      "id": "4",
+      "sources": [],
+      "text": ", Susanna Bitters, John M."
     },
     {
-      "id": "S5",
-      "text": " Conroy, R"
+      "id": "5",
+      "sources": [],
+      "text": "Conroy, R."
     },
     {
-      "id": "S6",
-      "text": " Jordan Crouser, Sue Mi Kim, J"
+      "id": "6",
+      "sources": [],
+      "text": "Jordan Crouser, Sue Mi Kim, J."
     },
     {
-      "id": "S7",
-      "text": " Bowman Light, Neil P"
+      "id": "7",
+      "sources": [],
+      "text": "Bowman Light, Neil P."
     },
     {
-      "id": "S8",
-      "text": " Molino, Amanda Peterson, Elizabeth Richerson, Stephen Shauger, Ben Strickson, Aaron W"
+      "id": "8",
+      "sources": [],
+      "text": "Molino, Amanda Peterson, Elizabeth Richerson, Stephen Shauger, Ben Strickson, Aaron W."
     },
     {
-      "id": "S9",
-      "text": ", Julia S"
+      "id": "9",
+      "sources": [],
+      "text": ", Julia S."
     },
     {
-      "id": "S10",
-      "text": " Yang"
+      "id": "10",
+      "sources": [],
+      "text": "Yang."
     },
     {
-      "id": "S11",
+      "id": "11",
+      "sources": [],
+      "text": ""
+    },
+    {
+      "id": "12",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S12",
-      "text": "April 2024"
+      "id": "13",
+      "sources": [],
+      "text": "April 2024."
     },
     {
-      "id": "S13",
+      "id": "14",
+      "sources": [],
+      "text": ""
+    },
+    {
+      "id": "15",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S14",
-      "text": "1 Introduction"
+      "id": "16",
+      "sources": [],
+      "text": "### 1 Introduction"
     },
     {
-      "id": "S15",
+      "id": "17",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S16",
-      "text": "The Summer Conference on Applied Data Science (SCADS) is an annual eight-week summer research program held at the Laboratory for Analytic Sciences (LAS) that is focused on the research and development of Artificial Intelligence (AI) to assist US Intelligence Community (IC) data analysts"
+      "id": "18",
+      "sources": [],
+      "text": "The Summer Conference on Applied Data Science (SCADS) is an annual eight-week summer research program held at the Laboratory for Analytic Sciences (LAS) that is focused on the research and development of Artificial Intelligence (AI) to assist US Intelligence Community (IC) data analysts."
     },
     {
-      "id": "S17",
-      "text": " SCADS identifies a multi-year Grand Challenge to focus the research toward solving a current mission challenge"
+      "id": "19",
+      "sources": [],
+      "text": "SCADS identifies a multi-year Grand Challenge to focus the research toward solving a current mission challenge."
     },
     {
-      "id": "S18",
-      "text": "  SCADS brings together approximately fifty personnel each year, including faculty, graduate students, industry professionals, researchers at National Laboratories and Federally Funded Research and Development Centers (FFRDCs), and government employees from the IC, to advance the research on the current Grand Challenge"
+      "id": "20",
+      "sources": [],
+      "text": "SCADS brings together approximately fifty personnel each year, including faculty, graduate students, industry professionals, researchers at National Laboratories and Federally Funded Research and Development Centers (FFRDCs), and government employees from the IC, to advance the research on the current Grand Challenge."
     },
     {
-      "id": "S19",
+      "id": "21",
+      "sources": [],
+      "text": ""
+    },
+    {
+      "id": "22",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S20",
-      "text": "Grand Challenge: Generate tailored daily reports for knowledge workers that capture information relevant to their individual objectives and interests"
+      "id": "23",
+      "sources": [],
+      "text": "Grand Challenge: Generate tailored daily reports for knowledge workers that capture information relevant to their individual objectives and interests."
     },
     {
-      "id": "S21",
-      "text": " "
+      "id": "24",
+      "sources": [],
+      "text": ""
     },
     {
-      "id": "S22",
+      "id": "25",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S23",
-      "text": "The SCADS grand challenge is intended to be a multi-year unifying research goal of creating Tailored Daily Reports (TLDRs) for individual knowledge workers within the IC"
+      "id": "26",
+      "sources": [],
+      "text": "The SCADS grand challenge is intended to be a multi-year unifying research goal of creating Tailored Daily Reports (TLDRs) for individual knowledge workers within the IC."
     },
     {
-      "id": "S24",
-      "text": " These reports would be similar in some sense to the well-known President’s Daily Brief or to established commercial news aggregators, but would include a mix of classified and unclassified material, combine information from a variety of modes and formats, and be tailored to the interests and responsibilities of the individual IC worker"
+      "id": "27",
+      "sources": [],
+      "text": "These reports would be similar in some sense to the well-known President’s Daily Brief or to established commercial news aggregators, but would include a mix of classified and unclassified material, combine information from a variety of modes and formats, and be tailored to the interests and responsibilities of the individual IC worker."
     },
     {
-      "id": "S25",
-      "text": " "
+      "id": "28",
+      "sources": [],
+      "text": ""
     },
     {
-      "id": "S26",
+      "id": "29",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S27",
-      "text": "In 2024, we continue working toward creating TLDRs and directed research efforts will fall under the broad areas of Automatic Summarization, Recommendation Systems, and Human-Machine Interaction"
+      "id": "30",
+      "sources": [],
+      "text": "In 2024, we continue working toward creating TLDRs and directed research efforts will fall under the broad areas of Automatic Summarization, Recommendation Systems, and Human-Machine Interaction."
     },
     {
-      "id": "S28",
-      "text": " Each of these areas will also include a special emphasis on explainability and contextualization, as well as knowledge representation and dataset creation and curation"
+      "id": "31",
+      "sources": [],
+      "text": "Each of these areas will also include a special emphasis on explainability and contextualization, as well as knowledge representation and dataset creation and curation."
     },
     {
-      "id": "S29",
-      "text": " Efforts will also include development projects that are aimed at bringing together the different areas into a demonstration application to model how the individual research projects come together to support a TLDR"
+      "id": "32",
+      "sources": [],
+      "text": "Efforts will also include development projects that are aimed at bringing together the different areas into a demonstration application to model how the individual research projects come together to support a TLDR."
     },
     {
-      "id": "S30",
-      "text": " "
+      "id": "33",
+      "sources": [],
+      "text": ""
     },
     {
-      "id": "S31",
+      "id": "34",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S32",
-      "text": "In this document we present relevant critical challenges and research questions that address various aspects of the grand challenge, briefly discuss the motivation for those challenges and questions, and provide references and other resources for further exploration "
+      "id": "35",
+      "sources": [],
+      "text": "In this document we present relevant critical challenges and research questions that address various aspects of the grand challenge, briefly discuss the motivation for those challenges and questions, and provide references and other resources for further exploration."
     },
     {
-      "id": "S33",
-      "text": " We have organized this document by focus areas, and note that some challenges and questions presented might span multiple focus areas"
+      "id": "36",
+      "sources": [],
+      "text": "We have organized this document by focus areas, and note that some challenges and questions presented might span multiple focus areas."
     },
     {
-      "id": "S34",
-      "text": " For each critical challenge and research question, we attempt to identify the scope (short, medium, or long-term) of the challenge or question, and also which other challenges and questions are related"
+      "id": "37",
+      "sources": [],
+      "text": "For each critical challenge and research question, we attempt to identify the scope (short, medium, or long-term) of the challenge or question, and also which other challenges and questions are related."
     },
     {
-      "id": "S35",
-      "text": " "
+      "id": "38",
+      "sources": [],
+      "text": ""
     },
     {
-      "id": "S36",
+      "id": "39",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S37",
-      "text": "Throughout this document we attempt to identify research areas which may be served by use of Large Language Models (LLMs) which have been an area of great focus in the field recently"
+      "id": "40",
+      "sources": [],
+      "text": "Throughout this document we attempt to identify research areas which may be served by use of Large Language Models (LLMs) which have been an area of great focus in the field recently."
     },
     {
-      "id": "S38",
-      "text": " Two ubiquitous LLMs are GPT-3"
+      "id": "41",
+      "sources": [],
+      "text": "Two ubiquitous LLMs are GPT-3."
     },
     {
-      "id": "S39",
-      "text": "5 and GPT-4, versions of which are incorporated into ChatGPT"
+      "id": "42",
+      "sources": [],
+      "text": "5 and GPT-4, versions of which are incorporated into ChatGPT."
     },
     {
-      "id": "S40",
-      "text": " "
+      "id": "43",
+      "sources": [],
+      "text": ""
     },
     {
-      "id": "S41",
+      "id": "44",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S42",
+      "id": "45",
+      "sources": [],
+      "text": "### "
+    },
+    {
+      "id": "46",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S43",
-      "text": "2 Automatic Summarization"
+      "id": "47",
+      "sources": [],
+      "text": "### 2 Automatic Summarization."
     },
     {
-      "id": "S44",
+      "id": "48",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S45",
-      "text": "Key to the creation of a TLDR will be the automatic summarization of large corpora of documents"
+      "id": "49",
+      "sources": [],
+      "text": "Key to the creation of a TLDR will be the automatic summarization of large corpora of documents."
     },
     {
-      "id": "S46",
-      "text": " This process will involve both extractive and abstractive summarization"
+      "id": "50",
+      "sources": [],
+      "text": "This process will involve both extractive and abstractive summarization."
     },
     {
-      "id": "S47",
-      "text": " While summarization for SCADS is primarily concerned with text, research in multi-modal summarization techniques is also encouraged"
+      "id": "51",
+      "sources": [],
+      "text": "While summarization for SCADS is primarily concerned with text, research in multi-modal summarization techniques is also encouraged."
     },
     {
-      "id": "S48",
-      "text": " Researchers would have access to existing summarization engines and be able to improve and augment them"
+      "id": "52",
+      "sources": [],
+      "text": "Researchers would have access to existing summarization engines and be able to improve and augment them."
     },
     {
-      "id": "S49",
-      "text": " Traditionally, automatic summarization has fallen into two categories: extractive and abstractive"
+      "id": "53",
+      "sources": [],
+      "text": "Traditionally, automatic summarization has fallen into two categories: extractive and abstractive."
     },
     {
-      "id": "S50",
-      "text": " "
+      "id": "54",
+      "sources": [],
+      "text": ""
     },
     {
-      "id": "S51",
+      "id": "55",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S52",
-      "text": "Extractive summarization is the process of extracting key sub-portions of a document, typically at the sentence level, and compiling those sub-portions into a readable and salient summary of the document"
+      "id": "56",
+      "sources": [],
+      "text": "Extractive summarization is the process of extracting key sub-portions of a document, typically at the sentence level, and compiling those sub-portions into a readable and salient summary of the document."
     },
     {
-      "id": "S53",
-      "text": " The main extractive summarization package we will use at SCADS is occams [1]"
+      "id": "57",
+      "sources": [],
+      "text": "The main extractive summarization package we will use at SCADS is occams [1]."
     },
     {
-      "id": "S54",
-      "text": " The occams package employs an optimization-based extractive algorithm"
+      "id": "58",
+      "sources": [],
+      "text": "The occams package employs an optimization-based extractive algorithm."
     },
     {
-      "id": "S55",
-      "text": " This family of methods is known to perform best among extractive systems on a wide range of evaluation data"
+      "id": "59",
+      "sources": [],
+      "text": "This family of methods is known to perform best among extractive systems on a wide range of evaluation data."
     },
     {
-      "id": "S56",
-      "text": " For a survey of the summarization problem and classical extractive summarization methods, we recommend [2]"
+      "id": "60",
+      "sources": [],
+      "text": "For a survey of the summarization problem and classical extractive summarization methods, we recommend [2]."
     },
     {
-      "id": "S57",
-      "text": " Also, see [3] for an overview with a description of some successful neural-based abstractive summarizers"
+      "id": "61",
+      "sources": [],
+      "text": "Also, see [3] for an overview with a description of some successful neural-based abstractive summarizers."
     },
     {
-      "id": "S58",
-      "text": "  "
+      "id": "62",
+      "sources": [],
+      "text": ""
     },
     {
-      "id": "S59",
+      "id": "63",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S60",
-      "text": "Abstractive summarization is the process of generating novel prose providing a readable and salient summary of a document based on its content, rather than extracting sub-portions of the document as in extractive summarization"
+      "id": "64",
+      "sources": [],
+      "text": "Abstractive summarization is the process of generating novel prose providing a readable and salient summary of a document based on its content, rather than extracting sub-portions of the document as in extractive summarization."
     },
     {
-      "id": "S61",
-      "text": " Large Language Models (LLMs) employ abstractive summarization"
+      "id": "65",
+      "sources": [],
+      "text": "Large Language Models (LLMs) employ abstractive summarization."
     },
     {
-      "id": "S62",
-      "text": " For SCADS, we will focus on models made available by Hugging Face, the OpenAI API, and other models as applicable"
+      "id": "66",
+      "sources": [],
+      "text": "For SCADS, we will focus on models made available by Hugging Face, the OpenAI API, and other models as applicable."
     },
     {
-      "id": "S63",
-      "text": " Open-source systems available via Hugging Face are recent small to midsize neural systems using variations of the transformer language model, the first of which was BERT [4]"
+      "id": "67",
+      "sources": [],
+      "text": "Open-source systems available via Hugging Face are recent small to midsize neural systems using variations of the transformer language model, the first of which was BERT [4]."
     },
     {
-      "id": "S64",
-      "text": " Models of this size serve as practical examples of abstractive summarization capabilities in a computing environment similar to what might be expected for a TLDR prototype or operational system"
+      "id": "68",
+      "sources": [],
+      "text": "Models of this size serve as practical examples of abstractive summarization capabilities in a computing environment similar to what might be expected for a TLDR prototype or operational system."
     },
     {
-      "id": "S65",
-      "text": " Other larger language models, such as GPT-3 and -4, are also eligible for inclusion during SCADS"
+      "id": "69",
+      "sources": [],
+      "text": "Other larger language models, such as GPT-3 and -4, are also eligible for inclusion during SCADS."
     },
     {
-      "id": "S66",
-      "text": " The focus on such large language models might shift to address how such models might be practically incorporated into a TLDR scenario, for example, through exploration of hybrid implementations with an extractive summarizer, careful prompt creation, or Retrieval Augmented Generation (RAG) [5]"
+      "id": "70",
+      "sources": [],
+      "text": "The focus on such large language models might shift to address how such models might be practically incorporated into a TLDR scenario, for example, through exploration of hybrid implementations with an extractive summarizer, careful prompt creation, or Retrieval Augmented Generation (RAG) [5]."
     },
     {
-      "id": "S67",
-      "text": "  "
+      "id": "71",
+      "sources": [],
+      "text": ""
     },
     {
-      "id": "S68",
+      "id": "72",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S69",
-      "text": "For all automatically created summaries, it will be important to provide context for where the information contained in the summary originated"
+      "id": "73",
+      "sources": [],
+      "text": "For all automatically created summaries, it will be important to provide context for where the information contained in the summary originated."
     },
     {
-      "id": "S70",
-      "text": " This might be in the form of references, citations, or other methods enabling users to move from the summary to the underlying source data"
+      "id": "74",
+      "sources": [],
+      "text": "This might be in the form of references, citations, or other methods enabling users to move from the summary to the underlying source data."
     },
     {
-      "id": "S71",
-      "text": " See 4"
+      "id": "75",
+      "sources": [],
+      "text": "See 4."
     },
     {
-      "id": "S72",
-      "text": "4 for more discussion of providing context for content included in a TLDR"
+      "id": "76",
+      "sources": [],
+      "text": "4 for more discussion of providing context for content included in a TLDR."
     },
     {
-      "id": "S73",
-      "text": "  "
+      "id": "77",
+      "sources": [],
+      "text": ""
     },
     {
-      "id": "S74",
+      "id": "78",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S75",
+      "id": "79",
+      "sources": [],
+      "text": ""
+    },
+    {
+      "id": "80",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S76",
-      "text": "Critical Challenge 2"
+      "id": "81",
+      "sources": [],
+      "text": "Critical Challenge 2."
     },
     {
-      "id": "S77",
-      "text": "A Develop summaries of documents personalized to a user’s interests, employing abstractive extractive, and/or hybrid methods"
+      "id": "82",
+      "sources": [],
+      "text": "A Develop summaries of documents personalized to a user’s interests, employing abstractive extractive, and/or hybrid methods."
     },
     {
-      "id": "S78",
-      "text": " "
+      "id": "83",
+      "sources": [],
+      "text": ""
     },
     {
-      "id": "S79",
+      "id": "84",
+      "sources": [],
       "text": "\n"
     },
     {
-      "id": "S80",
-      "text": "As improvements are made in the language model space, the scope of summarization is increasing"
+      "id": "85",
+      "sources": [],
+      "text": "As improvements are made in the language model space, the scope of summarization is increasing."
     },
     {
-      "id": "S81",
-      "text": " Topics in question answering, information retrieval, and entity extraction are becoming more mainstream for summarization engines within traditional summarization, there are various methods to investigate that focus on different aspects of the text"
+      "id": "86",
+      "sources": [],
+      "text": "Topics in question answering, information retrieval, and entity extraction are becoming more mainstream for summarization engines within traditional summarization, there are various methods to investigate that focus on different aspects of the text."
     },
     {
-      "id": "S82",
-      "text": " A past Document Understanding Conference hosted by NIST investigated topic-based summarization"
+      "id": "87",
+      "sources": [],
+      "text": "A past Document Understanding Conference hosted by NIST investigated topic-based summarization."
     },
     {
-      "id": "S83",
-      "text": " Other potential areas could be guided and aspect summaries, all of which incorporate named entities"
+      "id": "88",
+      "sources": [],
+      "text": "Other potential areas could be guided and aspect summaries, all of which incorporate named entities."
     },
     {
-      "id": "S84",
-      "text": " "
+      "id": "89",
+      "sources": [],
+      "text": ""
     },
     {
-      "id": "S85",
+      "id": "90",
+      "sources": [],
       "text": "\n"
     }
   ],
   "summary": [
     {
-      "sources": ["S16", "S17", "S18"],
-      "text": "The Summer Conference on Applied Data Science (SCADS) is an annual program focused on the research and development of Artificial Intelligence (AI) to assist US Intelligence Community (IC) data analysts, identifying a Grand Challenge each year to focus research efforts."
+      "id": "1",
+      "sources": ["18", "19", "20", "23", "26", "27", "30"],
+      "text": "The Summer Conference on Applied Data Science (SCADS) is an annual research program focused on the development of Artificial Intelligence to assist US Intelligence Community data analysts, with a multi-year Grand Challenge. For this year, the challenge is to generate tailored daily reports capturing relevant information for the individual workers."
     },
     {
-      "sources": ["S20", "S23", "S24"],
-      "text": "The SCADS Grand Challenge for 2024 is the creation of Tailored Daily Reports (TLDRs) for individual knowledge workers within the IC, combining a variety of classified and unclassified material and tailor-made to their interests."
+      "id": "2",
+      "sources": ["30", "31"],
+      "text": "The research efforts for these Tailored Daily Reports (TLDRs) fall under the broad areas of Automatic Summarization, Recommendation Systems, and Human-Machine Interaction, with a special focus on explainability, contextualization, knowledge representation and dataset development."
     },
     {
-      "sources": ["S27", "S28"],
-      "text": "In 2024, research areas will include Automatic Summarization, Recommendation Systems, and Human-Machine Interaction, with special emphasis on explainability, contextualization, knowledge representation, and dataset creation and curation."
+      "id": "3",
+      "sources": ["35", "36", "40", "41", "42"],
+      "text": "The document discusses the relevant challenges and research questions regarding the grand challenge. It also emphasizes the growing focus on Large Language Models (LLMs) like GPT-3.5 and GPT-4 in the research field which are vital for the creation of TLDR."
     },
     {
-      "sources": ["S45", "S46", "S49"],
-      "text": "Integral to the creation of TLDRs will be the automatic summarization of large corpora of documents, employing both extractive and abstractive summarization techniques."
+      "id": "4",
+      "sources": ["49", "50", "51", "66", "67", "68", "69"],
+      "text": "In creating a TLDR, the automatic summarization of large document corpora is essential, involving both extractive and abstractive summarization methods. SCADS will focus on models provided by Hugging Face, the OpenAI API, and other relevant models."
     },
     {
-      "sources": ["S52", "S60"],
-      "text": "Extractive summarization involves extracting key portions of a document to compile into a summary, while abstractive summarization involves generating new prose to provide a salient summary of a document's content."
+      "id": "5",
+      "sources": ["73", "74", "81", "82"],
+      "text": "It's crucial to provide context for all automatically created summaries, through references, citations, or other methods. The document challenges the research community to develop summaries of documents personalized to a user’s interests, employing abstractive, extractive, and hybrid methods."
     }
   ]
 }
