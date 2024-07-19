@@ -1,5 +1,5 @@
 from typing_extensions import Literal
-from typing import Optional
+from typing import Optional, List
 from app.summaries import bp
 from pydantic import BaseModel, ValidationError
 from flask import request, jsonify
@@ -22,6 +22,13 @@ class GenerateSummaryRequestModel(BaseModel):
     summaryTargetText: Optional[str] = None
     prompt: str
 
+class GenerateSummaryMultipleDocsRequestModel(BaseModel):
+    conversationId: Optional[str] = None
+    documentIds: List[str]
+    promptType: Literal["general", "source", "summary"]
+    sourceTargetText: Optional[str] = None
+    summaryTargetText: Optional[str] = None
+    prompt: str
 
 @bp.route("/")
 def index():
@@ -54,7 +61,7 @@ Do not include any text outside of the JSON format.
 
 
 @bp.route("/generate/", methods=["POST"])
-def categories():
+def generate():
     try:
         req = GenerateSummaryRequestModel.model_validate(request.json)
     except ValidationError as e:
@@ -136,3 +143,15 @@ def categories():
             "source": source,
         }
     )
+
+
+@bp.route("/generate-multiple/", methods=["POST"])
+def generate_multiple():
+    # Create separate conversations for each docs
+
+    # Add pre-generated responses to the conversations
+
+    # Generate a global summary
+
+    # Return
+    return jsonify({"message": "generate multiple"})
