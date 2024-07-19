@@ -110,8 +110,10 @@ def generate():
 
     if req.promptType == "source":
         prompt = f"Update the summary with response specific to the following sentence from the original article: {req.sourceTargetText}\n\n----------\n{req.prompt}"
-    else:
+    elif req.promptType == "summary":
         prompt = f"Update the summary with response specific to the following sentence from the previous summary: {req.summaryTargetText}\n\n----------\n{req.prompt}"
+    else:
+        prompt = f"{req.prompt}"
 
     # add new prompt to conversation list
     conversation["messages"].append({"role": "user", "content": prompt})
