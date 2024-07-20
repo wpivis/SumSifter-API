@@ -56,4 +56,5 @@ class DocumentReader:
 
         self.sentence_sequence = sentence_sequence
         self.markdown_content = markdown_lines
-        return self.markdown_content
+        # return self.markdown_content
+        return self.sentence_sequence
