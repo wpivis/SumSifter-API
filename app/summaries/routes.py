@@ -127,7 +127,7 @@ def generate():
 
     # call API
     response = openai.ChatCompletion.create(
-        model="gpt-4", messages=conversation["messages"]
+        model="gpt-4o-mini", messages=conversation["messages"]
     )
 
     # update conversation list
@@ -309,7 +309,7 @@ def generate_multiple():
 
     # call API
     response = openai.ChatCompletion.create(
-        model="gpt-4", messages=conversation["messages"]
+        model="gpt-4o-mini", messages=conversation["messages"]
     )
 
     # update conversation list
