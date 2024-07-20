@@ -237,7 +237,10 @@ def generate_multiple():
                             "role": "user",
                             "content": f"Original Article:\n\n{markdown_content}",
                         },
-                        {"role": "assistant", "content": json.dumps({"summary": r['summary']})},
+                        {
+                            "role": "assistant",
+                            "content": json.dumps({"summary": r["summary"]}),
+                        },
                     ],
                 }
 
@@ -255,6 +258,9 @@ def generate_multiple():
         conversation = {
             "document": {
                 "ids": req.documentIds,
+                "docConversationIds": [
+                    i["conversationId"] for i in document_summary_source
+                ],
                 # "markdown": markdown_content,  # Include markdown content
             },
             "messages": [
@@ -269,6 +275,26 @@ def generate_multiple():
     else:
         conversationId = req.conversationId
         conversation = cache.get(conversationId)
+
+        # Reset and update the conversation with updated summaries
+        global_markdown_content = []
+
+        for docId in conversation["document"]["docConversationIds"]:
+            # Get the conversation
+            docConversation = cache.get(docId)
+            # Get the updated summary
+            updated_summary = docConversation["messages"][-1]["content"]
+            # Add the updated summary to the global summary
+            global_markdown_content.append(updated_summary)
+
+        # Add the global summary to the conversation
+        conversation["messages"] = [
+            {"role": "system", "content": SYSTEM_PROMPT_GLOBAL_SUMMARY},
+            {
+                "role": "user",
+                "content": f"Original Articles :\n\n{global_markdown_content}",  # Use markdown content
+            },
+        ]
 
     # Generate a global summary
     if req.promptType == "source":
@@ -289,9 +315,6 @@ def generate_multiple():
     # update conversation list
     response_text = response["choices"][0]["message"]["content"].strip()
 
-    # update conversation list
-    response_text = response["choices"][0]["message"]["content"].strip()
-
     formatted_response = json.loads(response_text)
     # add index to formatted_response
     for i, block in enumerate(formatted_response["summary"]):
@@ -308,5 +331,3 @@ def generate_multiple():
             "individualDocuments": document_summary_source,
         }
     )
-
-    # return jsonify(conversation)
