@@ -77,24 +77,12 @@ Read the article and create email content based on the prompt.
 
 The email should be structured as follows:
 
-1. **Subject**: Document Name or title
 2. **Greeting**: Hi, I am reading this report and came across the section below.
-3. **1 Sentence Description**: A 1 sentence summary of the document to give context about the report and snippet.
-4. **Text of Interest**: The prompt text (include the request prompt here).
-5. **Bullet Points**: Each bullet point in the email body.
+3. **1-Sentence Description**: A 1 sentence summary of the document to give context about the report and snippet.
+4. **Text of Interest**: The prompt text (include the request prompt here that was appended).
+5. **Bullet Points**: Each bullet point in the email body that is derived from the prompt. Focus its relavance to the document. 
 
-Use the following JSON format to answer:
-{
-    "email": [
-        {"text": "Subject: Document Name or title"},
-        {"text": "Hi, I am reading this report and came across the section below."},
-        {"text": "1 Sentence Description: A 1 sentence summary of the document to give context about the report and snippet."},
-        {"text": "Text of Interest: (include the request prompt here)"},
-        {"text": "Bullet Points: - Bullet point 1 - Bullet point 2"}
-    ]
-}
 
-Do not include any text outside of the JSON format.
 """
 
 
