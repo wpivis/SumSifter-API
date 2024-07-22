@@ -206,6 +206,13 @@ def generate_multiple():
         req = GenerateSummaryMultipleDocsRequestModel.model_validate(request.json)
     except ValidationError as e:
         return jsonify(e.errors()), 400
+    
+    if Config.FAKE_RESPONSE:
+        print("responding with fake response")
+        with open("./fake_response/global_summary.json", "r") as f:
+            fake_response = json.load(f)
+            return jsonify(fake_response)
+
 
     document_summary_source = []
     if req.conversationId is None:
