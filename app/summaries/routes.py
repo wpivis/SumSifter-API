@@ -33,6 +33,15 @@ class GenerateSummaryMultipleDocsRequestModel(BaseModel):
     prompt: str
 
 
+class GenerateEmailRequestModel(BaseModel):
+    conversationId: str
+    documentId: str
+    promptType: Literal["general", "source", "email"]
+    sourceTargetText: Optional[str] = None
+    summaryTargetText: Optional[str] = None
+    prompt: str
+
+
 @bp.route("/")
 def index():
     return "summaries : /"
@@ -57,6 +66,32 @@ Use the following json format to answer.
     	{"text": "Block 4", "sources": ["7", "8"]},
     	{"text": "Block 5", "sources": ["9", "10"]}
 	]
+}
+
+Do not include any text outside of the JSON format.
+"""
+
+SYSTEM_PROMPT_EMAIL = """
+You will be provided with an article and a prompt for generating an email.
+Read the article and create email content based on the prompt.
+
+The email should be structured as follows:
+
+1. **Subject**: Document Name or title
+2. **Greeting**: Hi, I am reading this report and came across the section below.
+3. **1 Sentence Description**: A 1 sentence summary of the document to give context about the report and snippet.
+4. **Text of Interest**: The prompt text (include the request prompt here).
+5. **Bullet Points**: Each bullet point in the email body.
+
+Use the following JSON format to answer:
+{
+    "email": [
+        {"text": "Subject: Document Name or title"},
+        {"text": "Hi, I am reading this report and came across the section below."},
+        {"text": "1 Sentence Description: A 1 sentence summary of the document to give context about the report and snippet."},
+        {"text": "Text of Interest: (include the request prompt here)"},
+        {"text": "Bullet Points: - Bullet point 1 - Bullet point 2"}
+    ]
 }
 
 Do not include any text outside of the JSON format.
@@ -329,5 +364,50 @@ def generate_multiple():
             "conversationId": conversationId,
             "summary": formatted_response["summary"],
             "individualDocuments": document_summary_source,
+        }
+    )
+
+@bp.route("/generate-email/", methods=["POST"])
+def generate_email():
+    try:
+        req = GenerateEmailRequestModel.model_validate(request.json)
+    except ValidationError as e:
+        return jsonify(e.errors()), 400
+
+    # Now conversationId is always provided
+    conversationId = req.conversationId
+
+    # Get existing conversation from cache
+    conversation = cache.get(conversationId)
+
+    if conversation is None:
+        return jsonify({"error": "Invalid conversationId"}), 400
+
+    if req.promptType == "source":
+        prompt = f"Update the email content with response specific to the following sentence from the original article: {req.sourceTargetText}\n\n----------\n{req.prompt}"
+    elif req.promptType == "summary":
+        prompt = f"Update the email content with response specific to the following sentence from the previous summary: {req.summaryTargetText}\n\n----------\n{req.prompt}"
+    else:
+        prompt = f"{req.prompt}"
+
+    # add new prompt to conversation list
+    conversation["messages"].append({"role": "user", "content": prompt})
+
+    # call API
+    response = openai.ChatCompletion.create(
+        model="gpt-4o-mini", messages=conversation["messages"]
+    )
+
+    # update conversation list
+    response_text = response["choices"][0]["message"]["content"].strip()
+
+    conversation["messages"].append({"role": "assistant", "content": response_text})
+
+    cache.set(conversationId, conversation, timeout=3600)
+
+    return jsonify(
+        {
+            "conversationId": conversationId,
+            "emailContent": response_text,  # Return the response text as string
         }
     )
