@@ -55,9 +55,10 @@ You will be prompted to provide a summary of the article.
 The sentences in the summary must be attributed to id(s) of the block in the
 original article.
 
-You can use markdown within the summary.
+You can use markdown within the text block in summary.
 
-Use the following json format to answer.
+Use the following json format to answer. 
+Do not include sources inside the text block, but instead as a separate list of ids:
 {
 	"summary": [
     	{"text": "Block 1", "sources": ["1", "2"]},
@@ -181,11 +182,12 @@ SYSTEM_PROMPT_GLOBAL_SUMMARY = """
 You will be provided with multiple articles.
 
 You will be prompted to provide a single summary of the articles.
-The sentences in the summary must be attributed to id of the article.
+The text blocks in the summary must be attributed to id of the article in the sources.
 
-You can use markdown within the summary.
+You can use markdown within the text block in summary.
 
-Use the following json format to answer.
+Use the following json format to answer. 
+Do not include sources inside the text block, but instead as a separate list of ids:
 {
 	"summary": [
     	{"text": "Block 1", "sources": ["1", "2"]},
