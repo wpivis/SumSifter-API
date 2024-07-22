@@ -383,6 +383,8 @@ def generate_email():
     if conversation is None:
         return jsonify({"error": "Invalid conversationId"}), 400
 
+    messages = [{"role": "system", "content": SYSTEM_PROMPT_EMAIL}]
+
     if req.promptType == "source":
         prompt = f"Update the email content with response specific to the following sentence from the original article: {req.sourceTargetText}\n\n----------\n{req.prompt}"
     elif req.promptType == "summary":
@@ -390,20 +392,15 @@ def generate_email():
     else:
         prompt = f"{req.prompt}"
 
-    # add new prompt to conversation list
-    conversation["messages"].append({"role": "user", "content": prompt})
+    messages.append({"role": "user", "content": prompt})
 
     # call API
     response = openai.ChatCompletion.create(
-        model="gpt-4o-mini", messages=conversation["messages"]
+        model="gpt-4o-mini", messages=messages
     )
 
     # update conversation list
     response_text = response["choices"][0]["message"]["content"].strip()
-
-    conversation["messages"].append({"role": "assistant", "content": response_text})
-
-    cache.set(conversationId, conversation, timeout=3600)
 
     return jsonify(
         {
