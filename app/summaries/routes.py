@@ -17,7 +17,7 @@ openai.api_key = Config.OPENAI_API_KEY
 
 class GenerateSummaryRequestModel(BaseModel):
     conversationId: Optional[str] = None
-    documentId: str
+    documentId: Optional[str] = None
     promptType: Literal["general", "source", "summary"]
     sourceTargetText: Optional[str] = None
     summaryTargetText: Optional[str] = None
