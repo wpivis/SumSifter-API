@@ -1109,7 +1109,7 @@
                 "11",
                 "12"
             ],
-            "text": "The article discusses various cyber threats arising from the Russia-Ukraine conflict, including DDoS attacks targeting Ukrainian government and banking institutions (blocks 3, 11, 12)."
+            "text": "The article discusses various cyber threats arising from the Russia-Ukraine conflict, including DDoS attacks targeting Ukrainian government and banking institutions."
         },
         {
             "id": "2",
@@ -1117,7 +1117,7 @@
                 "41",
                 "42"
             ],
-            "text": "The presence of HermeticWiper malware has been linked to attacks on financial institutions and contractors related to the Ukrainian government (blocks 41, 42)."
+            "text": "The presence of HermeticWiper malware has been linked to attacks on financial institutions and contractors related to the Ukrainian government."
         },
         {
             "id": "3",
@@ -1125,7 +1125,7 @@
                 "47",
                 "55"
             ],
-            "text": "Website defacement incidents have increased, mirroring tactics from previous attacks and involving anonymous entities selling Ukrainian citizens' data (blocks 47, 55)."
+            "text": "Website defacement incidents have increased, mirroring tactics from previous attacks and involving anonymous entities selling Ukrainian citizens' data."
         },
         {
             "id": "4",
@@ -1133,7 +1133,7 @@
                 "63",
                 "68"
             ],
-            "text": "Phishing and scams utilizing Ukraine-related keywords have risen sharply amid ongoing turmoil, with analysis revealing that attackers exploit current events (blocks 63, 68)."
+            "text": "Phishing and scams utilizing Ukraine-related keywords have risen sharply amid ongoing turmoil, with analysis revealing that attackers exploit current events."
         },
         {
             "id": "5",
@@ -1142,7 +1142,7 @@
                 "182",
                 "188"
             ],
-            "text": "Organizations are advised to adopt robust cybersecurity measures, including patching critical software and preparing for rapid response to potential attacks (blocks 176, 182, 188)."
+            "text": "Organizations are advised to adopt robust cybersecurity measures, including patching critical software and preparing for rapid response to potential attacks."
         }
     ]
 }

@@ -2835,7 +2835,7 @@
                 "10",
                 "550"
             ],
-            "text": "Brute Ratel C4, initially launched as a penetration testing tool in December 2020 by security engineer Chetan Nayak, has evolved significantly, gaining a substantial user base and improved functionalities over the years (3, 4, 7, 10, 550)."
+            "text": "Brute Ratel C4, initially launched as a penetration testing tool in December 2020 by security engineer Chetan Nayak, has evolved significantly, gaining a substantial user base and improved functionalities over the years."
         },
         {
             "id": "2",
@@ -2846,7 +2846,7 @@
                 "29",
                 "544"
             ],
-            "text": "The release of Brute Ratel v0.9.0 (Checkmate) introduced critical updates, designed specifically to evade detection by advanced security software, raising ethical concerns about its potential misuse by malicious actors (18, 19, 26, 29, 544)."
+            "text": "The release of Brute Ratel v0.9.0 (Checkmate) introduced critical updates, designed specifically to evade detection by advanced security software, raising ethical concerns about its potential misuse by malicious actors."
         },
         {
             "id": "3",
@@ -2857,7 +2857,7 @@
                 "211",
                 "553"
             ],
-            "text": "An analysis of a specific malicious campaign revealed that the tool was packaged within a non-malicious file, leading unsuspecting users to inadvertently install Brute Ratel on their devices (110, 118, 129, 211, 553)."
+            "text": "An analysis of a specific malicious campaign revealed that the tool was packaged within a non-malicious file, leading unsuspecting users to inadvertently install Brute Ratel on their devices."
         },
         {
             "id": "4",
@@ -2866,7 +2866,7 @@
                 "550",
                 "554"
             ],
-            "text": "Brute Ratel's capabilities allow for sophisticated command and control, which has prompted concerns from the cybersecurity community regarding its implications for organizational security and how it has been adopted by bad actors (32, 550, 554)."
+            "text": "Brute Ratel's capabilities allow for sophisticated command and control, which has prompted concerns from the cybersecurity community regarding its implications for organizational security and how it has been adopted by bad actors."
         },
         {
             "id": "5",
@@ -2875,7 +2875,7 @@
                 "545",
                 "554"
             ],
-            "text": "As a response, organizations are advised to implement strict security measures, and vendors are encouraged to develop detection solutions for Brute Ratel C4 to safeguard against its misuse (534, 545, 554)."
+            "text": "As a response, organizations are advised to implement strict security measures, and vendors are encouraged to develop detection solutions for Brute Ratel C4 to safeguard against its misuse."
         }
     ]
 }

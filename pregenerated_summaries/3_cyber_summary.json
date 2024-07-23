@@ -1283,7 +1283,7 @@
                 "5",
                 "6"
             ],
-            "text": "The article discusses the HelloXD ransomware, which was first identified in the wild on November 30, 2021 (5, 6)."
+            "text": "The article discusses the HelloXD ransomware, which was first identified in the wild on November 30, 2021."
         },
         {
             "id": "2",
@@ -1291,7 +1291,7 @@
                 "7",
                 "9"
             ],
-            "text": "HelloXD is characterized by its use of a modified ClamAV logo in its executables, indicating a potential branding preference by its developers (7, 9)."
+            "text": "HelloXD is characterized by its use of a modified ClamAV logo in its executables, indicating a potential branding preference by its developers."
         },
         {
             "id": "3",
@@ -1301,7 +1301,7 @@
                 "42",
                 "43"
             ],
-            "text": "The ransomware employs tactics such as disabling shadow copies, pinging external addresses, and creating unique mutex messages before encrypting files and demanding ransom (16, 35, 42, 43)."
+            "text": "The ransomware employs tactics such as disabling shadow copies, pinging external addresses, and creating unique mutex messages before encrypting files and demanding ransom."
         },
         {
             "id": "4",
@@ -1310,14 +1310,14 @@
                 "246",
                 "247"
             ],
-            "text": "The analysis reveals a connection to a threat actor named x4k, known for using multiple aliases and operating within Russian hacking communities (245, 246, 247)."
+            "text": "The analysis reveals a connection to a threat actor named x4k, known for using multiple aliases and operating within Russian hacking communities."
         },
         {
             "id": "5",
             "sources": [
                 "253"
             ],
-            "text": "Unit 42 concludes that x4k is entering the ransomware market to capitalize on the lucrative opportunities present in the sector (253)."
+            "text": "Unit 42 concludes that x4k is entering the ransomware market to capitalize on the lucrative opportunities present in the sector."
         }
     ]
 }
