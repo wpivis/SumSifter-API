@@ -1,0 +1,2052 @@
+{
+    "source": [
+        {
+            "id": "1",
+            "sources": [],
+            "text": "# Exposing TAG-53’s Credential Harvesting Infrastructure Used for Russia-Aligned Espionage Operations"
+        },
+        {
+            "id": "2",
+            "sources": [],
+            "text": "TAG-53 is consistent when setting up its infrastructure, which bears significant hallmarks and crossover with infrastructure attributed to Callisto Group, COLDRIVER, and SEABORGIUM."
+        },
+        {
+            "id": "3",
+            "sources": [],
+            "text": "The group continues to use particular stylistic structures when registering malicious domains alongside the use of specific domain registrars with IP addresses that reside in a small cluster of autonomous systems."
+        },
+        {
+            "id": "4",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "5",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "6",
+            "sources": [],
+            "text": "On August 15, 2022, a Microsoft report published in collaboration with Google’s Threat Analysis Group (TAG) and Proofpoint’s Threat Research Team detailed SEABORGIUM’s phishing operations."
+        },
+        {
+            "id": "7",
+            "sources": [],
+            "text": "In this research, Microsoft assesses that SEABORGIUM originates from Russia and has “objectives and victimology that align closely with Russian state interests”."
+        },
+        {
+            "id": "8",
+            "sources": [],
+            "text": "Microsoft denotes that SEABORGIUM shares overlaps with Callisto Group, TA446, and COLDRIVER and indicates that the threat actor has carried out persistent phishing and credential theft campaigns that have led to intrusions and data theft."
+        },
+        {
+            "id": "9",
+            "sources": [],
+            "text": "SEABORGIUM primarily focuses its targeting on NATO countries, including a specific emphasis on the United States and the United Kingdom."
+        },
+        {
+            "id": "10",
+            "sources": [],
+            "text": "The group also targeted Ukraine in the run-up to Russia’s full-scale invasion of the country in February 2022."
+        },
+        {
+            "id": "11",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "12",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "13",
+            "sources": [],
+            "text": "Google’s TAG reported in March and updated in May 2022 that COLDRIVER has conducted credential phishing campaigns using Gmail accounts targeting nongovernmental organizations and think tanks, journalists, and government and defense officials."
+        },
+        {
+            "id": "14",
+            "sources": [],
+            "text": "TAG also suggests that COLDRIVER’s TTPs have evolved over time, moving towards incorporating PDF or DOC file links that are hosted on Google Drive and Microsoft OneDrive within its phishing emails."
+        },
+        {
+            "id": "15",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "16",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "17",
+            "sources": [],
+            "text": "#### Threat and Technical Analysis"
+        },
+        {
+            "id": "18",
+            "sources": [],
+            "text": "Insikt Group used intelligence provided in open-source reporting (1, 2, 3, 4) to profile TAG-53 infrastructure that likely overlaps with Callisto Group, COLDRIVER, and SEABORGIUM infrastructure."
+        },
+        {
+            "id": "19",
+            "sources": [],
+            "text": "TAG-53 infrastructure was uncovered by analyzing specific combinations of domain registrars, autonomous systems, domain name structures, and related TLS certificates."
+        },
+        {
+            "id": "20",
+            "sources": [],
+            "text": "Based on this information, it is highly likely that this threat group is continuing its phishing and credential-harvesting operations."
+        },
+        {
+            "id": "21",
+            "sources": [],
+            "text": "While monitoring TAG-53 infrastructure, Insikt Group observed a spoofed Microsoft login page masquerading as a legitimate military weapons and hardware supplier in the US, suggesting that some TAG-53 infrastructure has likely already been operationalized."
+        },
+        {
+            "id": "22",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "23",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "24",
+            "sources": [],
+            "text": "##### Registrars"
+        },
+        {
+            "id": "25",
+            "sources": [],
+            "text": "Using both current and passive Domain Name System (DNS) records, Insikt Group resolved IP addresses for 38 registered domains used by TAG-53 since January 2022."
+        },
+        {
+            "id": "26",
+            "sources": [],
+            "text": "The identified TAG-53 domains, listed in Appendix A, have highlighted a trend towards the use of NameCheap, Porkbun, REG."
+        },
+        {
+            "id": "27",
+            "sources": [],
+            "text": "RU, and regway for domain registration that has persisted since mid-2022, a breakdown of which can be seen in Figure 1."
+        },
+        {
+            "id": "28",
+            "sources": [],
+            "text": "The reason for the preference of these registrars is unknown, but it is a useful metric when profiling candidate TAG-53 infrastructure."
+        },
+        {
+            "id": "29",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "30",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "31",
+            "sources": [],
+            "text": "##### Autonomous Systems"
+        },
+        {
+            "id": "32",
+            "sources": [],
+            "text": "Alongside the use of specific domain registrars is the use of particular autonomous systems, with all domains collected under TAG-53 found to exist in 10 autonomous systems with a significant concentration found located in 2 Autonomous System Numbers (ASNs) linked to MIRhosting (AS52000) and Hostwinds (AS54290)."
+        },
+        {
+            "id": "33",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "34",
+            "sources": [],
+            "text": "Most of the domains discovered via TAG-53 tracking use similarly structured domain names, primarily made up of 2 terms separated by a hyphen, such as “cloud-safety[."
+        },
+        {
+            "id": "35",
+            "sources": [],
+            "text": "]online”."
+        },
+        {
+            "id": "36",
+            "sources": [],
+            "text": "Of the 38 domains identified, 33 used the stylistic form “."
+        },
+        {
+            "id": "37",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "38",
+            "sources": [],
+            "text": "A breakdown of the terms found in TAG-53 domains, shown in Figure 2, highlights the repeated use of specific words within the domains, most of which are common, generic computing terms."
+        },
+        {
+            "id": "39",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "40",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "41",
+            "sources": [],
+            "text": "##### X.509 TLS Certificates"
+        },
+        {
+            "id": "42",
+            "sources": [],
+            "text": "All identified TAG-53 domains were found to host corresponding X."
+        },
+        {
+            "id": "43",
+            "sources": [],
+            "text": "509 TLS certificates provided by Let’s Encrypt, an example of which is shown in Figure 3."
+        },
+        {
+            "id": "44",
+            "sources": [],
+            "text": "The prevalent use of Let’s Encrypt TLS certificates allows for further correlations between TAG-53 domains and infrastructure, strengthening the clustering of this activity."
+        },
+        {
+            "id": "45",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "46",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "47",
+            "sources": [],
+            "text": "##### Targeting and Victimology"
+        },
+        {
+            "id": "48",
+            "sources": [],
+            "text": "Of the 38 discovered domains, 9 contained references to potential target organizations or organizations that TAG-53 may be attempting to masquerade as, shown in Table 2."
+        },
+        {
+            "id": "49",
+            "sources": [],
+            "text": "The reason behind the use of these themed domains is not fully understood beyond the likely attempt to emulate real entities in order to appear more legitimate to potential targets and victims."
+        },
+        {
+            "id": "50",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "51",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "52",
+            "sources": [],
+            "text": "Analysis of the 9 domains reveals that 7 share a focus around industry verticals that would likely be of interest to Russia-nexus threat groups, especially in light of the war in Ukraine."
+        },
+        {
+            "id": "53",
+            "sources": [],
+            "text": "The 2 outlier domains are probably intended to masquerade as the Ministry of Internal Affairs of the Russian Federation."
+        },
+        {
+            "id": "54",
+            "sources": [],
+            "text": "(MVD)."
+        },
+        {
+            "id": "55",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "56",
+            "sources": [],
+            "text": "##### Credential Harvesting"
+        },
+        {
+            "id": "57",
+            "sources": [],
+            "text": "The TAG-53 domain “drive-globalordnance[."
+        },
+        {
+            "id": "58",
+            "sources": [],
+            "text": "]com” includes a spoofed sign-in page for the legitimate company Global Ordnance, a military weapons and hardware supplier in the US."
+        },
+        {
+            "id": "59",
+            "sources": [],
+            "text": "The spoofed sign-in page, shown in Figure 4, uses Global Ordnance branding and is suspected to be used for follow-on credential harvesting after a target has been phished."
+        },
+        {
+            "id": "60",
+            "sources": [],
+            "text": "It is unclear whether Global Ordnance is the intended target of this attempted credential harvesting operation or whether TAG-53 is using a Global Ordnance-styled domain and spoofed sign-in page to masquerade as a legitimate entity to target victims."
+        },
+        {
+            "id": "61",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "62",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "63",
+            "sources": [],
+            "text": "#### Mitigations"
+        },
+        {
+            "id": "64",
+            "sources": [],
+            "text": "Users should conduct the following measures to detect and mitigate activity associated with TAG-53:."
+        },
+        {
+            "id": "65",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "66",
+            "sources": [],
+            "text": "Configure your intrusion detection systems (IDS), intrusion prevention systems (IPS), or any network defense mechanisms in place to alert on — and upon review, consider blocking connection attempts to and from — the external IP addresses and domains listed in the appendix."
+        },
+        {
+            "id": "67",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "68",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "69",
+            "sources": [],
+            "text": "Recorded Future proactively detects malicious server configurations and provides means to block them in the Command and Control Security Control Feed."
+        },
+        {
+            "id": "70",
+            "sources": [],
+            "text": "The Command and Control Feed includes tools used by TAG-53 and other Russian state-sponsored threat activity groups."
+        },
+        {
+            "id": "71",
+            "sources": [],
+            "text": "Recorded Future clients should alert on and block these C2 servers to allow for detection and remediation of active intrusions."
+        },
+        {
+            "id": "72",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "73",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "74",
+            "sources": [],
+            "text": "Recorded Future Threat Intelligence (TI), Third-Party Intelligence, and SecOps Intelligence modules users can monitor real-time output from Network Intelligence analytics to identify suspected targeted intrusion activity involving your organization or key vendors and partners."
+        },
+        {
+            "id": "75",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "76",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "77",
+            "sources": [],
+            "text": "Monitor for domain abuse, such as typosquat domains spoofing your organization, through the Recorded Future Brand Intelligence (BI) module."
+        },
+        {
+            "id": "78",
+            "sources": [],
+            "text": "The SecurityTrails extension is available to any customer that has a subscription to the Threat Intelligence or Brand Intelligence modules."
+        },
+        {
+            "id": "79",
+            "sources": [],
+            "text": "The LogoType source and alerting is exclusive to the BI module, though the TI module does have access to the data via the Advanced Query Builder."
+        },
+        {
+            "id": "80",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "81",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "82",
+            "sources": [],
+            "text": "Recorded Future’s Fraudulent Domains and Typosquats playbook explains triaging typosquatting or similar domain alerts."
+        },
+        {
+            "id": "83",
+            "sources": [],
+            "text": "If you have not yet set up your alerts, see activating certified alerts in the Intelligence Goals Library."
+        },
+        {
+            "id": "84",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "85",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "86",
+            "sources": [],
+            "text": "#### Outlook"
+        },
+        {
+            "id": "87",
+            "sources": [],
+            "text": "Insikt Group continues to track TAG-53 infrastructure and observe changes in TTPs as the group’s credential harvesting operations diversify."
+        },
+        {
+            "id": "88",
+            "sources": [],
+            "text": "Notably, a consistent trend has emerged regarding the use of specifically tailored infrastructure by TAG-53 highlighting the long-term use of similar techniques for their strategic campaigns."
+        },
+        {
+            "id": "89",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "90",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "91",
+            "sources": [],
+            "text": "Readers should detect, block, and hunt for the indicators referenced in connection with TAG-53 reporting via the Recorded Future Platform in network monitoring, intrusion detection systems, firewalls, and any associated perimeter security appliances."
+        },
+        {
+            "id": "92",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "93",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "94",
+            "sources": [],
+            "text": "#### Appendix A — Indicators"
+        },
+        {
+            "id": "95",
+            "sources": [],
+            "text": "###### Domains"
+        },
+        {
+            "id": "96",
+            "sources": [],
+            "text": "access-confirmation[."
+        },
+        {
+            "id": "97",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "98",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "99",
+            "sources": [],
+            "text": "allow-access[."
+        },
+        {
+            "id": "100",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "101",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "102",
+            "sources": [],
+            "text": "antibots-service[."
+        },
+        {
+            "id": "103",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "104",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "105",
+            "sources": [],
+            "text": "blueskynetwork-shared[."
+        },
+        {
+            "id": "106",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "107",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "108",
+            "sources": [],
+            "text": "botguard-checker[."
+        },
+        {
+            "id": "109",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "110",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "111",
+            "sources": [],
+            "text": "botguard-web[."
+        },
+        {
+            "id": "112",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "113",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "114",
+            "sources": [],
+            "text": "challenge-identifier[."
+        },
+        {
+            "id": "115",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "116",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "117",
+            "sources": [],
+            "text": "checker-bot[."
+        },
+        {
+            "id": "118",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "119",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "120",
+            "sources": [],
+            "text": "cija-docs[."
+        },
+        {
+            "id": "121",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "122",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "123",
+            "sources": [],
+            "text": "cloud-safety[."
+        },
+        {
+            "id": "124",
+            "sources": [],
+            "text": "]online."
+        },
+        {
+            "id": "125",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "126",
+            "sources": [],
+            "text": "cloud-us[."
+        },
+        {
+            "id": "127",
+            "sources": [],
+            "text": "]online."
+        },
+        {
+            "id": "128",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "129",
+            "sources": [],
+            "text": "dns-cache[."
+        },
+        {
+            "id": "130",
+            "sources": [],
+            "text": "]online."
+        },
+        {
+            "id": "131",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "132",
+            "sources": [],
+            "text": "dns-cookie[."
+        },
+        {
+            "id": "133",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "134",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "135",
+            "sources": [],
+            "text": "dns-mvd[."
+        },
+        {
+            "id": "136",
+            "sources": [],
+            "text": "]ru."
+        },
+        {
+            "id": "137",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "138",
+            "sources": [],
+            "text": "docs-web[."
+        },
+        {
+            "id": "139",
+            "sources": [],
+            "text": "]online."
+        },
+        {
+            "id": "140",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "141",
+            "sources": [],
+            "text": "drive-control[."
+        },
+        {
+            "id": "142",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "143",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "144",
+            "sources": [],
+            "text": "drive-globalordnance[."
+        },
+        {
+            "id": "145",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "146",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "147",
+            "sources": [],
+            "text": "drive-previewer[."
+        },
+        {
+            "id": "148",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "149",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "150",
+            "sources": [],
+            "text": "drive-us[."
+        },
+        {
+            "id": "151",
+            "sources": [],
+            "text": "]online."
+        },
+        {
+            "id": "152",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "153",
+            "sources": [],
+            "text": "dtgruelle-drive[."
+        },
+        {
+            "id": "154",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "155",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "156",
+            "sources": [],
+            "text": "dtgruelle-us[."
+        },
+        {
+            "id": "157",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "158",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "159",
+            "sources": [],
+            "text": "encompass-shared[."
+        },
+        {
+            "id": "160",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "161",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "162",
+            "sources": [],
+            "text": "filter-bot[."
+        },
+        {
+            "id": "163",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "164",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "165",
+            "sources": [],
+            "text": "goweb-protect[."
+        },
+        {
+            "id": "166",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "167",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "168",
+            "sources": [],
+            "text": "guard-checker[."
+        },
+        {
+            "id": "169",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "170",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "171",
+            "sources": [],
+            "text": "land-of-service[."
+        },
+        {
+            "id": "172",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "173",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "174",
+            "sources": [],
+            "text": "live-identifier[."
+        },
+        {
+            "id": "175",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "176",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "177",
+            "sources": [],
+            "text": "mvd-redir[."
+        },
+        {
+            "id": "178",
+            "sources": [],
+            "text": "]ru."
+        },
+        {
+            "id": "179",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "180",
+            "sources": [],
+            "text": "network-storage-ltd[."
+        },
+        {
+            "id": "181",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "182",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "183",
+            "sources": [],
+            "text": "nonviolent-conflict-service[."
+        },
+        {
+            "id": "184",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "185",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "186",
+            "sources": [],
+            "text": "proxycrioisolation[."
+        },
+        {
+            "id": "187",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "188",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "189",
+            "sources": [],
+            "text": "redir-document[."
+        },
+        {
+            "id": "190",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "191",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "192",
+            "sources": [],
+            "text": "response-filter[."
+        },
+        {
+            "id": "193",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "194",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "195",
+            "sources": [],
+            "text": "response-redir[."
+        },
+        {
+            "id": "196",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "197",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "198",
+            "sources": [],
+            "text": "sangrail-share[."
+        },
+        {
+            "id": "199",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "200",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "201",
+            "sources": [],
+            "text": "share-drive-ua[."
+        },
+        {
+            "id": "202",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "203",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "204",
+            "sources": [],
+            "text": "transfer-record[."
+        },
+        {
+            "id": "205",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "206",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "207",
+            "sources": [],
+            "text": "umopl-drive[."
+        },
+        {
+            "id": "208",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "209",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "210",
+            "sources": [],
+            "text": "###### IP Addresses"
+        },
+        {
+            "id": "211",
+            "sources": [],
+            "text": "23[."
+        },
+        {
+            "id": "212",
+            "sources": [],
+            "text": "]254[."
+        },
+        {
+            "id": "213",
+            "sources": [],
+            "text": "]201[."
+        },
+        {
+            "id": "214",
+            "sources": [],
+            "text": "]243."
+        },
+        {
+            "id": "215",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "216",
+            "sources": [],
+            "text": "45[."
+        },
+        {
+            "id": "217",
+            "sources": [],
+            "text": "]66[."
+        },
+        {
+            "id": "218",
+            "sources": [],
+            "text": "]248[."
+        },
+        {
+            "id": "219",
+            "sources": [],
+            "text": "]9."
+        },
+        {
+            "id": "220",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "221",
+            "sources": [],
+            "text": "45[."
+        },
+        {
+            "id": "222",
+            "sources": [],
+            "text": "]86[."
+        },
+        {
+            "id": "223",
+            "sources": [],
+            "text": "]230[."
+        },
+        {
+            "id": "224",
+            "sources": [],
+            "text": "]198."
+        },
+        {
+            "id": "225",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "226",
+            "sources": [],
+            "text": "45[."
+        },
+        {
+            "id": "227",
+            "sources": [],
+            "text": "]153[."
+        },
+        {
+            "id": "228",
+            "sources": [],
+            "text": "]229[."
+        },
+        {
+            "id": "229",
+            "sources": [],
+            "text": "]79."
+        },
+        {
+            "id": "230",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "231",
+            "sources": [],
+            "text": "64[."
+        },
+        {
+            "id": "232",
+            "sources": [],
+            "text": "]44[."
+        },
+        {
+            "id": "233",
+            "sources": [],
+            "text": "]101[."
+        },
+        {
+            "id": "234",
+            "sources": [],
+            "text": "]31."
+        },
+        {
+            "id": "235",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "236",
+            "sources": [],
+            "text": "77[."
+        },
+        {
+            "id": "237",
+            "sources": [],
+            "text": "]91[."
+        },
+        {
+            "id": "238",
+            "sources": [],
+            "text": "]126[."
+        },
+        {
+            "id": "239",
+            "sources": [],
+            "text": "]16."
+        },
+        {
+            "id": "240",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "241",
+            "sources": [],
+            "text": "77[."
+        },
+        {
+            "id": "242",
+            "sources": [],
+            "text": "]91[."
+        },
+        {
+            "id": "243",
+            "sources": [],
+            "text": "]126[."
+        },
+        {
+            "id": "244",
+            "sources": [],
+            "text": "]35."
+        },
+        {
+            "id": "245",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "246",
+            "sources": [],
+            "text": "77[."
+        },
+        {
+            "id": "247",
+            "sources": [],
+            "text": "]91[."
+        },
+        {
+            "id": "248",
+            "sources": [],
+            "text": "]126[."
+        },
+        {
+            "id": "249",
+            "sources": [],
+            "text": "]46."
+        },
+        {
+            "id": "250",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "251",
+            "sources": [],
+            "text": "77[."
+        },
+        {
+            "id": "252",
+            "sources": [],
+            "text": "]91[."
+        },
+        {
+            "id": "253",
+            "sources": [],
+            "text": "]126[."
+        },
+        {
+            "id": "254",
+            "sources": [],
+            "text": "]62."
+        },
+        {
+            "id": "255",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "256",
+            "sources": [],
+            "text": "77[."
+        },
+        {
+            "id": "257",
+            "sources": [],
+            "text": "]91[."
+        },
+        {
+            "id": "258",
+            "sources": [],
+            "text": "]126[."
+        },
+        {
+            "id": "259",
+            "sources": [],
+            "text": "]64."
+        },
+        {
+            "id": "260",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "261",
+            "sources": [],
+            "text": "77[."
+        },
+        {
+            "id": "262",
+            "sources": [],
+            "text": "]91[."
+        },
+        {
+            "id": "263",
+            "sources": [],
+            "text": "]126[."
+        },
+        {
+            "id": "264",
+            "sources": [],
+            "text": "]66."
+        },
+        {
+            "id": "265",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "266",
+            "sources": [],
+            "text": "77[."
+        },
+        {
+            "id": "267",
+            "sources": [],
+            "text": "]91[."
+        },
+        {
+            "id": "268",
+            "sources": [],
+            "text": "]126[."
+        },
+        {
+            "id": "269",
+            "sources": [],
+            "text": "]69."
+        },
+        {
+            "id": "270",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "271",
+            "sources": [],
+            "text": "77[."
+        },
+        {
+            "id": "272",
+            "sources": [],
+            "text": "]91[."
+        },
+        {
+            "id": "273",
+            "sources": [],
+            "text": "]69[."
+        },
+        {
+            "id": "274",
+            "sources": [],
+            "text": "]109."
+        },
+        {
+            "id": "275",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "276",
+            "sources": [],
+            "text": "85[."
+        },
+        {
+            "id": "277",
+            "sources": [],
+            "text": "]239[."
+        },
+        {
+            "id": "278",
+            "sources": [],
+            "text": "]53[."
+        },
+        {
+            "id": "279",
+            "sources": [],
+            "text": "]210."
+        },
+        {
+            "id": "280",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "281",
+            "sources": [],
+            "text": "85[."
+        },
+        {
+            "id": "282",
+            "sources": [],
+            "text": "]239[."
+        },
+        {
+            "id": "283",
+            "sources": [],
+            "text": "]60[."
+        },
+        {
+            "id": "284",
+            "sources": [],
+            "text": "]18."
+        },
+        {
+            "id": "285",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "286",
+            "sources": [],
+            "text": "85[."
+        },
+        {
+            "id": "287",
+            "sources": [],
+            "text": "]239[."
+        },
+        {
+            "id": "288",
+            "sources": [],
+            "text": "]61[."
+        },
+        {
+            "id": "289",
+            "sources": [],
+            "text": "]49."
+        },
+        {
+            "id": "290",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "291",
+            "sources": [],
+            "text": "85[."
+        },
+        {
+            "id": "292",
+            "sources": [],
+            "text": "]239[."
+        },
+        {
+            "id": "293",
+            "sources": [],
+            "text": "]61[."
+        },
+        {
+            "id": "294",
+            "sources": [],
+            "text": "]86."
+        },
+        {
+            "id": "295",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "296",
+            "sources": [],
+            "text": "138[."
+        },
+        {
+            "id": "297",
+            "sources": [],
+            "text": "]124[."
+        },
+        {
+            "id": "298",
+            "sources": [],
+            "text": "]187[."
+        },
+        {
+            "id": "299",
+            "sources": [],
+            "text": "]143."
+        },
+        {
+            "id": "300",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "301",
+            "sources": [],
+            "text": "138[."
+        },
+        {
+            "id": "302",
+            "sources": [],
+            "text": "]124[."
+        },
+        {
+            "id": "303",
+            "sources": [],
+            "text": "]187[."
+        },
+        {
+            "id": "304",
+            "sources": [],
+            "text": "]222."
+        },
+        {
+            "id": "305",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "306",
+            "sources": [],
+            "text": "142[."
+        },
+        {
+            "id": "307",
+            "sources": [],
+            "text": "]11[."
+        },
+        {
+            "id": "308",
+            "sources": [],
+            "text": "]209[."
+        },
+        {
+            "id": "309",
+            "sources": [],
+            "text": "]171."
+        },
+        {
+            "id": "310",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "311",
+            "sources": [],
+            "text": "142[."
+        },
+        {
+            "id": "312",
+            "sources": [],
+            "text": "]11[."
+        },
+        {
+            "id": "313",
+            "sources": [],
+            "text": "]209[."
+        },
+        {
+            "id": "314",
+            "sources": [],
+            "text": "]180."
+        },
+        {
+            "id": "315",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "316",
+            "sources": [],
+            "text": "142[."
+        },
+        {
+            "id": "317",
+            "sources": [],
+            "text": "]11[."
+        },
+        {
+            "id": "318",
+            "sources": [],
+            "text": "]210[."
+        },
+        {
+            "id": "319",
+            "sources": [],
+            "text": "]53."
+        },
+        {
+            "id": "320",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "321",
+            "sources": [],
+            "text": "146[."
+        },
+        {
+            "id": "322",
+            "sources": [],
+            "text": "]19[."
+        },
+        {
+            "id": "323",
+            "sources": [],
+            "text": "]230[."
+        },
+        {
+            "id": "324",
+            "sources": [],
+            "text": "]182."
+        },
+        {
+            "id": "325",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "326",
+            "sources": [],
+            "text": "146[."
+        },
+        {
+            "id": "327",
+            "sources": [],
+            "text": "]59[."
+        },
+        {
+            "id": "328",
+            "sources": [],
+            "text": "]102[."
+        },
+        {
+            "id": "329",
+            "sources": [],
+            "text": "]76."
+        },
+        {
+            "id": "330",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "331",
+            "sources": [],
+            "text": "185[."
+        },
+        {
+            "id": "332",
+            "sources": [],
+            "text": "]164[."
+        },
+        {
+            "id": "333",
+            "sources": [],
+            "text": "]172[."
+        },
+        {
+            "id": "334",
+            "sources": [],
+            "text": "]128."
+        },
+        {
+            "id": "335",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "336",
+            "sources": [],
+            "text": "185[."
+        },
+        {
+            "id": "337",
+            "sources": [],
+            "text": "]164[."
+        },
+        {
+            "id": "338",
+            "sources": [],
+            "text": "]172[."
+        },
+        {
+            "id": "339",
+            "sources": [],
+            "text": "]220."
+        },
+        {
+            "id": "340",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "341",
+            "sources": [],
+            "text": "185[."
+        },
+        {
+            "id": "342",
+            "sources": [],
+            "text": "]179[."
+        },
+        {
+            "id": "343",
+            "sources": [],
+            "text": "]188[."
+        },
+        {
+            "id": "344",
+            "sources": [],
+            "text": "]73."
+        },
+        {
+            "id": "345",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "346",
+            "sources": [],
+            "text": "185[."
+        },
+        {
+            "id": "347",
+            "sources": [],
+            "text": "]179[."
+        },
+        {
+            "id": "348",
+            "sources": [],
+            "text": "]189[."
+        },
+        {
+            "id": "349",
+            "sources": [],
+            "text": "]32."
+        },
+        {
+            "id": "350",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "351",
+            "sources": [],
+            "text": "185[."
+        },
+        {
+            "id": "352",
+            "sources": [],
+            "text": "]179[."
+        },
+        {
+            "id": "353",
+            "sources": [],
+            "text": "]189[."
+        },
+        {
+            "id": "354",
+            "sources": [],
+            "text": "]43."
+        },
+        {
+            "id": "355",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "356",
+            "sources": [],
+            "text": "185[."
+        },
+        {
+            "id": "357",
+            "sources": [],
+            "text": "]179[."
+        },
+        {
+            "id": "358",
+            "sources": [],
+            "text": "]189[."
+        },
+        {
+            "id": "359",
+            "sources": [],
+            "text": "]45."
+        },
+        {
+            "id": "360",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "361",
+            "sources": [],
+            "text": "192[."
+        },
+        {
+            "id": "362",
+            "sources": [],
+            "text": "]119[."
+        },
+        {
+            "id": "363",
+            "sources": [],
+            "text": "]65[."
+        },
+        {
+            "id": "364",
+            "sources": [],
+            "text": "]114."
+        },
+        {
+            "id": "365",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "366",
+            "sources": [],
+            "text": "192[."
+        },
+        {
+            "id": "367",
+            "sources": [],
+            "text": "]119[."
+        },
+        {
+            "id": "368",
+            "sources": [],
+            "text": "]97[."
+        },
+        {
+            "id": "369",
+            "sources": [],
+            "text": "]190."
+        },
+        {
+            "id": "370",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "371",
+            "sources": [],
+            "text": "192[."
+        },
+        {
+            "id": "372",
+            "sources": [],
+            "text": "]119[."
+        },
+        {
+            "id": "373",
+            "sources": [],
+            "text": "]112[."
+        },
+        {
+            "id": "374",
+            "sources": [],
+            "text": "]249."
+        },
+        {
+            "id": "375",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "376",
+            "sources": [],
+            "text": "192[."
+        },
+        {
+            "id": "377",
+            "sources": [],
+            "text": "]129[."
+        },
+        {
+            "id": "378",
+            "sources": [],
+            "text": "]154[."
+        },
+        {
+            "id": "379",
+            "sources": [],
+            "text": "]225."
+        },
+        {
+            "id": "380",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "381",
+            "sources": [],
+            "text": "192[."
+        },
+        {
+            "id": "382",
+            "sources": [],
+            "text": "]236[."
+        },
+        {
+            "id": "383",
+            "sources": [],
+            "text": "]195[."
+        },
+        {
+            "id": "384",
+            "sources": [],
+            "text": "]114."
+        },
+        {
+            "id": "385",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "386",
+            "sources": [],
+            "text": "192[."
+        },
+        {
+            "id": "387",
+            "sources": [],
+            "text": "]236[."
+        },
+        {
+            "id": "388",
+            "sources": [],
+            "text": "]193[."
+        },
+        {
+            "id": "389",
+            "sources": [],
+            "text": "]194."
+        },
+        {
+            "id": "390",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "391",
+            "sources": [],
+            "text": "193[."
+        },
+        {
+            "id": "392",
+            "sources": [],
+            "text": "]200[."
+        },
+        {
+            "id": "393",
+            "sources": [],
+            "text": "]17[."
+        },
+        {
+            "id": "394",
+            "sources": [],
+            "text": "]102."
+        },
+        {
+            "id": "395",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "396",
+            "sources": [],
+            "text": "195[."
+        },
+        {
+            "id": "397",
+            "sources": [],
+            "text": "]246[."
+        },
+        {
+            "id": "398",
+            "sources": [],
+            "text": "]110[."
+        },
+        {
+            "id": "399",
+            "sources": [],
+            "text": "]45."
+        },
+        {
+            "id": "400",
+            "sources": [],
+            "text": "\n"
+        }
+    ],
+    "summary": [
+        {
+            "id": "1",
+            "sources": [
+                "1",
+                "2"
+            ],
+            "text": "# Exposing TAG-53’s Credential Harvesting Infrastructure Used for Russia-Aligned Espionage Operations discusses the ongoing threat posed by TAG-53, which has similarities to other Russian-aligned groups like Callisto Group and SEABORGIUM (1)."
+        },
+        {
+            "id": "2",
+            "sources": [
+                "3",
+                "19",
+                "20"
+            ],
+            "text": "The infrastructure used by TAG-53 includes specifically registered malicious domains and IP addresses clustered within a few autonomous systems, indicating organized tactics (3)."
+        },
+        {
+            "id": "3",
+            "sources": [
+                "6",
+                "7",
+                "8",
+                "9",
+                "10"
+            ],
+            "text": "Targeting efforts are focused primarily on NATO countries, particularly the US and UK, as well as Ukraine amid rising geopolitical tensions (9, 10)."
+        },
+        {
+            "id": "4",
+            "sources": [
+                "21",
+                "58",
+                "60"
+            ],
+            "text": "Notably, TAG-53 is believed to engage in credential harvesting through spoofed login pages that appear legitimate to users, raising concerns for potential threats (58, 60)."
+        },
+        {
+            "id": "5",
+            "sources": [
+                "63",
+                "66",
+                "91"
+            ],
+            "text": "To counter TAG-53's activities, organizations are advised to use intrusion detection systems and monitor for abnormal behaviors associated with the identified IPs and domains (66, 91)."
+        }
+    ]
+}

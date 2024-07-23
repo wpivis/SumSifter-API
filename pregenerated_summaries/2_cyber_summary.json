@@ -1,0 +1,1011 @@
+{
+    "source": [
+        {
+            "id": "1",
+            "sources": [],
+            "text": "# Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild"
+        },
+        {
+            "id": "2",
+            "sources": [],
+            "text": "## Probing and Fingerprint Identification Technology"
+        },
+        {
+            "id": "3",
+            "sources": [],
+            "text": "The Cobalt Strike Team Server, also known as CS Team Server, is the centralized C2 application for a Beacon and its operator(s)."
+        },
+        {
+            "id": "4",
+            "sources": [],
+            "text": "It accepts client connections, orchestrates remote commands to Beacon implants, provides UI management, and various other functions."
+        },
+        {
+            "id": "5",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "6",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "7",
+            "sources": [],
+            "text": "During our research and development of Advanced Threat Prevention’s inline deep learning detection for Cobalt Strike traffic, we began experimenting with forging C2 requests to suspected malicious Team Servers on the Internet."
+        },
+        {
+            "id": "8",
+            "sources": [],
+            "text": "Through our analysis of attacker-controlled server responses, we developed a variety of techniques to classify previously undetected Cobalt Strike Team Servers before an attack can occur."
+        },
+        {
+            "id": "9",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "10",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "11",
+            "sources": [],
+            "text": "In the following sections, we share our findings on the following identification techniques:."
+        },
+        {
+            "id": "12",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "13",
+            "sources": [],
+            "text": "Active Probing Over HTTP."
+        },
+        {
+            "id": "14",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "15",
+            "sources": [],
+            "text": "Active Probing Over DNS."
+        },
+        {
+            "id": "16",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "17",
+            "sources": [],
+            "text": "### Active Probing Over HTTP HTTP/S OPTIONS Request and Response Fingerprint"
+        },
+        {
+            "id": "18",
+            "sources": [],
+            "text": "The Team Server is a Linux program running an HTTP server configured to respond to a variety of HTTP requests."
+        },
+        {
+            "id": "19",
+            "sources": [],
+            "text": "When the server receives requests with the HTTP OPTIONS method, the server will return HTTP status code 200 and Content-Length: 0."
+        },
+        {
+            "id": "20",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "21",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "22",
+            "sources": [],
+            "text": "Figure 1 shows an HTTP request and response to a Team Server."
+        },
+        {
+            "id": "23",
+            "sources": [],
+            "text": "The URI provided in an HTTP OPTIONS request is disregarded as the same response is returned regardless of URI."
+        },
+        {
+            "id": "24",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "25",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "26",
+            "sources": [],
+            "text": "#### HTTP/HTTPs GET Request and Response Fingerprint"
+        },
+        {
+            "id": "27",
+            "sources": [],
+            "text": "When a Team Server starts, the HTTP server exposes certain URIs."
+        },
+        {
+            "id": "28",
+            "sources": [],
+            "text": "Figure 2 shows the list of URIs."
+        },
+        {
+            "id": "29",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "30",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "31",
+            "sources": [],
+            "text": "The URLs stager and stager64 are masked if the profile has the set host_stage \"false\"; option set."
+        },
+        {
+            "id": "32",
+            "sources": [],
+            "text": "The HTTP server will return HTTP status code 404 if the URI begins with a forward slash (/)."
+        },
+        {
+            "id": "33",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "34",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "35",
+            "sources": [],
+            "text": "##### Request to Stager URI"
+        },
+        {
+            "id": "36",
+            "sources": [],
+            "text": "When a user sends the following HTTP request to a Team Server, the server will return the 32-bit Beacon binary to the client."
+        },
+        {
+            "id": "37",
+            "sources": [],
+            "text": "Figure 3 shows the HTTP request and response."
+        },
+        {
+            "id": "38",
+            "sources": [],
+            "text": "Note the lack of a forward slash (/) at the beginning of the URI path."
+        },
+        {
+            "id": "39",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "40",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "41",
+            "sources": [],
+            "text": "##### Request to Stager64 URI"
+        },
+        {
+            "id": "42",
+            "sources": [],
+            "text": "To receive a 64-bit Beacon payload, a user must send an HTTP GET request to the URI stager64."
+        },
+        {
+            "id": "43",
+            "sources": [],
+            "text": "Figure 4 shows the HTTP request and response for a 64-bit Beacon payload."
+        },
+        {
+            "id": "44",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "45",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "46",
+            "sources": [],
+            "text": "##### Request to Beacon.http-get URI"
+        },
+        {
+            "id": "47",
+            "sources": [],
+            "text": "Certain preset URI paths can be configured in the Malleable C2 profile to serve static data."
+        },
+        {
+            "id": "48",
+            "sources": [],
+            "text": "If a user sends a GET request to the URI beacon."
+        },
+        {
+            "id": "49",
+            "sources": [],
+            "text": "http-get, the Team Server responds with the data that has been specified in its profile."
+        },
+        {
+            "id": "50",
+            "sources": [],
+            "text": "Specifically, it sends the output section within the server tag of the http-get configuration."
+        },
+        {
+            "id": "51",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "52",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "53",
+            "sources": [],
+            "text": "If the output section only contains the command print;, the server responds with HTTP status code 200 and Content-Length: 0."
+        },
+        {
+            "id": "54",
+            "sources": [],
+            "text": "Figure 5 shows the HTTP request and response with the default profile."
+        },
+        {
+            "id": "55",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "56",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "57",
+            "sources": [],
+            "text": "If Team Server initializes with the Malleable C2 Gmail profile, the server responds with static data presented as described above."
+        },
+        {
+            "id": "58",
+            "sources": [],
+            "text": "In this profile, GET requests to beacon."
+        },
+        {
+            "id": "59",
+            "sources": [],
+            "text": "http-get result in a response containing a JavaScript payload."
+        },
+        {
+            "id": "60",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "61",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "62",
+            "sources": [],
+            "text": "Figure 6 shows the HTTP request and response generated by a Beacon session preset with the Gmail Malleable C2 profile."
+        },
+        {
+            "id": "63",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "64",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "65",
+            "sources": [],
+            "text": "##### Request to Beacon.http-post URI"
+        },
+        {
+            "id": "66",
+            "sources": [],
+            "text": "Team Server’s behavior is the same for a GET request to the URI beacon."
+        },
+        {
+            "id": "67",
+            "sources": [],
+            "text": "http-post as it is for the URI beacon."
+        },
+        {
+            "id": "68",
+            "sources": [],
+            "text": "http-get."
+        },
+        {
+            "id": "69",
+            "sources": [],
+            "text": "Figure 7 shows the HTTP request and response for a Team Server instance that initializes with the default Malleable C2 profile."
+        },
+        {
+            "id": "70",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "71",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "72",
+            "sources": [],
+            "text": "Figure 8 shows an HTTP transaction when a GET request for beacon."
+        },
+        {
+            "id": "73",
+            "sources": [],
+            "text": "http-post is sent to a Team Server instance that has initialized with the Gmail Malleable C2 profile."
+        },
+        {
+            "id": "74",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "75",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "76",
+            "sources": [],
+            "text": "##### URI Checksum"
+        },
+        {
+            "id": "77",
+            "sources": [],
+            "text": "Team Server utilizes a custom one-byte checksum of the request URI as a condition to serve the 32-bit or 64-bit version of the Beacon binary."
+        },
+        {
+            "id": "78",
+            "sources": [],
+            "text": "A simple checksum algorithm implemented in Java named checksum8 is used to calculate the checksum of the request URI."
+        },
+        {
+            "id": "79",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "80",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "81",
+            "sources": [],
+            "text": "As shown in Figure 9, for 32-bit payloads, the code compares the URI checksum result to the literal integer 92L (where the L suffix is Java syntax for integer type long)."
+        },
+        {
+            "id": "82",
+            "sources": [],
+            "text": "For 64-bit payload requests, the algorithm compares the checksum to 93L."
+        },
+        {
+            "id": "83",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "84",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "85",
+            "sources": [],
+            "text": "When a user sends a GET request to a Team Server, the URI is passed to checksum8 and is compared to both integer values 92L and 93L."
+        },
+        {
+            "id": "86",
+            "sources": [],
+            "text": "If the checksum satisfies one of the conditions, the server will respond with the raw bytes of the appropriate Beacon binary."
+        },
+        {
+            "id": "87",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "88",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "89",
+            "sources": [],
+            "text": "Figure 10 details an example of a URI that computes to a value that satisfies the checksum8 condition, as well as the Team Server’s response with the Beacon binary payload."
+        },
+        {
+            "id": "90",
+            "sources": [],
+            "text": "This information was extracted from Beacon configuration scripts, which continue to provide threat intelligence that is useful for preventing Cobalt Strike connections."
+        },
+        {
+            "id": "91",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "92",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "93",
+            "sources": [],
+            "text": "##### Random URI"
+        },
+        {
+            "id": "94",
+            "sources": [],
+            "text": "If a user sends a randomized URI path, the Team Server will respond with HTTP status code 404 with Content-Length: 0."
+        },
+        {
+            "id": "95",
+            "sources": [],
+            "text": "Figure 11 shows the HTTP response from a Team Server when a user sends a GET request with the URI randomURI."
+        },
+        {
+            "id": "96",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "97",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "98",
+            "sources": [],
+            "text": "### Active Probing Over DNS"
+        },
+        {
+            "id": "99",
+            "sources": [],
+            "text": "Cobalt Strike’s DNS listener enables Beacon implants to covertly utilize the DNS protocol to communicate with the Team Server."
+        },
+        {
+            "id": "100",
+            "sources": [],
+            "text": "The DNS-based Beacon uses the DNS TXT, AAAA, and A records for task monitoring and other related functions."
+        },
+        {
+            "id": "101",
+            "sources": [],
+            "text": "The configuration is set by data channel mode in the Malleable C2 profile."
+        },
+        {
+            "id": "102",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "103",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "104",
+            "sources": [],
+            "text": "Once the request is received, the Team Server responds with the base64-encoded Beacon binary in the."
+        },
+        {
+            "id": "105",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "106",
+            "sources": [],
+            "text": "TXT record response."
+        },
+        {
+            "id": "107",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "108",
+            "sources": [],
+            "text": "## Team Server Found in the wild"
+        },
+        {
+            "id": "109",
+            "sources": [],
+            "text": "Based on the fingerprints and signals discovered, we utilized open source threat intelligence feeds including ZoomEye, Shodan and Censys to scour the internet in search of undetected Cobalt Strike Team Servers in the wild."
+        },
+        {
+            "id": "110",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "111",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "112",
+            "sources": [],
+            "text": "The following table details IP/port and URI indicators of compromise (IoCs) related to live Team Server instances we discovered in the wild in September 2022."
+        },
+        {
+            "id": "113",
+            "sources": [],
+            "text": "We utilized Shodan’s feed service to collect IP addresses of potential Team Servers before sending 32-bit stager probes to test the daemon for positive indicators."
+        },
+        {
+            "id": "114",
+            "sources": [],
+            "text": "Once a candidate returns the expected Cobalt Strike response, we initialize a TCP connection with netcat to test, verify and extract the served stager bytes as shown in Figure 14."
+        },
+        {
+            "id": "115",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "116",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "117",
+            "sources": [],
+            "text": "## Conclusion"
+        },
+        {
+            "id": "118",
+            "sources": [],
+            "text": "Cobalt Strike is a potent post-exploitation adversary emulator that continues to evade conventional next-generation solutions, including signature-based network detection."
+        },
+        {
+            "id": "119",
+            "sources": [],
+            "text": "However, Advanced Threat Prevention’s inline deep-learning models and heuristic techniques provide defenses against Cobalt Strike Beacon and Team Server C2 communication before they occur."
+        },
+        {
+            "id": "120",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "121",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "122",
+            "sources": [],
+            "text": "The probing and fingerprint technology detailed in this publication is very efficient and reliable in identifying Cobalt Strike instances in the wild with a very high degree of certainty."
+        },
+        {
+            "id": "123",
+            "sources": [],
+            "text": "A single modern network security appliance is not sufficient to provide comprehensive coverage against complex malicious tools such as Cobalt Strike."
+        },
+        {
+            "id": "124",
+            "sources": [],
+            "text": "Only a combination of security solutions including firewalls, sandboxes, endpoint agents and cloud-based machine learning can integrate the required data to prevent advanced adversaries from mounting successful cyberattacks from end to end."
+        },
+        {
+            "id": "125",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "126",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "127",
+            "sources": [],
+            "text": "Palo Alto Networks customers receive protection from this kind of attack by the following:."
+        },
+        {
+            "id": "128",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "129",
+            "sources": [],
+            "text": "Next-Generation Firewalls (NGFWs) with Threat Prevention signatures 86445 and 86446 can identify HTTP C2 requests with the base64 metadata encoding in default profiles."
+        },
+        {
+            "id": "130",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "131",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "132",
+            "sources": [],
+            "text": "Next-Generation Firewalls with Advanced Threat Prevention subscription can identify and block the Cobalt Strike HTTP C2 request in non default profiles."
+        },
+        {
+            "id": "133",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "134",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "135",
+            "sources": [],
+            "text": "WildFire, an NGFW security subscription, and Cortex XDR identify and block Cobalt Strike Beacon."
+        },
+        {
+            "id": "136",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "137",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "138",
+            "sources": [],
+            "text": "Cortex XSOAR response pack and playbook can automate the mitigation process."
+        },
+        {
+            "id": "139",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "140",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "141",
+            "sources": [],
+            "text": "Cortex XDR will report related exploitation attempts."
+        },
+        {
+            "id": "142",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "143",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "144",
+            "sources": [],
+            "text": "Malicious URLs and IPs have been added to Advanced URL Filtering."
+        },
+        {
+            "id": "145",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "146",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "147",
+            "sources": [],
+            "text": "## Indicators of Compromise"
+        },
+        {
+            "id": "148",
+            "sources": [],
+            "text": "### CS Samples"
+        },
+        {
+            "id": "149",
+            "sources": [],
+            "text": "50ea11254f184450a7351d407fbb53c54686ce1e62e99c0a41ee7ee3e505d60c."
+        },
+        {
+            "id": "150",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "151",
+            "sources": [],
+            "text": "### CS Beacon Samples"
+        },
+        {
+            "id": "152",
+            "sources": [],
+            "text": "/lNj8."
+        },
+        {
+            "id": "153",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "154",
+            "sources": [],
+            "text": "SHA256 hash:."
+        },
+        {
+            "id": "155",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "156",
+            "sources": [],
+            "text": "e712d670382ad6f837feeb5a66adb2d0f133481b5db854de0dd4636d7e906a8e."
+        },
+        {
+            "id": "157",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "158",
+            "sources": [],
+            "text": "### CS Teamserver IP addresses"
+        },
+        {
+            "id": "159",
+            "sources": [],
+            "text": "92[."
+        },
+        {
+            "id": "160",
+            "sources": [],
+            "text": "]255[."
+        },
+        {
+            "id": "161",
+            "sources": [],
+            "text": "]85[."
+        },
+        {
+            "id": "162",
+            "sources": [],
+            "text": "]93."
+        },
+        {
+            "id": "163",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "164",
+            "sources": [],
+            "text": "43[."
+        },
+        {
+            "id": "165",
+            "sources": [],
+            "text": "]129[."
+        },
+        {
+            "id": "166",
+            "sources": [],
+            "text": "]7[."
+        },
+        {
+            "id": "167",
+            "sources": [],
+            "text": "]189."
+        },
+        {
+            "id": "168",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "169",
+            "sources": [],
+            "text": "117[."
+        },
+        {
+            "id": "170",
+            "sources": [],
+            "text": "]50[."
+        },
+        {
+            "id": "171",
+            "sources": [],
+            "text": "]37[."
+        },
+        {
+            "id": "172",
+            "sources": [],
+            "text": "]182."
+        },
+        {
+            "id": "173",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "174",
+            "sources": [],
+            "text": "42[."
+        },
+        {
+            "id": "175",
+            "sources": [],
+            "text": "]192[."
+        },
+        {
+            "id": "176",
+            "sources": [],
+            "text": "]206[."
+        },
+        {
+            "id": "177",
+            "sources": [],
+            "text": "]174."
+        },
+        {
+            "id": "178",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "179",
+            "sources": [],
+            "text": "194[."
+        },
+        {
+            "id": "180",
+            "sources": [],
+            "text": "]37[."
+        },
+        {
+            "id": "181",
+            "sources": [],
+            "text": "]97[."
+        },
+        {
+            "id": "182",
+            "sources": [],
+            "text": "]160."
+        },
+        {
+            "id": "183",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "184",
+            "sources": [],
+            "text": "92[."
+        },
+        {
+            "id": "185",
+            "sources": [],
+            "text": "]222[."
+        },
+        {
+            "id": "186",
+            "sources": [],
+            "text": "]172[."
+        },
+        {
+            "id": "187",
+            "sources": [],
+            "text": "]39."
+        },
+        {
+            "id": "188",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "189",
+            "sources": [],
+            "text": "79[."
+        },
+        {
+            "id": "190",
+            "sources": [],
+            "text": "]141[."
+        },
+        {
+            "id": "191",
+            "sources": [],
+            "text": "]169[."
+        },
+        {
+            "id": "192",
+            "sources": [],
+            "text": "]220."
+        },
+        {
+            "id": "193",
+            "sources": [],
+            "text": "\n"
+        }
+    ],
+    "summary": [
+        {
+            "id": "1",
+            "sources": [
+                "3",
+                "4"
+            ],
+            "text": "Cobalt Strike is a centralized C2 application for operational Beacon implants and their operators, facilitating command and control communications."
+        },
+        {
+            "id": "2",
+            "sources": [
+                "7",
+                "8"
+            ],
+            "text": "The research highlighted techniques used to identify Cobalt Strike Team Servers and classify them before attacks can happen."
+        },
+        {
+            "id": "3",
+            "sources": [
+                "13",
+                "98"
+            ],
+            "text": "Active probing methods over HTTP and DNS are key in detecting Team Servers, with various fingerprinting techniques discussed."
+        },
+        {
+            "id": "4",
+            "sources": [
+                "22",
+                "112"
+            ],
+            "text": "The findings also detail responses from suspected Team Servers based on specific requests, demonstrating their response patterns."
+        },
+        {
+            "id": "5",
+            "sources": [
+                "118",
+                "124"
+            ],
+            "text": "These insights emphasize the need for a robust security approach using multiple layers to counteract threats from Cobalt Strike effectively."
+        }
+    ]
+}
