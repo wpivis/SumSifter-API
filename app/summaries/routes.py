@@ -6,6 +6,7 @@ from flask import request, jsonify
 import openai
 import uuid
 import json
+from app.utils.openai import get_response
 
 from config import Config
 from .document_reader import DocumentReader
@@ -57,7 +58,7 @@ original article.
 
 You can use markdown within the text block in summary.
 
-Use the following json format to answer. 
+Use the following json format to answer.
 Do not include sources inside the text block, but instead as a separate list of ids:
 {
 	"summary": [
@@ -78,11 +79,11 @@ Read the article and create email content based on the prompt.
 
 The email should be structured as follows:
 
-1. **Greeting**: Hi, I am reading this report and came across the section below. I wanted to share this with you for your insights. 
+1. **Greeting**: Hi, I am reading this report and came across the section below. I wanted to share this with you for your insights.
 
-2. **1-Sentence Description**: A 1 sentence summary of the document to give context about the report. 
+2. **1-Sentence Description**: A 1 sentence summary of the document to give context about the report.
 
-3. **Key Points**: Explain why the prompt that includes a section of the document is important is interesting in 1 to 2 sentences. 
+3. **Key Points**: Explain why the prompt that includes a section of the document is important is interesting in 1 to 2 sentences.
 
 
 """
@@ -151,9 +152,7 @@ def generate():
     conversation["messages"].append({"role": "user", "content": prompt})
 
     # call API
-    response = openai.ChatCompletion.create(
-        model="gpt-4o-mini", messages=conversation["messages"]
-    )
+    response = get_response(conversation["messages"])
 
     # update conversation list
     response_text = response["choices"][0]["message"]["content"].strip()
@@ -187,7 +186,7 @@ The text blocks in the summary must be attributed to id of the article in the so
 
 You can use markdown within the text block in summary.
 
-Use the following json format to answer. 
+Use the following json format to answer.
 Do not include sources inside the text block, but instead as a separate list of ids:
 {
 	"summary": [
@@ -209,7 +208,7 @@ def generate_multiple():
         req = GenerateSummaryMultipleDocsRequestModel.model_validate(request.json)
     except ValidationError as e:
         return jsonify(e.errors()), 400
-    
+
     if Config.FAKE_RESPONSE:
         print("responding with fake response")
         with open("./fake_response/global_summary.json", "r") as f:
@@ -341,9 +340,7 @@ def generate_multiple():
     conversation["messages"].append({"role": "user", "content": prompt})
 
     # call API
-    response = openai.ChatCompletion.create(
-        model="gpt-4o-mini", messages=conversation["messages"]
-    )
+    response = get_response(conversation["messages"])
 
     # update conversation list
     response_text = response["choices"][0]["message"]["content"].strip()
@@ -393,9 +390,7 @@ def generate_email():
     messages.append({"role": "user", "content": prompt})
 
     # call API
-    response = openai.ChatCompletion.create(
-        model="gpt-4o-mini", messages=messages
-    )
+    response = get_response(messages)
 
     # update conversation list
     response_text = response["choices"][0]["message"]["content"].strip()
