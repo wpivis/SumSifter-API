@@ -7,4 +7,5 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     LAS_API_ENDPOINT = os.environ.get('LAS_API_ENDPOINT', default="")
     LAS_API_KEY = os.environ.get('LAS_API_KEY')
+    LAS_GPT_MODEL = os.environ.get('LAS_GPT_MODEL')
     FAKE_RESPONSE = os.environ.get('FAKE_RESPONSE', default='False') == 'True'
