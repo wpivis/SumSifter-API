@@ -1,0 +1,193 @@
+{
+
+    "source": [
+        {
+            "id": "1",
+            "sources": [],
+            "text": "访谈二：苏丽."
+        },
+        {
+            "id": "2",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "3",
+            "sources": [],
+            "text": "采访者：您好，感谢您接受我们的采访。请先简单介绍一下您自己和您的背景。."
+        },
+        {
+            "id": "4",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "5",
+            "sources": [],
+            "text": "采访对象：大家好，我叫苏丽，是一名歌手和词曲创作人。我来自一个音乐世家，从小受到了良好的音乐教育，但在实现梦想的过程中也遇到了不少困难。."
+        },
+        {
+            "id": "6",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "7",
+            "sources": [],
+            "text": "采访者：您在音乐行业中遇到的最大挑战是什么？."
+        },
+        {
+            "id": "8",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "9",
+            "sources": [],
+            "text": "苏丽：最大的挑战是保持创新和独特性。现在的音乐市场竞争非常激烈，要在众多音乐人中脱颖而出并不容易。我需要不断地创新，寻找自己的音乐风格。."
+        },
+        {
+            "id": "10",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "11",
+            "sources": [],
+            "text": "采访者：除了创新的压力，您还面临哪些困难？."
+        },
+        {
+            "id": "12",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "13",
+            "sources": [],
+            "text": "苏丽：除了创新，保持心理健康也是一个挑战。长时间的工作和演出，特别是面对外界的期待和评价，都会带来很大的压力。我需要找到平衡，确保自己在创作和生活中都能保持良好的状态。."
+        },
+        {
+            "id": "14",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "15",
+            "sources": [],
+            "text": "采访者：这些困难对您的心理产生了什么影响吗？."
+        },
+        {
+            "id": "16",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "17",
+            "sources": [],
+            "text": "苏丽：确实有很大的心理压力。有时候我会感到疲惫和迷茫，但音乐和家人的支持总能让我重新振作起来。每当我完成一首新的作品，看到观众的反应，我就觉得一切都是值得的。."
+        },
+        {
+            "id": "18",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "19",
+            "sources": [],
+            "text": "采访者：在这样的困境中，是什么让您坚持下来？."
+        },
+        {
+            "id": "20",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "21",
+            "sources": [],
+            "text": "苏丽：对音乐的热爱和观众的支持是我坚持的动力。虽然道路艰难，但每当我看到大家因为我的音乐而感动，我就觉得所有的努力都是值得的。."
+        },
+        {
+            "id": "22",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "23",
+            "sources": [],
+            "text": "采访者：您对其他在音乐道路上奋斗的年轻人有什么建议吗？."
+        },
+        {
+            "id": "24",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "25",
+            "sources": [],
+            "text": "苏丽：我想告诉他们，坚持自己的梦想，不要被外界的声音左右。同时，要注重心理健康，找到工作和生活的平衡。相信自己，总会有收获。."
+        },
+        {
+            "id": "26",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "27",
+            "sources": [],
+            "text": "采访者：谢谢您分享您的经历和建议。希望您的音乐事业越来越好！."
+        },
+        {
+            "id": "28",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "29",
+            "sources": [],
+            "text": "苏丽：谢谢！我也希望通过我的音乐，带给大家更多的感动和力量。."
+        },
+        {
+            "id": "30",
+            "sources": [],
+            "text": "\n"
+        }
+    ],
+    "summary": [
+        {
+            "id": "1",
+            "sources": [
+                "5"
+            ],
+            "text": "苏丽, a singer and songwriter from a musical family, encountered difficulties while pursuing her dreams."
+        },
+        {
+            "id": "2",
+            "sources": [
+                "9",
+                "13"
+            ],
+            "text": "She identifies innovation and maintaining mental health as her greatest challenges in the competitive music industry."
+        },
+        {
+            "id": "3",
+            "sources": [
+                "17"
+            ],
+            "text": "Despite feeling exhausted and confused at times due to the pressures, support from music and family helps her regain strength."
+        },
+        {
+            "id": "4",
+            "sources": [
+                "21"
+            ],
+            "text": "Her passion for music and the support of her audience motivate her to persevere through tough times."
+        },
+        {
+            "id": "5",
+            "sources": [
+                "25"
+            ],
+            "text": "苏丽 advises aspiring musicians to trust in their dreams, maintain good mental health, and seek a balance between work and life."
+        }
+    ]
+}

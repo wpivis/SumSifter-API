@@ -1,0 +1,194 @@
+{
+
+    "source": [
+        {
+            "id": "1",
+            "sources": [],
+            "text": "访谈一：叶飞."
+        },
+        {
+            "id": "2",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "3",
+            "sources": [],
+            "text": "采访者：您好，感谢您接受我们的采访。请先简单介绍一下您自己和您的背景。."
+        },
+        {
+            "id": "4",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "5",
+            "sources": [],
+            "text": "采访对象：大家好，我叫叶飞，是一名独立音乐人。我从小在农村长大，对音乐充满热情，但实现梦想的道路并不容易。."
+        },
+        {
+            "id": "6",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "7",
+            "sources": [],
+            "text": "采访者：您在音乐行业中遇到的最大挑战是什么？."
+        },
+        {
+            "id": "8",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "9",
+            "sources": [],
+            "text": "叶飞：最大的挑战是缺乏资金和资源。我家里经济条件不好，无法支持我的音乐学习和创作。我不得不一边打工一边追求我的音乐梦想。."
+        },
+        {
+            "id": "10",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "11",
+            "sources": [],
+            "text": "采访者：除了经济问题，您还面临哪些困难？."
+        },
+        {
+            "id": "12",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "13",
+            "sources": [],
+            "text": "叶飞：最大的困难是缺乏专业指导和演出机会。我所在的地方没有好的音乐教育资源，我只能通过自学来提高自己的音乐水平。而且，展示才华的平台也很少，很难获得专业人士的认可。."
+        },
+        {
+            "id": "14",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "15",
+            "sources": [],
+            "text": "采访者：这些困难对您的心理产生了什么影响吗？."
+        },
+        {
+            "id": "16",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "17",
+            "sources": [],
+            "text": "叶飞：确实有很大的心理压力。面对激烈的竞争和不确定的未来，我经常感到焦虑和迷茫。但每当我演奏音乐时，这些压力似乎都消失了。."
+        },
+        {
+            "id": "18",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "19",
+            "sources": [],
+            "text": "采访者：在这样的困境中，是什么让您坚持下来？."
+        },
+        {
+            "id": "20",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "21",
+            "sources": [],
+            "text": "叶飞：对音乐的热爱和不放弃的信念是我坚持的动力。虽然道路艰难，但每次我演奏音乐，听到观众的掌声和支持，我就觉得一切都是值得的。."
+        },
+        {
+            "id": "22",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "23",
+            "sources": [],
+            "text": "采访者：您对其他在音乐道路上奋斗的年轻人有什么建议吗？."
+        },
+        {
+            "id": "24",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "25",
+            "sources": [],
+            "text": "叶飞：我想告诉他们，不要放弃自己的梦想。无论遇到多大的困难，只要坚持，总会有希望。同时，要善于利用各种资源和机会，不断提升自己的能力。."
+        },
+        {
+            "id": "26",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "27",
+            "sources": [],
+            "text": "采访者：谢谢您分享您的经历和建议。希望您的音乐事业越来越好！."
+        },
+        {
+            "id": "28",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "29",
+            "sources": [],
+            "text": "叶飞：谢谢！我也希望通过我的音乐，带给大家更多的快乐和感动。."
+        },
+        {
+            "id": "30",
+            "sources": [],
+            "text": "\n"
+        }
+    ],
+    "summary": [
+        {
+            "id": "1",
+            "sources": [
+                "1",
+                "5"
+            ],
+            "text": "Ye Fei, an independent musician, shares his challenging journey towards achieving his dreams, which began in rural areas with a deep passion for music."
+        },
+        {
+            "id": "2",
+            "sources": [
+                "9"
+            ],
+            "text": "He faces significant challenges, including a lack of funding and resources, which forces him to work while pursuing music."
+        },
+        {
+            "id": "3",
+            "sources": [
+                "13"
+            ],
+            "text": "In addition to financial struggles, Ye Fei deals with the absence of professional guidance and performance opportunities, relying primarily on self-study."
+        },
+        {
+            "id": "4",
+            "sources": [
+                "17",
+                "21"
+            ],
+            "text": "Despite psychological pressures from competition and uncertainty, his love for music and the support from audiences motivate him to persist."
+        },
+        {
+            "id": "5",
+            "sources": [
+                "25"
+            ],
+            "text": "He encourages other young musicians to not give up their dreams and to continually seek opportunities for growth, no matter the difficulties they face."
+        }
+    ]
+}
