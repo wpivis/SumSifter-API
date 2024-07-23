@@ -3,12 +3,12 @@
         {
             "id": "1",
             "sources": [],
-            "text": "# Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild"
+            "text": "## Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild"
         },
         {
             "id": "2",
             "sources": [],
-            "text": "## Probing and Fingerprint Identification Technology"
+            "text": "### Probing and Fingerprint Identification Technology"
         },
         {
             "id": "3",
@@ -28,7 +28,7 @@
         {
             "id": "6",
             "sources": [],
-            "text": "\n"
+            "text": " "
         },
         {
             "id": "7",
@@ -43,12 +43,12 @@
         {
             "id": "9",
             "sources": [],
-            "text": ""
+            "text": " "
         },
         {
             "id": "10",
             "sources": [],
-            "text": "\n"
+            "text": " "
         },
         {
             "id": "11",
@@ -58,27 +58,27 @@
         {
             "id": "12",
             "sources": [],
-            "text": "\n"
+            "text": " "
         },
         {
             "id": "13",
             "sources": [],
-            "text": "Active Probing Over HTTP."
+            "text": "- Active Probing Over HTTP."
         },
         {
             "id": "14",
             "sources": [],
-            "text": "\n"
+            "text": " "
         },
         {
             "id": "15",
             "sources": [],
-            "text": "Active Probing Over DNS."
+            "text": "- Active Probing Over DNS."
         },
         {
             "id": "16",
             "sources": [],
-            "text": "\n"
+            "text": " "
         },
         {
             "id": "17",
@@ -103,7 +103,7 @@
         {
             "id": "21",
             "sources": [],
-            "text": "\n"
+            "text": " "
         },
         {
             "id": "22",

@@ -3,7 +3,7 @@
         {
             "id": "1",
             "sources": [],
-            "text": "# Exposing TAG-53’s Credential Harvesting Infrastructure Used for Russia-Aligned Espionage Operations"
+            "text": "## Exposing TAG-53’s Credential Harvesting Infrastructure Used for Russia-Aligned Espionage Operations"
         },
         {
             "id": "2",
@@ -2008,7 +2008,7 @@
                 "1",
                 "2"
             ],
-            "text": "# Exposing TAG-53’s Credential Harvesting Infrastructure Used for Russia-Aligned Espionage Operations discusses the ongoing threat posed by TAG-53, which has similarities to other Russian-aligned groups like Callisto Group and SEABORGIUM (1)."
+            "text": " Exposing TAG-53’s Credential Harvesting Infrastructure Used for Russia-Aligned Espionage Operations discusses the ongoing threat posed by TAG-53, which has similarities to other Russian-aligned groups like Callisto Group and SEABORGIUM."
         },
         {
             "id": "2",
@@ -2017,7 +2017,7 @@
                 "19",
                 "20"
             ],
-            "text": "The infrastructure used by TAG-53 includes specifically registered malicious domains and IP addresses clustered within a few autonomous systems, indicating organized tactics (3)."
+            "text": "The infrastructure used by TAG-53 includes specifically registered malicious domains and IP addresses clustered within a few autonomous systems, indicating organized tactics."
         },
         {
             "id": "3",
@@ -2028,7 +2028,7 @@
                 "9",
                 "10"
             ],
-            "text": "Targeting efforts are focused primarily on NATO countries, particularly the US and UK, as well as Ukraine amid rising geopolitical tensions (9, 10)."
+            "text": "Targeting efforts are focused primarily on NATO countries, particularly the US and UK, as well as Ukraine amid rising geopolitical tensions."
         },
         {
             "id": "4",
@@ -2037,7 +2037,7 @@
                 "58",
                 "60"
             ],
-            "text": "Notably, TAG-53 is believed to engage in credential harvesting through spoofed login pages that appear legitimate to users, raising concerns for potential threats (58, 60)."
+            "text": "Notably, TAG-53 is believed to engage in credential harvesting through spoofed login pages that appear legitimate to users, raising concerns for potential threats."
         },
         {
             "id": "5",
@@ -2046,7 +2046,7 @@
                 "66",
                 "91"
             ],
-            "text": "To counter TAG-53's activities, organizations are advised to use intrusion detection systems and monitor for abnormal behaviors associated with the identified IPs and domains (66, 91)."
+            "text": "To counter TAG-53's activities, organizations are advised to use intrusion detection systems and monitor for abnormal behaviors associated with the identified IPs and domains."
         }
     ]
 }

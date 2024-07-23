@@ -78,10 +78,11 @@ Read the article and create email content based on the prompt.
 
 The email should be structured as follows:
 
-2. **Greeting**: Hi, I am reading this report and came across the section below.
-3. **1-Sentence Description**: A 1 sentence summary of the document to give context about the report and snippet.
-4. **Text of Interest**: The prompt text (include the request prompt here that was appended).
-5. **Bullet Points**: Each bullet point in the email body that is derived from the prompt. Focus its relavance to the document. 
+1. **Greeting**: Hi, I am reading this report and came across the section below. I wanted to share this with you for your insights. 
+
+2. **1-Sentence Description**: A 1 sentence summary of the document to give context about the report. 
+
+3. **Key Points**: Explain why the prompt that includes a section of the document is important is interesting in 1 to 2 sentences. 
 
 
 """
