@@ -1,0 +1,1148 @@
+{
+    "source": [
+        {
+            "id": "1",
+            "sources": [],
+            "text": "### Russia-Ukraine Cyberattacks (Updated): How to Protect Against Related Cyberthreats Including DDoS, HermeticWiper, Gamaredon, Website Defacement, Phishing and Scams."
+        },
+        {
+            "id": "2",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "3",
+            "sources": [],
+            "text": "#### DDoS Attacks Impacting Ukrainian Government and Banking Institutions."
+        },
+        {
+            "id": "4",
+            "sources": [],
+            "text": " "
+        },
+        {
+            "id": "5",
+            "sources": [],
+            "text": "On Feb."
+        },
+        {
+            "id": "6",
+            "sources": [],
+            "text": "15, the Cyberpolice of Ukraine reported that residents were actively receiving fake SMS text messages."
+        },
+        {
+            "id": "7",
+            "sources": [],
+            "text": "These messages were likely intended to cause alarm among the population, as they claimed that ATMs were malfunctioning."
+        },
+        {
+            "id": "8",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "9",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "10",
+            "sources": [],
+            "text": "Shortly after the text messages were observed, several DDoS attacks occurred."
+        },
+        {
+            "id": "11",
+            "sources": [],
+            "text": "These attacks impacted Ukrainian government organizations including the Ministry of Defense, Ministry of Foreign Affairs, Armed Forces of Ukraine and the publicly funded broadcaster Ukrainian Radio."
+        },
+        {
+            "id": "12",
+            "sources": [],
+            "text": "Additionally, the attacks targeted two banking institutions, PrivatBank and Oschadbank."
+        },
+        {
+            "id": "13",
+            "sources": [],
+            "text": "An initial investigation into the DDoS attacks suggested that Mirai and Meris bot networks may have been leveraged in the attacks."
+        },
+        {
+            "id": "14",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "15",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "16",
+            "sources": [],
+            "text": "On Feb."
+        },
+        {
+            "id": "17",
+            "sources": [],
+            "text": "18, both the United States and the United Kingdom attributed these DDoS attacks to Russia’s Main Intelligence Directorate (GRU)."
+        },
+        {
+            "id": "18",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "19",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "20",
+            "sources": [],
+            "text": "Over the past week, Ukraine has continued to observe a relatively constant flow of DDoS attacks targeting its government and financial institutions."
+        },
+        {
+            "id": "21",
+            "sources": [],
+            "text": "However, at this time, attribution for the ongoing attacks has not been established."
+        },
+        {
+            "id": "22",
+            "sources": [],
+            "text": "The Ukrainian CERT did identify a post on RaidForums from a user named “Carzita” that suggested that additional actors may also be launching DDoS and defacement attacks for undisclosed reasons."
+        },
+        {
+            "id": "23",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "24",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "25",
+            "sources": [],
+            "text": "HermeticWiper Malware."
+        },
+        {
+            "id": "26",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "27",
+            "sources": [],
+            "text": "On Feb."
+        },
+        {
+            "id": "28",
+            "sources": [],
+            "text": "23, a malicious file named conhosts."
+        },
+        {
+            "id": "29",
+            "sources": [],
+            "text": "_exe (SHA256: 1bc44eef75779e3ca1eefb8ff5a64807dbc942b1e4a2672d77b9f6928d292591) was uploaded to a public malware repository from an organization in Kyiv, Ukraine."
+        },
+        {
+            "id": "30",
+            "sources": [],
+            "text": "This executable is a signed file with a valid signature from an organization named Hermetica Digital Ltd."
+        },
+        {
+            "id": "31",
+            "sources": [],
+            "text": "This signing certificate has since been explicitly revoked by its issuer."
+        },
+        {
+            "id": "32",
+            "sources": [],
+            "text": "Upon execution, this file enumerates all files on a hard drive, wipes the partition info and then forces a system reboot, which predictably results in the following screen:."
+        },
+        {
+            "id": "33",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "34",
+            "sources": [],
+            "text": "Further analysis has confirmed that the malware accepts command-line arguments allowing an attacker to instruct the malware to sleep for a period of time or to shut down the system."
+        },
+        {
+            "id": "35",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "36",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "37",
+            "sources": [],
+            "text": "Additionally the kernel module responsible for the actual wiping activity is from a legitimate application called EaseUS Partition Master."
+        },
+        {
+            "id": "38",
+            "sources": [],
+            "text": "This software is designed as free partition software that can reorganize disk space for better performance."
+        },
+        {
+            "id": "39",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "40",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "41",
+            "sources": [],
+            "text": "In tracking this threat, early reports show that the malware has been deployed against a financial institution in Ukraine as well as two contractors in Latvia and Lithuania that provide services to the Ukrainian Government."
+        },
+        {
+            "id": "42",
+            "sources": [],
+            "text": "Additionally, ESET researchers have warned that they found this malware installed across “hundreds of machines” in Ukraine."
+        },
+        {
+            "id": "43",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "44",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "45",
+            "sources": [],
+            "text": "Website Defacement."
+        },
+        {
+            "id": "46",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "47",
+            "sources": [],
+            "text": "Concurrent with the discovery of wiper malware, we also witnessed a second round of website defacements on Feb."
+        },
+        {
+            "id": "48",
+            "sources": [],
+            "text": "23."
+        },
+        {
+            "id": "49",
+            "sources": [],
+            "text": "These attacks appear to have copied the messaging template observed in attacks exploiting the OctoberCMS vulnerability a month earlier on Jan."
+        },
+        {
+            "id": "50",
+            "sources": [],
+            "text": "14, while adding a."
+        },
+        {
+            "id": "51",
+            "sources": [],
+            "text": "onion web address and a message in red font that translates to, “Do you need proof, see the link at the end."
+        },
+        {
+            "id": "52",
+            "sources": [],
+            "text": "”."
+        },
+        {
+            "id": "53",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "54",
+            "sources": [],
+            "text": "The."
+        },
+        {
+            "id": "55",
+            "sources": [],
+            "text": "onion site links to an entity calling themselves “Free Civilian” and offering to sell databases containing the personal data of Ukrainian citizens."
+        },
+        {
+            "id": "56",
+            "sources": [],
+            "text": "Over the past 24 hours, the list of entities on the leaks section has expanded to 48 gov."
+        },
+        {
+            "id": "57",
+            "sources": [],
+            "text": "ua domains and one Ukranian company (motorsich[."
+        },
+        {
+            "id": "58",
+            "sources": [],
+            "text": "]com) that builds engines for airplanes and helicopters."
+        },
+        {
+            "id": "59",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "60",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "61",
+            "sources": [],
+            "text": "Rise in Phishing and Scam Attacks."
+        },
+        {
+            "id": "62",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "63",
+            "sources": [],
+            "text": "Our team analyzed the larger trends regarding Ukraine-related phishing and scam URLs detected by Advanced URL Filtering."
+        },
+        {
+            "id": "64",
+            "sources": [],
+            "text": "We noticed an overall increase in the detection of websites that host phishing and scam URLs on domains using Ukraine-related TLDs such as gov."
+        },
+        {
+            "id": "65",
+            "sources": [],
+            "text": "ua and com."
+        },
+        {
+            "id": "66",
+            "sources": [],
+            "text": "ua, or containing popular Ukraine-related keywords such as \"ukraine\" and \"ukrainian\"."
+        },
+        {
+            "id": "67",
+            "sources": [],
+            "text": "This trend correlates with an increase in Google searches for terms like \"Ukraine aid."
+        },
+        {
+            "id": "68",
+            "sources": [],
+            "text": "\" The increase in online searches containing Ukraine-related keywords likely makes such URLs a more lucrative target for attackers, and past examples show that attackers are known for taking advantage of current events."
+        },
+        {
+            "id": "69",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "70",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "71",
+            "sources": [],
+            "text": "From January to late February, it appears that the number of Ukraine-related phishing and scam sites largely followed a similar trend as Ukraine-related internet searches; however, the number of phishing and scam sites has continued to rise through mid-late March as the situation remains ongoing."
+        },
+        {
+            "id": "72",
+            "sources": [],
+            "text": "Figure 8 shows that the number of Ukraine-related phishing/scam sites is currently continuing to rise about a month after the “Ukraine aid” search term started trending in Google search."
+        },
+        {
+            "id": "73",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "74",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "75",
+            "sources": [],
+            "text": "Among these phishing and scam URLs, we found a targeted phishing attack."
+        },
+        {
+            "id": "76",
+            "sources": [],
+            "text": "On March 16 while ingesting a third-party data feed, our in-house machine learning models detected a phishing webpage targeting a Ukrainian state administration employee."
+        },
+        {
+            "id": "77",
+            "sources": [],
+            "text": "The webpage is imitating a popular cloud file storage site."
+        },
+        {
+            "id": "78",
+            "sources": [],
+            "text": "Upon visiting the webpage, the “Username” field is pre-populated with the targeted employee’s email address, and the user is then prompted to enter in their password in order to view a sensitive document as shown in Figure 9."
+        },
+        {
+            "id": "79",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "80",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "81",
+            "sources": [],
+            "text": "Our teams at Palo Alto Networks are actively monitoring the phishing landscape surrounding Ukraine-related URLs and are sharing this threat intelligence with relevant authorities in Ukraine and internationally."
+        },
+        {
+            "id": "82",
+            "sources": [],
+            "text": "We are also sharing a list of IoCs that were detected as phishing and scam URLs."
+        },
+        {
+            "id": "83",
+            "sources": [],
+            "text": "Palo Alto Networks customers who subscribe to Advanced URL Filtering are already protected from these IoCs."
+        },
+        {
+            "id": "84",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "85",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "86",
+            "sources": [],
+            "text": "Increase in Cybersquatting Trends."
+        },
+        {
+            "id": "87",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "88",
+            "sources": [],
+            "text": "We monitored a list of 50 legitimate Ukraine-related domains (e."
+        },
+        {
+            "id": "89",
+            "sources": [],
+            "text": "g."
+        },
+        {
+            "id": "90",
+            "sources": [],
+            "text": ", popular news and donation websites) and keywords (e."
+        },
+        {
+            "id": "91",
+            "sources": [],
+            "text": "g."
+        },
+        {
+            "id": "92",
+            "sources": [],
+            "text": ", Ukraine, refugee) as targets for cybersquatting."
+        },
+        {
+            "id": "93",
+            "sources": [],
+            "text": "We detected 11,637 cybersquatting newly registered domains (NRDs) during February and March."
+        },
+        {
+            "id": "94",
+            "sources": [],
+            "text": "In particular, we noticed a sharp increase in the number of cybersquatting domains that were registered close to Feb."
+        },
+        {
+            "id": "95",
+            "sources": [],
+            "text": "24, as shown in Figure 10 below."
+        },
+        {
+            "id": "96",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "97",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "98",
+            "sources": [],
+            "text": "We manually analyzed a sample set of these cybersquatting domains."
+        },
+        {
+            "id": "99",
+            "sources": [],
+            "text": "Below we share some interesting case studies."
+        },
+        {
+            "id": "100",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "101",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "102",
+            "sources": [],
+            "text": "Fake Donation Websites."
+        },
+        {
+            "id": "103",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "104",
+            "sources": [],
+            "text": "We identified more than two dozen domains requesting donations to support Ukraine."
+        },
+        {
+            "id": "105",
+            "sources": [],
+            "text": "A detailed analysis of these domains revealed that many of them are fake."
+        },
+        {
+            "id": "106",
+            "sources": [],
+            "text": "These donation websites provide little to no information about the associated organization and distribution of funds."
+        },
+        {
+            "id": "107",
+            "sources": [],
+            "text": "Many of these websites use cryptocurrency wallets (e."
+        },
+        {
+            "id": "108",
+            "sources": [],
+            "text": "g."
+        },
+        {
+            "id": "109",
+            "sources": [],
+            "text": ", BTC, ETH) to accept payment (likely because these wallets are easy to set up and require no verification)."
+        },
+        {
+            "id": "110",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "111",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "112",
+            "sources": [],
+            "text": "We also find that some websites are mimicking popular donation websites or organizations to trick users into paying them money."
+        },
+        {
+            "id": "113",
+            "sources": [],
+            "text": "We show some examples in Figure 11."
+        },
+        {
+            "id": "114",
+            "sources": [],
+            "text": "For instance, donatetoukraine[."
+        },
+        {
+            "id": "115",
+            "sources": [],
+            "text": "]com is pretending to be associated with the popular Come Back Alive campaign."
+        },
+        {
+            "id": "116",
+            "sources": [],
+            "text": "While the banking information shared on the donation website matches the original campaign website, we confirmed that the BTC wallet address is different from the actual."
+        },
+        {
+            "id": "117",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "118",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "119",
+            "sources": [],
+            "text": "DoS Attacks on Ukrainian News Sites."
+        },
+        {
+            "id": "120",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "121",
+            "sources": [],
+            "text": "We found a cybersquatting domain – save-russia[."
+        },
+        {
+            "id": "122",
+            "sources": [],
+            "text": "]today – that is launching DoS attacks on Ukrainian news sites."
+        },
+        {
+            "id": "123",
+            "sources": [],
+            "text": "Once a user opens the website in the browser, it starts making requests to various Ukrainian news sites and lists the number of requests made to each new site on the home page, as shown in Figure 12 below."
+        },
+        {
+            "id": "124",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "125",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "126",
+            "sources": [],
+            "text": "We strongly recommend that users be alert to the possibility of cybersquatting domains."
+        },
+        {
+            "id": "127",
+            "sources": [],
+            "text": "In particular, fake donation websites mimicking popular websites can be misleading, as described earlier."
+        },
+        {
+            "id": "128",
+            "sources": [],
+            "text": "Before donating money, we recommend checking whether the website is referenced and shared by the official charity or government organization."
+        },
+        {
+            "id": "129",
+            "sources": [],
+            "text": "Our teams at Palo Alto Networks will continue monitoring domain squatting attacks and work to protect customers against them."
+        },
+        {
+            "id": "130",
+            "sources": [],
+            "text": "We are also sharing a list of IoCs publicly and have shared this threat intelligence with relevant authorities in Ukraine."
+        },
+        {
+            "id": "131",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "132",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "133",
+            "sources": [],
+            "text": "Distribution of Apps."
+        },
+        {
+            "id": "134",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "135",
+            "sources": [],
+            "text": "We detected campaigns of fake downloads where threat actors have set up web pages to host malicious binaries."
+        },
+        {
+            "id": "136",
+            "sources": [],
+            "text": "We found that these campaigns were targeting Ukrainian users."
+        },
+        {
+            "id": "137",
+            "sources": [],
+            "text": "Most of these web pages show malicious binaries as popular browsers or communication apps in order to deceive users."
+        },
+        {
+            "id": "138",
+            "sources": [],
+            "text": "For example, we detected a website that was distributing a malicious binary by masquerading as a popular global communication app targeting users in Ukraine."
+        },
+        {
+            "id": "139",
+            "sources": [],
+            "text": "This domain is still active and trying to target Ukrainian users at the time of writing this post."
+        },
+        {
+            "id": "140",
+            "sources": [],
+            "text": "Note that Palo Alto Networks customers receive protections against such domains from the Next-Generation Firewall via Advanced URL Filtering, DNS Security and WildFire URL Analysis subscriptions."
+        },
+        {
+            "id": "141",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "142",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "143",
+            "sources": [],
+            "text": "We also found that these fake download campaigns rotate domains to distribute the same malicious binaries."
+        },
+        {
+            "id": "144",
+            "sources": [],
+            "text": "For example, we detected two domains distributing the same malicious binary where one domain was impersonating a popular, widely used video conferencing application and the other a widely used internet browser."
+        },
+        {
+            "id": "145",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "146",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "147",
+            "sources": [],
+            "text": "The distribution of fake browsers and communication apps targeting Ukrainian users at this time is concerning."
+        },
+        {
+            "id": "148",
+            "sources": [],
+            "text": "Our teams at Palo Alto Networks will continue to monitor and work to protect our customers against such attacks."
+        },
+        {
+            "id": "149",
+            "sources": [],
+            "text": "We are publicly sharing a list of IoCs and shared this threat intelligence with relevant authorities in Ukraine."
+        },
+        {
+            "id": "150",
+            "sources": [],
+            "text": "We also advise Ukrainian users to only install software and apps from verified and official websites."
+        },
+        {
+            "id": "151",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "152",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "153",
+            "sources": [],
+            "text": "How Palo Alto Networks Is Working to Keep You Safe."
+        },
+        {
+            "id": "154",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "155",
+            "sources": [],
+            "text": "Consistent with our previous reporting on the situation, Unit 42 continues to lead a company-wide effort to collect, evaluate and disseminate the latest intelligence on cyber activity related to Russia and Ukraine."
+        },
+        {
+            "id": "156",
+            "sources": [],
+            "text": "We are actively collaborating with our partners in industry and governments to share our analysis and findings based on our global threat telemetry network."
+        },
+        {
+            "id": "157",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "158",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "159",
+            "sources": [],
+            "text": "These efforts have enabled us to make near-daily updates to our platform to ensure our customers have the best protection possible."
+        },
+        {
+            "id": "160",
+            "sources": [],
+            "text": "This includes blocking hundreds of domain names, IP addresses and URLs for our customers related to newly discovered attacks."
+        },
+        {
+            "id": "161",
+            "sources": [],
+            "text": "We’ve updated and added signatures to the WildFire analysis and Cortex XDR Prevent and Pro products to block newly discovered vulnerabilities and malware including HermeticWiper."
+        },
+        {
+            "id": "162",
+            "sources": [],
+            "text": "Read more about Cortex XDR protections."
+        },
+        {
+            "id": "163",
+            "sources": [],
+            "text": "Our Threat Prevention and Web Application and API Security products added coverage for the OctoberCMS vulnerability exploited in the WhisperGate attacks, and we released an XSOAR Playbook to help organizations hunt for this threat."
+        },
+        {
+            "id": "164",
+            "sources": [],
+            "text": "Cortex Xpanse can assist with understanding and managing your organization’s attack surface as well as identifying vulnerable resources."
+        },
+        {
+            "id": "165",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "166",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "167",
+            "sources": [],
+            "text": "We have released public reports on the WhisperGate attacks and the infrastructure and tactics used by the Gamaredon group."
+        },
+        {
+            "id": "168",
+            "sources": [],
+            "text": "On the Unit 42 website, you will also find a free ATOM which contains a structured mapping of the Gamaredon group’s tactics aligned to MITRE’s ATT&CK framework."
+        },
+        {
+            "id": "169",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "170",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "171",
+            "sources": [],
+            "text": "As the situation continues to develop, we’ll continue to update our blog with the latest information."
+        },
+        {
+            "id": "172",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "173",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "174",
+            "sources": [],
+            "text": "How You Should Prepare for an Increase in Cyberthreats Such as Wipers, DDoS, Website Defacement and Other Related Attacks."
+        },
+        {
+            "id": "175",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "176",
+            "sources": [],
+            "text": "There is no single action you can take to protect your organization against this threat."
+        },
+        {
+            "id": "177",
+            "sources": [],
+            "text": "Unlike a new malware family or vulnerability in the wild, the attacks we expect could come in many forms."
+        },
+        {
+            "id": "178",
+            "sources": [],
+            "text": "Several western governments have proposed broad recommendations focused on technical hygiene."
+        },
+        {
+            "id": "179",
+            "sources": [],
+            "text": "We consider these appropriate given the variety of tactics that Russian actors have used in the past."
+        },
+        {
+            "id": "180",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "181",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "182",
+            "sources": [],
+            "text": "We recommend organizations prioritize actions in the following four areas:."
+        },
+        {
+            "id": "183",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "184",
+            "sources": [],
+            "text": "Patch Internet-Facing and Business Critical Software: Apply patches for any software containing vulnerabilities – not just those known to be exploited in the wild."
+        },
+        {
+            "id": "185",
+            "sources": [],
+            "text": "This is most urgent for software that is internet-facing and necessary for your business’s operations, such as webmail, VPNs and other remote access solutions."
+        },
+        {
+            "id": "186",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "187",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "188",
+            "sources": [],
+            "text": "Prepare for Ransomware and/or Data Destruction: A likely form of disruptive cyberattack will either use ransomware or a destructive attack that poses as ransomware."
+        },
+        {
+            "id": "189",
+            "sources": [],
+            "text": "As we saw with the NotPetya attacks in 2017 and the WhisperGate attacks just last month, an attack that demands a ransom may not actually be “ransomware."
+        },
+        {
+            "id": "190",
+            "sources": [],
+            "text": "” The malware used in these attacks destroyed data without any chance of recovery, using the ransom demand simply to cover its true intention."
+        },
+        {
+            "id": "191",
+            "sources": [],
+            "text": "The use of HermeticWiper further demonstrates this point."
+        },
+        {
+            "id": "192",
+            "sources": [],
+            "text": "The preparation required to prevent and recover from these attacks is similar in either case."
+        },
+        {
+            "id": "193",
+            "sources": [],
+            "text": "Testing back-up and recovery plans is critical, as well as testing your continuity of operations plan in case your network or other key systems are disabled in the attack."
+        },
+        {
+            "id": "194",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "195",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "196",
+            "sources": [],
+            "text": "Be Prepared to Respond Quickly: Ensure that you designate points of contact across your organization in key areas in case of a cybersecurity incident or disruption in critical infrastructure."
+        },
+        {
+            "id": "197",
+            "sources": [],
+            "text": "Test your communication protocol (and backup protocols) to avoid being caught without a clear mechanism to disseminate critical information."
+        },
+        {
+            "id": "198",
+            "sources": [],
+            "text": "Perform a table-top exercise with all of the key parties to walk through how you would respond in the event the worst happens."
+        },
+        {
+            "id": "199",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "200",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "201",
+            "sources": [],
+            "text": "Lock Down Your Network: Making small policy changes can decrease the likelihood of a successful attack against your network."
+        },
+        {
+            "id": "202",
+            "sources": [],
+            "text": "Many applications can be abused, even though the application itself may not be malicious."
+        },
+        {
+            "id": "203",
+            "sources": [],
+            "text": "If your organization doesn’t require their functionality, blocking them will improve your security posture."
+        },
+        {
+            "id": "204",
+            "sources": [],
+            "text": "For example, recent attacks have abused popular applications – like Trello and Discord – to distribute malicious files."
+        },
+        {
+            "id": "205",
+            "sources": [],
+            "text": "Users didn’t need to use the software to be impacted, the attackers simply used the platforms to host links to files."
+        },
+        {
+            "id": "206",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "207",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "208",
+            "sources": [],
+            "text": "There is no way to know for certain what shape an attack may take, but taking these steps will help provide broad protection against what we expect to come."
+        },
+        {
+            "id": "209",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "210",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "211",
+            "sources": [],
+            "text": "How Unit 42 Threat Intelligence and Security Consulting Can Help."
+        },
+        {
+            "id": "212",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "213",
+            "sources": [],
+            "text": "Unit 42, the threat intelligence and security consulting arm of Palo Alto Networks, has a team of experts who can help your organization assess and test your security controls with proactive assessments and incident simulation services."
+        },
+        {
+            "id": "214",
+            "sources": [],
+            "text": "Because of the likelihood of ransomware attacks – or destructive attacks that pose as ransomware – it may be beneficial to focus on preparing in this area, particularly ensuring backup and recovery plans are in place."
+        },
+        {
+            "id": "215",
+            "sources": [],
+            "text": "We have distilled the knowledge we’ve gained from responding to hundreds of ransomware incidents into our Ransomware Readiness Assessment offering, which is designed to help organizations strengthen their processes and technology to mitigate threats like the ones we expect in the coming days and weeks."
+        },
+        {
+            "id": "216",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "217",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "218",
+            "sources": [],
+            "text": "If you think you may have been compromised by wiper attacks, Gamaredon, DDoS attacks or other cyber activity related to Russia-Ukraine, or have an urgent matter, get in touch with the Unit 42 Incident Response team or call North America Toll-Free: 866."
+        },
+        {
+            "id": "219",
+            "sources": [],
+            "text": "4."
+        },
+        {
+            "id": "220",
+            "sources": [],
+            "text": "\n"
+        }
+    ],
+    "summary": [
+        {
+            "id": "1",
+            "sources": [
+                "3",
+                "11",
+                "12"
+            ],
+            "text": "The article discusses various cyber threats arising from the Russia-Ukraine conflict, including DDoS attacks targeting Ukrainian government and banking institutions (blocks 3, 11, 12)."
+        },
+        {
+            "id": "2",
+            "sources": [
+                "41",
+                "42"
+            ],
+            "text": "The presence of HermeticWiper malware has been linked to attacks on financial institutions and contractors related to the Ukrainian government (blocks 41, 42)."
+        },
+        {
+            "id": "3",
+            "sources": [
+                "47",
+                "55"
+            ],
+            "text": "Website defacement incidents have increased, mirroring tactics from previous attacks and involving anonymous entities selling Ukrainian citizens' data (blocks 47, 55)."
+        },
+        {
+            "id": "4",
+            "sources": [
+                "63",
+                "68"
+            ],
+            "text": "Phishing and scams utilizing Ukraine-related keywords have risen sharply amid ongoing turmoil, with analysis revealing that attackers exploit current events (blocks 63, 68)."
+        },
+        {
+            "id": "5",
+            "sources": [
+                "176",
+                "182",
+                "188"
+            ],
+            "text": "Organizations are advised to adopt robust cybersecurity measures, including patching critical software and preparing for rapid response to potential attacks (blocks 176, 182, 188)."
+        }
+    ]
+}

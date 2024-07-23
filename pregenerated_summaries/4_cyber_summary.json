@@ -1,0 +1,2881 @@
+{
+    "source": [
+        {
+            "id": "1",
+            "sources": [],
+            "text": "### When Pentest Tools Go Brutal: Red-Teaming Tool Being Abused by Malicious Actors."
+        },
+        {
+            "id": "2",
+            "sources": [],
+            "text": " "
+        },
+        {
+            "id": "3",
+            "sources": [],
+            "text": "Brute Ratel C4 made its initial debut as a penetration testing tool in December 2020."
+        },
+        {
+            "id": "4",
+            "sources": [],
+            "text": "At the time, its development was a part-time effort by a security engineer named Chetan Nayak (aka Paranoid Ninja) living in India."
+        },
+        {
+            "id": "5",
+            "sources": [],
+            "text": "According to his website (Dark Vortex), Nayak amassed several years of experience working in senior red team roles across western cybersecurity vendors."
+        },
+        {
+            "id": "6",
+            "sources": [],
+            "text": "Over the past 2."
+        },
+        {
+            "id": "7",
+            "sources": [],
+            "text": "5 years, Nayak introduced incremental improvements to the pentest tool in terms of features, capabilities, support and training."
+        },
+        {
+            "id": "8",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "9",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "10",
+            "sources": [],
+            "text": "In January 2022, Nayak left his day job in order to pursue full-time development and training workshops."
+        },
+        {
+            "id": "11",
+            "sources": [],
+            "text": "That same month, he released Brute Ratel v0.9.0"
+        },
+        {
+            "id": "12",
+            "sources": [],
+            "text": " "
+        },
+        {
+            "id": "13",
+            "sources": [],
+            "text": "(Checkmate), which is described as the “biggest release for Brute Ratel till date.”."
+        },
+        {
+            "id": "14",
+            "sources": [],
+            "text": " "
+        },
+        {
+            "id": "15",
+            "sources": [],
+            "text": " "
+        },
+        {
+            "id": "16",
+            "sources": [],
+            "text": "Checkmate release notes: \"Brute Ratel v0.9.0"
+        },
+        {
+            "id": "17",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "18",
+            "sources": [],
+            "text": "(Checkmate) is biggest release for Brute Ratel till date."
+        },
+        {
+            "id": "19",
+            "sources": [],
+            "text": "This release brings major changes to the Brute Ratel's loader, reflective DLL, shellcode and the internal APIs being called."
+        },
+        {
+            "id": "20",
+            "sources": [],
+            "text": "As detailed in the provided version, where several syscall injection techniques were added for evasion, but they were limited to the reflective DLLs loader of BRc4 and the VEH API of Windows."
+        },
+        {
+            "id": "21",
+            "sources": [],
+            "text": "This version uses an updated version of Syscalls for almost everything except a few of those which I was pretty sure would never be hooked since they are too nosy."
+        },
+        {
+            "id": "22",
+            "sources": [],
+            "text": "This release was built after reverse engineering several top tier EDR and Antivirus DLLs."
+        },
+        {
+            "id": "23",
+            "sources": [],
+            "text": "A quick summary of the changes can be found in the release notes."
+        },
+        {
+            "id": "24",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "25",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "26",
+            "sources": [],
+            "text": "However, of greater concern, the release description also specifically noted that “this release was built after reverse engineering several top tier EDR and Antivirus DLLs."
+        },
+        {
+            "id": "27",
+            "sources": [],
+            "text": "”."
+        },
+        {
+            "id": "28",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "29",
+            "sources": [],
+            "text": "Our analysis highlights the ongoing and relevant debate within the cybersecurity industry surrounding the ethics relating to the development and use of penetration testing tools that can be exploited for offensive purposes."
+        },
+        {
+            "id": "30",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "31",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "32",
+            "sources": [],
+            "text": "BRc4 currently advertises itself as “A Customized Command and Control Center for Red Team and Adversary Simulation."
+        },
+        {
+            "id": "33",
+            "sources": [],
+            "text": "” On May 16, Nayak announced that the tool had gained 480 users across 350 customers."
+        },
+        {
+            "id": "34",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "35",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "36",
+            "sources": [],
+            "text": "Twitter post by Paranoid Ninja (Brute Ratel C4): Extremely happy to announce that Brute Ratel has crossed 350 customers and around 480+ licenses last week."
+        },
+        {
+            "id": "37",
+            "sources": [],
+            "text": "#BRc4 started off as a fun project 2 years back, before I decided to make it commercial."
+        },
+        {
+            "id": "38",
+            "sources": [],
+            "text": "I had my doubts when I started, since BRc4 was very basic back then and had a few bugs."
+        },
+        {
+            "id": "39",
+            "sources": [],
+            "text": "But a lot of my followers seemed to have faith in me and the product."
+        },
+        {
+            "id": "40",
+            "sources": [],
+            "text": "I decided to make the whole support transparent on discord so that customers can discuss on the channel and report anything they find."
+        },
+        {
+            "id": "41",
+            "sources": [],
+            "text": "And with a lot of feedback and support from the community, BRc4 became better and better with every release and has more features and is stable than any other C2 in the market."
+        },
+        {
+            "id": "42",
+            "sources": [],
+            "text": "There are some seriously insane features in the roadmap in the next few months and I couldn't be happier with the decision I took 2 years back."
+        },
+        {
+            "id": "43",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "44",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "45",
+            "sources": [],
+            "text": "Figure 2."
+        },
+        {
+            "id": "46",
+            "sources": [],
+            "text": "BRC4 customer announcement."
+        },
+        {
+            "id": "47",
+            "sources": [],
+            "text": "Source: https://twitter."
+        },
+        {
+            "id": "48",
+            "sources": [],
+            "text": "com/NinjaParanoid/status/1526110403356282880."
+        },
+        {
+            "id": "49",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "50",
+            "sources": [],
+            "text": "The latest version, Brute Ratel v1."
+        },
+        {
+            "id": "51",
+            "sources": [],
+            "text": "0 (Sicilian Defense) was released a day later on May 17, and is currently offered for sale at a price of $2,500 per user and $2,250 per renewal."
+        },
+        {
+            "id": "52",
+            "sources": [],
+            "text": "With this price point and customer base, BRc4 is positioned to take in more than $1 million dollars in sales over the next year."
+        },
+        {
+            "id": "53",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "54",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "55",
+            "sources": [],
+            "text": "In terms of features, BRc4 advertises the following capabilities:."
+        },
+        {
+            "id": "56",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "57",
+            "sources": [],
+            "text": "SMB and TCP payloads provide functionality to write custom external C2 channels over legitimate websites such as Slack, Discord, Microsoft Teams and more."
+        },
+        {
+            "id": "58",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "59",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "60",
+            "sources": [],
+            "text": "Built-in debugger To detect EDR userland hooks."
+        },
+        {
+            "id": "61",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "62",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "63",
+            "sources": [],
+            "text": "Ability to keep memory artifacts hidden from EDRs and AV."
+        },
+        {
+            "id": "64",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "65",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "66",
+            "sources": [],
+            "text": "Direct Windows SYS calls on the fly."
+        },
+        {
+            "id": "67",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "68",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "69",
+            "sources": [],
+            "text": "Egress over HTTP, HTTPS, DNS Over HTTPS, SMB and TCP."
+        },
+        {
+            "id": "70",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "71",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "72",
+            "sources": [],
+            "text": "LDAP Sentinel provides a rich GUI interface to query various LDAP queries to the domain or a forest."
+        },
+        {
+            "id": "73",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "74",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "75",
+            "sources": [],
+            "text": "Multiple command and control channels – multiple pivot options such as SMB, TCP, WMI, WinRM and managing remote services over RPC."
+        },
+        {
+            "id": "76",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "77",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "78",
+            "sources": [],
+            "text": "Take screenshots."
+        },
+        {
+            "id": "79",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "80",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "81",
+            "sources": [],
+            "text": "x64 shellcode loader."
+        },
+        {
+            "id": "82",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "83",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "84",
+            "sources": [],
+            "text": "Reflective and object file loader."
+        },
+        {
+            "id": "85",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "86",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "87",
+            "sources": [],
+            "text": "Decoding KRB5 ticket and converting it to hashcat."
+        },
+        {
+            "id": "88",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "89",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "90",
+            "sources": [],
+            "text": "Patching Event Tracing for Windows (ETW)."
+        },
+        {
+            "id": "91",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "92",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "93",
+            "sources": [],
+            "text": "Patching Anti Malware Scan Interface (AMSI)."
+        },
+        {
+            "id": "94",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "95",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "96",
+            "sources": [],
+            "text": "Create Windows system services."
+        },
+        {
+            "id": "97",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "98",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "99",
+            "sources": [],
+            "text": "Upload and download files."
+        },
+        {
+            "id": "100",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "101",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "102",
+            "sources": [],
+            "text": "Create files via CreateFileTransacted."
+        },
+        {
+            "id": "103",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "104",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "105",
+            "sources": [],
+            "text": "Port scan."
+        },
+        {
+            "id": "106",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "107",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "108",
+            "sources": [],
+            "text": "From Click to Brute."
+        },
+        {
+            "id": "109",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "110",
+            "sources": [],
+            "text": "Screenshot of VirusTotal verdicts for Roshan_CV sample: \"No security vendors and no sandboxes flagged this file as malicious."
+        },
+        {
+            "id": "111",
+            "sources": [],
+            "text": "\"."
+        },
+        {
+            "id": "112",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "113",
+            "sources": [],
+            "text": "Figure 4."
+        },
+        {
+            "id": "114",
+            "sources": [],
+            "text": "VirusTotal verdicts for sample as of June 27, 2022."
+        },
+        {
+            "id": "115",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "116",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "117",
+            "sources": [],
+            "text": "The file in VirusTotal named Roshan_CV."
+        },
+        {
+            "id": "118",
+            "sources": [],
+            "text": "iso (SHA256: 1FC7B0E1054D54CE8F1DE0CC95976081C7A85C7926C03172A3DDAA672690042C) appears to be a curriculum vitae (similar to a resume) of an individual named Roshan."
+        },
+        {
+            "id": "119",
+            "sources": [],
+            "text": "It was uploaded to VirusTotal on May 19, 2022, from Sri Lanka."
+        },
+        {
+            "id": "120",
+            "sources": [],
+            "text": "The ISO file extension refers to an optical disc image file, derived from the International Organization for Standardization’s ISO 9960 file system, which is typically used to back up files for CD/DVD."
+        },
+        {
+            "id": "121",
+            "sources": [],
+            "text": "The ISO file is not malicious and requires a user to double-click, which mounts the ISO as a Windows drive."
+        },
+        {
+            "id": "122",
+            "sources": [],
+            "text": "Finally, the archived files of the ISO are displayed to the user."
+        },
+        {
+            "id": "123",
+            "sources": [],
+            "text": "In this case, when the ISO is double-clicked, a user is presented with the following:."
+        },
+        {
+            "id": "124",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "125",
+            "sources": [],
+            "text": "As depicted in Figure 5, the user would see a file named Roshan-Bandara_CV_Dialog, which has a fake icon image of Microsoft Word, purporting to be an individual's CV, and written in Microsoft Word."
+        },
+        {
+            "id": "126",
+            "sources": [],
+            "text": "From the window dialog box it can be ascertained that the ISO was assembled on May 17, 2022, which coincidentally is the same day the new BRc4 was released."
+        },
+        {
+            "id": "127",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "128",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "129",
+            "sources": [],
+            "text": "If the user were to double-click on the file, it would then install Brute Ratel C4 on the user's machine."
+        },
+        {
+            "id": "130",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "131",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "132",
+            "sources": [],
+            "text": "By default, on Windows operating systems, hidden files are not displayed to the user."
+        },
+        {
+            "id": "133",
+            "sources": [],
+            "text": "In Figure 6, there are four hidden files concealed from view."
+        },
+        {
+            "id": "134",
+            "sources": [],
+            "text": "If the display of hidden files is enabled, the user sees the following:."
+        },
+        {
+            "id": "135",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "136",
+            "sources": [],
+            "text": "With \"show hidden files\" enabled, more files are visible: Roshan-Bandara-CV-Dialog, version."
+        },
+        {
+            "id": "137",
+            "sources": [],
+            "text": "dll, vresion."
+        },
+        {
+            "id": "138",
+            "sources": [],
+            "text": "dll, OneDrive."
+        },
+        {
+            "id": "139",
+            "sources": [],
+            "text": "Update, OneDriveUpdater."
+        },
+        {
+            "id": "140",
+            "sources": [],
+            "text": "exe."
+        },
+        {
+            "id": "141",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "142",
+            "sources": [],
+            "text": "Figure 6."
+        },
+        {
+            "id": "143",
+            "sources": [],
+            "text": "Viewing ISO image with “show hidden files” enabled."
+        },
+        {
+            "id": "144",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "145",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "146",
+            "sources": [],
+            "text": "The lure file, the one visible to the user, is a Windows shortcut file (LNK) with the following properties:."
+        },
+        {
+            "id": "147",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "148",
+            "sources": [],
+            "text": "Microsoft shortcut files, those with a."
+        },
+        {
+            "id": "149",
+            "sources": [],
+            "text": "lnk file extension, contain enriched metadata that can be used to provide artifacts about the file."
+        },
+        {
+            "id": "150",
+            "sources": [],
+            "text": "Some key artifacts of this file are:."
+        },
+        {
+            "id": "151",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "152",
+            "sources": [],
+            "text": "Link CLSID: 20D04FE0-3AEA-1069-A2D8-08002B30309D."
+        },
+        {
+            "id": "153",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "154",
+            "sources": [],
+            "text": "The CLSID used here isn’t the normal CLSID for LNK files, as this CLSID is associated with the Control Panel (always Icons view)."
+        },
+        {
+            "id": "155",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "156",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "157",
+            "sources": [],
+            "text": "Command line arguments: %windir%/system32/cmd."
+        },
+        {
+            "id": "158",
+            "sources": [],
+            "text": "exe /c start OneDriveUpdater."
+        },
+        {
+            "id": "159",
+            "sources": [],
+            "text": "exe."
+        },
+        {
+            "id": "160",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "161",
+            "sources": [],
+            "text": "Icon location: C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD."
+        },
+        {
+            "id": "162",
+            "sources": [],
+            "text": "EXE."
+        },
+        {
+            "id": "163",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "164",
+            "sources": [],
+            "text": "When Roshan-Bandara_CV_Dialog is double-clicked, the following actions occur:."
+        },
+        {
+            "id": "165",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "166",
+            "sources": [],
+            "text": "cmd."
+        },
+        {
+            "id": "167",
+            "sources": [],
+            "text": "exe is launched with the parameters of:."
+        },
+        {
+            "id": "168",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "169",
+            "sources": [],
+            "text": "/c start OneDriveUpdater."
+        },
+        {
+            "id": "170",
+            "sources": [],
+            "text": "exe."
+        },
+        {
+            "id": "171",
+            "sources": [],
+            "text": "The /c parameter instructs cmd."
+        },
+        {
+            "id": "172",
+            "sources": [],
+            "text": "exe to launch OneDriveUpdater."
+        },
+        {
+            "id": "173",
+            "sources": [],
+            "text": "exe via Windows start command from the current working directory and exit."
+        },
+        {
+            "id": "174",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "175",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "176",
+            "sources": [],
+            "text": "OneDriveUpdater."
+        },
+        {
+            "id": "177",
+            "sources": [],
+            "text": "exe is a digitally signed binary by Microsoft that is used to synchronize data from a local machine to the cloud."
+        },
+        {
+            "id": "178",
+            "sources": [],
+            "text": "It is not malicious and is being abused to load the actor’s DLL."
+        },
+        {
+            "id": "179",
+            "sources": [],
+            "text": "Once OneDriveUpdater."
+        },
+        {
+            "id": "180",
+            "sources": [],
+            "text": "exe is executed, the following actions occur:."
+        },
+        {
+            "id": "181",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "182",
+            "sources": [],
+            "text": "Since Version."
+        },
+        {
+            "id": "183",
+            "sources": [],
+            "text": "dll is a dependency DLL of OneDriveUpdater."
+        },
+        {
+            "id": "184",
+            "sources": [],
+            "text": "exe and exists in the same directory as OneDriveUpdater."
+        },
+        {
+            "id": "185",
+            "sources": [],
+            "text": "exe, it will be loaded."
+        },
+        {
+            "id": "186",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "187",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "188",
+            "sources": [],
+            "text": "Version."
+        },
+        {
+            "id": "189",
+            "sources": [],
+            "text": "dll has been modified by the actors to load an encrypted payload file, OneDrive."
+        },
+        {
+            "id": "190",
+            "sources": [],
+            "text": "update."
+        },
+        {
+            "id": "191",
+            "sources": [],
+            "text": "The modification decrypts the file and in-memory loads the first stage of shellcode."
+        },
+        {
+            "id": "192",
+            "sources": [],
+            "text": "To maintain code capabilities, the actors use DLL API proxying to forward requests to the legitimate version."
+        },
+        {
+            "id": "193",
+            "sources": [],
+            "text": "dll named vresion."
+        },
+        {
+            "id": "194",
+            "sources": [],
+            "text": "dll."
+        },
+        {
+            "id": "195",
+            "sources": [],
+            "text": "Vresion."
+        },
+        {
+            "id": "196",
+            "sources": [],
+            "text": "dll is a dependency file of the actor’s version."
+        },
+        {
+            "id": "197",
+            "sources": [],
+            "text": "dll and will be loaded with the actor’s version."
+        },
+        {
+            "id": "198",
+            "sources": [],
+            "text": "dll."
+        },
+        {
+            "id": "199",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "200",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "201",
+            "sources": [],
+            "text": "The in-memory code, that is Brute Ratel C4, executes as a Windows thread in the RuntimeBroker."
+        },
+        {
+            "id": "202",
+            "sources": [],
+            "text": "exe process space and begins to communicate with IP 174."
+        },
+        {
+            "id": "203",
+            "sources": [],
+            "text": "129."
+        },
+        {
+            "id": "204",
+            "sources": [],
+            "text": "157[."
+        },
+        {
+            "id": "205",
+            "sources": [],
+            "text": "]251 on TCP port 443."
+        },
+        {
+            "id": "206",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "207",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "208",
+            "sources": [],
+            "text": "Packaging of Roshan_CV."
+        },
+        {
+            "id": "209",
+            "sources": [],
+            "text": "ISO."
+        },
+        {
+            "id": "210",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "211",
+            "sources": [],
+            "text": "The composition of the ISO file, Roshan_CV."
+        },
+        {
+            "id": "212",
+            "sources": [],
+            "text": "ISO, closely resembles that of other nation-state APT tradecraft."
+        },
+        {
+            "id": "213",
+            "sources": [],
+            "text": "The following table shows a side-by-side comparison of Roshan_CV."
+        },
+        {
+            "id": "214",
+            "sources": [],
+            "text": "ISO and that of a previously identified APT29 sample (Decret."
+        },
+        {
+            "id": "215",
+            "sources": [],
+            "text": "ISO)."
+        },
+        {
+            "id": "216",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "217",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "218",
+            "sources": [],
+            "text": "Comparison between Roshan file and Decret file (known APT29 sample)."
+        },
+        {
+            "id": "219",
+            "sources": [],
+            "text": "It shows that both abuse trusted applications digitally signed, contain hidden files, share a file extension, drop a shortcut (LNK) file as a lure, use a fake icon and use Version."
+        },
+        {
+            "id": "220",
+            "sources": [],
+            "text": "dll."
+        },
+        {
+            "id": "221",
+            "sources": [],
+            "text": "Roshan uses an encrypted payload where Decret does not."
+        },
+        {
+            "id": "222",
+            "sources": [],
+            "text": "The image also contains SHA-256 hashes for both files."
+        },
+        {
+            "id": "223",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "224",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "225",
+            "sources": [],
+            "text": "The following images show how Roshan_CV."
+        },
+        {
+            "id": "226",
+            "sources": [],
+            "text": "ISO and Decret."
+        },
+        {
+            "id": "227",
+            "sources": [],
+            "text": "ISO would look to a user when double-clicked."
+        },
+        {
+            "id": "228",
+            "sources": [],
+            "text": "Figure 9 is a screenshot of the default Windows File Explorer; “show hidden files” is not checked."
+        },
+        {
+            "id": "229",
+            "sources": [],
+            "text": "In both images, the user is presented with a shortcut file (LNK file) that starts the malicious activity when double-clicked."
+        },
+        {
+            "id": "230",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "231",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "232",
+            "sources": [],
+            "text": "Figure 10 shows how the ISOs would appear when show hidden files” is enabled for viewing."
+        },
+        {
+            "id": "233",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "234",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "235",
+            "sources": [],
+            "text": "The flow of execution is the following:."
+        },
+        {
+            "id": "236",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "237",
+            "sources": [],
+            "text": "The delivery of packaged ISO files is typically sent via spear phishing email campaigns or downloaded to the victim by a second-stage downloader."
+        },
+        {
+            "id": "238",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "239",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "240",
+            "sources": [],
+            "text": "While we lack insight into how this particular payload was delivered to a target environment, we observed connection attempts to the C2 server originating from three Sri Lankan IP addresses between May 19-20."
+        },
+        {
+            "id": "241",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "242",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "243",
+            "sources": [],
+            "text": "Modification of Version."
+        },
+        {
+            "id": "244",
+            "sources": [],
+            "text": "dll."
+        },
+        {
+            "id": "245",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "246",
+            "sources": [],
+            "text": "Version."
+        },
+        {
+            "id": "247",
+            "sources": [],
+            "text": "dll is a modified version of a legitimate Microsoft file written in C++."
+        },
+        {
+            "id": "248",
+            "sources": [],
+            "text": "The implanted code is used to load and decrypt an encrypted payload file."
+        },
+        {
+            "id": "249",
+            "sources": [],
+            "text": "The decrypted payload is that of shellcode (x64 assembly) that is further used to execute Brute Ratel C4 on the host."
+        },
+        {
+            "id": "250",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "251",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "252",
+            "sources": [],
+            "text": "In order for Version."
+        },
+        {
+            "id": "253",
+            "sources": [],
+            "text": "dll to maintain its code capabilities for OneDriveUpdater."
+        },
+        {
+            "id": "254",
+            "sources": [],
+            "text": "exe, the actors include the legitimate digitally signed Microsoft version."
+        },
+        {
+            "id": "255",
+            "sources": [],
+            "text": "dll and named it vresion."
+        },
+        {
+            "id": "256",
+            "sources": [],
+            "text": "dll."
+        },
+        {
+            "id": "257",
+            "sources": [],
+            "text": "Any time OneDriveUpdater."
+        },
+        {
+            "id": "258",
+            "sources": [],
+            "text": "exe makes a call into the actor’s Version."
+        },
+        {
+            "id": "259",
+            "sources": [],
+            "text": "dll, the call is proxied to vresion."
+        },
+        {
+            "id": "260",
+            "sources": [],
+            "text": "dll."
+        },
+        {
+            "id": "261",
+            "sources": [],
+            "text": "Because of this, the actor’s version."
+        },
+        {
+            "id": "262",
+            "sources": [],
+            "text": "dll will load vresion."
+        },
+        {
+            "id": "263",
+            "sources": [],
+            "text": "dll as a dependency file."
+        },
+        {
+            "id": "264",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "265",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "266",
+            "sources": [],
+            "text": "The implanted code begins when the DLL is loaded via DLL_PROCESS_ATTACH and performs the following at the DLLMain subroutine:."
+        },
+        {
+            "id": "267",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "268",
+            "sources": [],
+            "text": "Enumerate all processes and locate the process ID (PID) for Runtimebroker."
+        },
+        {
+            "id": "269",
+            "sources": [],
+            "text": "exe."
+        },
+        {
+            "id": "270",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "271",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "272",
+            "sources": [],
+            "text": "Read the payload file OneDrive."
+        },
+        {
+            "id": "273",
+            "sources": [],
+            "text": "Update from the current working directory."
+        },
+        {
+            "id": "274",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "275",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "276",
+            "sources": [],
+            "text": "Call the Windows API ntdll ZwOpenProcess using the process ID from step 1."
+        },
+        {
+            "id": "277",
+            "sources": [],
+            "text": "The process is opened with full control access."
+        },
+        {
+            "id": "278",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "279",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "280",
+            "sources": [],
+            "text": "Decrypt the payload file using the XOR encryption algorithm with a 28-byte key of: jikoewarfkmzsdlhfnuiwaejrpaw."
+        },
+        {
+            "id": "281",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "282",
+            "sources": [],
+            "text": "Call the Windows API NtCreateSection, which creates a block of memory that can be shared between processes."
+        },
+        {
+            "id": "283",
+            "sources": [],
+            "text": "This API is used to share memory with Runtimebroker."
+        },
+        {
+            "id": "284",
+            "sources": [],
+            "text": "exe and Version."
+        },
+        {
+            "id": "285",
+            "sources": [],
+            "text": "dll."
+        },
+        {
+            "id": "286",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "287",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "288",
+            "sources": [],
+            "text": "Two calls into the Windows API NtMapViewOfSection."
+        },
+        {
+            "id": "289",
+            "sources": [],
+            "text": "The first call maps the contents of the decrypted payload into the current process memory space, and the second call maps the contents into the Runtimebroker."
+        },
+        {
+            "id": "290",
+            "sources": [],
+            "text": "exe memory space."
+        },
+        {
+            "id": "291",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "292",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "293",
+            "sources": [],
+            "text": "Calls the Windows API NtDelayExecution and sleeps (pauses execution) for ~4."
+        },
+        {
+            "id": "294",
+            "sources": [],
+            "text": "27 seconds."
+        },
+        {
+            "id": "295",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "296",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "297",
+            "sources": [],
+            "text": "Call the Windows API NtCreateThreadEx."
+        },
+        {
+            "id": "298",
+            "sources": [],
+            "text": "This API starts a new thread with the start address of the memory copied to Runtimebroker."
+        },
+        {
+            "id": "299",
+            "sources": [],
+            "text": "exe."
+        },
+        {
+            "id": "300",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "301",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "302",
+            "sources": [],
+            "text": "Calls the Windows API NtDelayExecution and sleeps (pauses execution) for ~4."
+        },
+        {
+            "id": "303",
+            "sources": [],
+            "text": "27 seconds."
+        },
+        {
+            "id": "304",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "305",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "306",
+            "sources": [],
+            "text": "Finished."
+        },
+        {
+            "id": "307",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "308",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "309",
+            "sources": [],
+            "text": "The technique outlined above uses process injection via undocumented Windows NTAPI calls."
+        },
+        {
+            "id": "310",
+            "sources": [],
+            "text": "The decrypted payload is now running within the runtimebroker."
+        },
+        {
+            "id": "311",
+            "sources": [],
+            "text": "exe memory space."
+        },
+        {
+            "id": "312",
+            "sources": [],
+            "text": "The following is a snippet of code from version."
+        },
+        {
+            "id": "313",
+            "sources": [],
+            "text": "dll that starts the execution of the in-memory decrypted payload."
+        },
+        {
+            "id": "314",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "315",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "316",
+            "sources": [],
+            "text": "Version."
+        },
+        {
+            "id": "317",
+            "sources": [],
+            "text": "dll calling NtCreateThreadEx."
+        },
+        {
+            "id": "318",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "319",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "320",
+            "sources": [],
+            "text": "X64 Shellcode – Decrypted OneDrive."
+        },
+        {
+            "id": "321",
+            "sources": [],
+            "text": "Update."
+        },
+        {
+            "id": "322",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "323",
+            "sources": [],
+            "text": "The decrypted payload file is x64 shellcode (assembly instructions) that involves a series of executions to unpack itself."
+        },
+        {
+            "id": "324",
+            "sources": [],
+            "text": "The assembly instructions involve multiple push and mov instructions."
+        },
+        {
+            "id": "325",
+            "sources": [],
+            "text": "The purpose of this is to copy the Brute Ratel C4 code (x64 assembly) onto the stack eight bytes at a time and eventually reassemble it into a memory space for execution – a DLL with a stripped MZ header."
+        },
+        {
+            "id": "326",
+            "sources": [],
+            "text": "Using a series of push and mov instructions evades in-memory scanning as the shellcode is assembled in blocks versus the entire code base being exposed for scanning."
+        },
+        {
+            "id": "327",
+            "sources": [],
+            "text": "The entry point of the decrypted payload is the following:."
+        },
+        {
+            "id": "328",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "329",
+            "sources": [],
+            "text": "The unpacking involves 25,772 push and 25,769 mov instructions."
+        },
+        {
+            "id": "330",
+            "sources": [],
+            "text": "When finished, the code performs the following."
+        },
+        {
+            "id": "331",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "332",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "333",
+            "sources": [],
+            "text": "Using API hashing (ROR13 – rotate right 13) looks up the hash for NtAllocateVirtualMemory."
+        },
+        {
+            "id": "334",
+            "sources": [],
+            "text": "All API calls are made via API hash lookups."
+        },
+        {
+            "id": "335",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "336",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "337",
+            "sources": [],
+            "text": "Resolves the system call index from the System Service Dispatch Table (SSDT) for NtAllocateVirtualMemory."
+        },
+        {
+            "id": "338",
+            "sources": [],
+            "text": "All Windows API functions are made via syscalls, which is a feature of Brute Ratel C4 (Syscall Everything)."
+        },
+        {
+            "id": "339",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "340",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "341",
+            "sources": [],
+            "text": "Calls the Windows API NtAllocateVirtualMemory, allocating 0x3000 bytes of memory."
+        },
+        {
+            "id": "342",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "343",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "344",
+            "sources": [],
+            "text": "Makes a second Windows API call into NtAllocateVirtualMemory, which allocates memory for the configuration file used by Brute Ratel C4."
+        },
+        {
+            "id": "345",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "346",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "347",
+            "sources": [],
+            "text": "Copies the shellcode that was pushed onto the stack in the previous steps to the newly allocated memory segment."
+        },
+        {
+            "id": "348",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "349",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "350",
+            "sources": [],
+            "text": "Changes the protection of the newly allocated memory block using Windows API call NtProtectVirtualMemory."
+        },
+        {
+            "id": "351",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "352",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "353",
+            "sources": [],
+            "text": "Calls NtCreateThreadEx with the start address of the newly allocated memory and passes the configuration data as a parameter."
+        },
+        {
+            "id": "354",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "355",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "356",
+            "sources": [],
+            "text": "Finished."
+        },
+        {
+            "id": "357",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "358",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "359",
+            "sources": [],
+            "text": "The following is a snippet of the code that calls NtCreateThreadEx and starts the execution of the second-stage shellcode."
+        },
+        {
+            "id": "360",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "361",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "362",
+            "sources": [],
+            "text": "The configuration data is passed as a parameter to the start address of the new thread."
+        },
+        {
+            "id": "363",
+            "sources": [],
+            "text": "This data includes the encrypted configuration settings for Brute Ratel C4."
+        },
+        {
+            "id": "364",
+            "sources": [],
+            "text": "The encrypted contents are the following:."
+        },
+        {
+            "id": "365",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "366",
+            "sources": [],
+            "text": "The data is base64-encoded and RC4-encrypted."
+        },
+        {
+            "id": "367",
+            "sources": [],
+            "text": "The 16-byte RC4 decryption key is: bYXJm/3#M?:XyMBF."
+        },
+        {
+            "id": "368",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "369",
+            "sources": [],
+            "text": "The decrypted configuration file is:."
+        },
+        {
+            "id": "370",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "371",
+            "sources": [],
+            "text": "Contents of decrypted configuration file."
+        },
+        {
+            "id": "372",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "373",
+            "sources": [],
+            "text": "Each parameter is delineated with a pipe | character, and one of the values is the IP seen earlier of 174."
+        },
+        {
+            "id": "374",
+            "sources": [],
+            "text": "129."
+        },
+        {
+            "id": "375",
+            "sources": [],
+            "text": "157[."
+        },
+        {
+            "id": "376",
+            "sources": [],
+            "text": "]251 and port of 443."
+        },
+        {
+            "id": "377",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "378",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "379",
+            "sources": [],
+            "text": "Target Network Infrastructure."
+        },
+        {
+            "id": "380",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "381",
+            "sources": [],
+            "text": "The IP 174."
+        },
+        {
+            "id": "382",
+            "sources": [],
+            "text": "129."
+        },
+        {
+            "id": "383",
+            "sources": [],
+            "text": "157[."
+        },
+        {
+            "id": "384",
+            "sources": [],
+            "text": "]251 is hosted on Amazon AWS, and Palo Alto Networks Cortex Xpanse history shows the IP had TCP port 443 open from April 29, 2022, until May 23, 2022, with a self-signed SSL certificate impersonating Microsoft Security:."
+        },
+        {
+            "id": "385",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "386",
+            "sources": [],
+            "text": "Once the SSL handshake to IP 174."
+        },
+        {
+            "id": "387",
+            "sources": [],
+            "text": "129."
+        },
+        {
+            "id": "388",
+            "sources": [],
+            "text": "157[."
+        },
+        {
+            "id": "389",
+            "sources": [],
+            "text": "]251 is complete, the following data is sent via HTTP POST to the Brute Ratel C4 listener port."
+        },
+        {
+            "id": "390",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "391",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "392",
+            "sources": [],
+            "text": "Identifying OneDrive."
+        },
+        {
+            "id": "393",
+            "sources": [],
+            "text": "Update."
+        },
+        {
+            "id": "394",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "395",
+            "sources": [],
+            "text": "To identify the decrypted in-memory payload as being associated with Brute Ratel C4, we conducted hunting based on the unique in-memory assembly instructions, push and mov."
+        },
+        {
+            "id": "396",
+            "sources": [],
+            "text": "These instructions are used to build the second layer of shellcode."
+        },
+        {
+            "id": "397",
+            "sources": [],
+            "text": "Searching across VirusTotal, we found a second sample with the same push and mov instructions:."
+        },
+        {
+            "id": "398",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "399",
+            "sources": [],
+            "text": "Initially, what stood out to us was the filename containing the word “badger."
+        },
+        {
+            "id": "400",
+            "sources": [],
+            "text": "” According to the Brute Ratel C4 website, the word “badger” represents payloads used for remote access."
+        },
+        {
+            "id": "401",
+            "sources": [],
+            "text": "When uploaded to VirusTotal, only two out of 66 vendors considered the sample malicious."
+        },
+        {
+            "id": "402",
+            "sources": [],
+            "text": "Currently, 12 vendors identify the sample as malicious with eight classifying this sample as “Brutel,” further supporting that our in-memory code is somehow associated with that of Brute Ratel C4."
+        },
+        {
+            "id": "403",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "404",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "405",
+            "sources": [],
+            "text": "Side-by-side comparison of the entry point of badger_x64."
+        },
+        {
+            "id": "406",
+            "sources": [],
+            "text": "exe and our decrypted OneDrive."
+        },
+        {
+            "id": "407",
+            "sources": [],
+            "text": "Update sample:."
+        },
+        {
+            "id": "408",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "409",
+            "sources": [],
+            "text": "When badger_x64."
+        },
+        {
+            "id": "410",
+            "sources": [],
+            "text": "exe is finished with the push and mov instructions, it makes the same Windows API calls as OneDrive."
+        },
+        {
+            "id": "411",
+            "sources": [],
+            "text": "Update using API hashing, but does not use direct syscall (a user configuration feature of Brute Ratel C4)."
+        },
+        {
+            "id": "412",
+            "sources": [],
+            "text": "Example of badger_x64."
+        },
+        {
+            "id": "413",
+            "sources": [],
+            "text": "exe:."
+        },
+        {
+            "id": "414",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "415",
+            "sources": [],
+            "text": "Like the OneDrive."
+        },
+        {
+            "id": "416",
+            "sources": [],
+            "text": "Update sample, the parameter passed to the calling thread is the configuration data for Brute Ratel C4."
+        },
+        {
+            "id": "417",
+            "sources": [],
+            "text": "In this sample, the data is not base64-encoded or RC4-encrypted, and is passed in the clear."
+        },
+        {
+            "id": "418",
+            "sources": [],
+            "text": "The following is the configuration used for this sample:."
+        },
+        {
+            "id": "419",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "420",
+            "sources": [],
+            "text": "The configuration used for the OneDrive."
+        },
+        {
+            "id": "421",
+            "sources": [],
+            "text": "Update sample."
+        },
+        {
+            "id": "422",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "423",
+            "sources": [],
+            "text": "In this case, the sample is configured to communicate with IP 159."
+        },
+        {
+            "id": "424",
+            "sources": [],
+            "text": "65."
+        },
+        {
+            "id": "425",
+            "sources": [],
+            "text": "186[."
+        },
+        {
+            "id": "426",
+            "sources": [],
+            "text": "]50 on TCP port 443."
+        },
+        {
+            "id": "427",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "428",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "429",
+            "sources": [],
+            "text": "Based on the following, we can conclude that OneDrive."
+        },
+        {
+            "id": "430",
+            "sources": [],
+            "text": "Update is indeed associated with Brute Ratel C4."
+        },
+        {
+            "id": "431",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "432",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "433",
+            "sources": [],
+            "text": "The configuration file structure is the same and uses pipes to delineate fields."
+        },
+        {
+            "id": "434",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "435",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "436",
+            "sources": [],
+            "text": "Same Windows calling pattern used to run the second-stage shellcode via NtCreateThreadEx/CreateThread."
+        },
+        {
+            "id": "437",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "438",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "439",
+            "sources": [],
+            "text": "Function instruction match for copying shellcode to memory allocation."
+        },
+        {
+            "id": "440",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "441",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "442",
+            "sources": [],
+            "text": "Both samples of second-stage shellcode have the following strings referencing the word “badger."
+        },
+        {
+            "id": "443",
+            "sources": [],
+            "text": "” Note: The OneDrive."
+        },
+        {
+            "id": "444",
+            "sources": [],
+            "text": "Update sample RC4 encrypts these strings."
+        },
+        {
+            "id": "445",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "446",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "447",
+            "sources": [],
+            "text": "imp_Badger."
+        },
+        {
+            "id": "448",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "449",
+            "sources": [],
+            "text": "BadgerDispatch."
+        },
+        {
+            "id": "450",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "451",
+            "sources": [],
+            "text": "BadgerDispatchW."
+        },
+        {
+            "id": "452",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "453",
+            "sources": [],
+            "text": "BadgerStrlen."
+        },
+        {
+            "id": "454",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "455",
+            "sources": [],
+            "text": "BadgerWcslen."
+        },
+        {
+            "id": "456",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "457",
+            "sources": [],
+            "text": "BadgerMemcpy."
+        },
+        {
+            "id": "458",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "459",
+            "sources": [],
+            "text": "BadgerMemset."
+        },
+        {
+            "id": "460",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "461",
+            "sources": [],
+            "text": "BadgerStrcmp."
+        },
+        {
+            "id": "462",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "463",
+            "sources": [],
+            "text": "BadgerWcscmp."
+        },
+        {
+            "id": "464",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "465",
+            "sources": [],
+            "text": "BadgerAtoi."
+        },
+        {
+            "id": "466",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "467",
+            "sources": [],
+            "text": "The Badger* names match the export names listed on the BRc4 GitHub website."
+        },
+        {
+            "id": "468",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "469",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "470",
+            "sources": [],
+            "text": "The file badger_x64."
+        },
+        {
+            "id": "471",
+            "sources": [],
+            "text": "exe is a standalone x64 executable that runs Brute Ratel C4 (badger payload) while the decrypted OneDrive."
+        },
+        {
+            "id": "472",
+            "sources": [],
+            "text": "Update file is the in-memory component of Brute Ratel C4 that is executed using the actor's modified DLL, version."
+        },
+        {
+            "id": "473",
+            "sources": [],
+            "text": "dll."
+        },
+        {
+            "id": "474",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "475",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "476",
+            "sources": [],
+            "text": "Badger_x64."
+        },
+        {
+            "id": "477",
+            "sources": [],
+            "text": "exe Employment."
+        },
+        {
+            "id": "478",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "479",
+            "sources": [],
+            "text": "After validating that badger_x64."
+        },
+        {
+            "id": "480",
+            "sources": [],
+            "text": "exe and OneDrive."
+        },
+        {
+            "id": "481",
+            "sources": [],
+            "text": "Update were both BRc4 payloads, we set to work analyzing the employment of this second sample."
+        },
+        {
+            "id": "482",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "483",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "484",
+            "sources": [],
+            "text": "VirusTotal records revealed that the sample was uploaded by a web user in Ukraine on May 20, 2022."
+        },
+        {
+            "id": "485",
+            "sources": [],
+            "text": "Coincidentally, this happens to be one day after the ​​Roshan_CV."
+        },
+        {
+            "id": "486",
+            "sources": [],
+            "text": "ISO file was uploaded."
+        },
+        {
+            "id": "487",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "488",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "489",
+            "sources": [],
+            "text": "As noted above, the sample was configured to call home to 159."
+        },
+        {
+            "id": "490",
+            "sources": [],
+            "text": "65."
+        },
+        {
+            "id": "491",
+            "sources": [],
+            "text": "186[."
+        },
+        {
+            "id": "492",
+            "sources": [],
+            "text": "]50 on port 443."
+        },
+        {
+            "id": "493",
+            "sources": [],
+            "text": "Palo Alto Networks Cortex Xpanse history shows that this port was open from May 21-June 18, 2022, with the same “Microsoft Security” self-signed SSL certificate seen above."
+        },
+        {
+            "id": "494",
+            "sources": [],
+            "text": "Given this timeline, it's worth noting that the sample was actually uploaded to VirusTotal prior to the C2 infrastructure being configured to listen for the callbacks."
+        },
+        {
+            "id": "495",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "496",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "497",
+            "sources": [],
+            "text": "Evaluating netflow connections for 159."
+        },
+        {
+            "id": "498",
+            "sources": [],
+            "text": "65."
+        },
+        {
+            "id": "499",
+            "sources": [],
+            "text": "186[."
+        },
+        {
+            "id": "500",
+            "sources": [],
+            "text": "]50 during this time window revealed several connections to ports 22, 443 and 8060 originating from a Ukrainian IP (213."
+        },
+        {
+            "id": "501",
+            "sources": [],
+            "text": "200."
+        },
+        {
+            "id": "502",
+            "sources": [],
+            "text": "56[."
+        },
+        {
+            "id": "503",
+            "sources": [],
+            "text": "]105)."
+        },
+        {
+            "id": "504",
+            "sources": [],
+            "text": "We assess this Ukrainian address is likely a residential user IP that was leveraged to administer the C2 infrastructure."
+        },
+        {
+            "id": "505",
+            "sources": [],
+            "text": "A deeper look at connections in and out of 213."
+        },
+        {
+            "id": "506",
+            "sources": [],
+            "text": "200."
+        },
+        {
+            "id": "507",
+            "sources": [],
+            "text": "56[."
+        },
+        {
+            "id": "508",
+            "sources": [],
+            "text": "]105 further revealed several flows over UDP port 33445."
+        },
+        {
+            "id": "509",
+            "sources": [],
+            "text": "This port is commonly used by Tox, a secure peer-to-peer chat and video application that offers end-to-end encryption."
+        },
+        {
+            "id": "510",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "511",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "512",
+            "sources": [],
+            "text": "Examining additional connections to port 443 on 159."
+        },
+        {
+            "id": "513",
+            "sources": [],
+            "text": "65."
+        },
+        {
+            "id": "514",
+            "sources": [],
+            "text": "186[."
+        },
+        {
+            "id": "515",
+            "sources": [],
+            "text": "]50, we identified several suspected victims including an Argentinian organization, an IP television provider providing North and South American content, and a major textile manufacturer in Mexico."
+        },
+        {
+            "id": "516",
+            "sources": [],
+            "text": "Coincidentally, recent attempts to browse the textile manufacturer’s website result in a 500 internal server error message."
+        },
+        {
+            "id": "517",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "518",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "519",
+            "sources": [],
+            "text": "Given the geographic dispersion of these victims, the upstream connection to a Ukrainian IP and several other factors, we believe it is highly unlikely that BRc4 was deployed in support of legitimate and sanctioned penetration testing activities."
+        },
+        {
+            "id": "520",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "521",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "522",
+            "sources": [],
+            "text": "Other Samples and Infrastructure."
+        },
+        {
+            "id": "523",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "524",
+            "sources": [],
+            "text": "Over the past year, the fake Microsoft Security X."
+        },
+        {
+            "id": "525",
+            "sources": [],
+            "text": "509 certificate has been linked to 41 IP addresses."
+        },
+        {
+            "id": "526",
+            "sources": [],
+            "text": "These addresses follow a global geographic dispersion and are predominantly owned by large virtual private server (VPS) hosting providers."
+        },
+        {
+            "id": "527",
+            "sources": [],
+            "text": "Expanding our research beyond the two samples discussed above, we have also identified an additional seven samples of BRc4 dating back to February 2021."
+        },
+        {
+            "id": "528",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "529",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "530",
+            "sources": [],
+            "text": "Protections and Mitigations."
+        },
+        {
+            "id": "531",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "532",
+            "sources": [],
+            "text": "For Palo Alto Networks customers, our products and services provide the following coverage associated with this group:."
+        },
+        {
+            "id": "533",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "534",
+            "sources": [],
+            "text": "Threat Prevention provides protection against Brute Ratel C4."
+        },
+        {
+            "id": "535",
+            "sources": [],
+            "text": "The \"Brute Ratel C4 Tool Command and Control Traffic Detections\" signature is threat ID 86647."
+        },
+        {
+            "id": "536",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "537",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "538",
+            "sources": [],
+            "text": "Cortex XDR detects and protects endpoints from the Brute Ratel C4 tool."
+        },
+        {
+            "id": "539",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "540",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "541",
+            "sources": [],
+            "text": "WildFire cloud-based threat analysis service accurately identifies Brute Ratel C4 samples as malware."
+        },
+        {
+            "id": "542",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "543",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "544",
+            "sources": [],
+            "text": "The emergence of a new penetration testing and adversary emulation capability is significant."
+        },
+        {
+            "id": "545",
+            "sources": [],
+            "text": "Yet more alarming is the effectiveness of BRc4 at defeating modern defensive EDR and AV detection capabilities."
+        },
+        {
+            "id": "546",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "547",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "548",
+            "sources": [],
+            "text": "Over the past 2."
+        },
+        {
+            "id": "549",
+            "sources": [],
+            "text": "5 years this tool has evolved from a part-time hobby to a full-time development project with a growing customer base."
+        },
+        {
+            "id": "550",
+            "sources": [],
+            "text": "As this customer base has expanded into the hundreds, the tool has gained increased attention across the cybersecurity domain from both legitimate penetration testers as well as malicious cyber actors."
+        },
+        {
+            "id": "551",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "552",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "553",
+            "sources": [],
+            "text": "The analysis of the two samples described in this blog, as well as the advanced tradecraft used to package these payloads, make it clear that malicious cyber actors have begun to adopt this capability."
+        },
+        {
+            "id": "554",
+            "sources": [],
+            "text": "We believe it is imperative that all security vendors create protections to detect BRc4 and that all organizations take proactive measures to defend against this tool."
+        },
+        {
+            "id": "555",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "556",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "557",
+            "sources": [],
+            "text": "Palo Alto Networks has shared these findings, including file samples and indicators of compromise, with our fellow Cyber Threat Alliance members."
+        },
+        {
+            "id": "558",
+            "sources": [],
+            "text": "CTA members use this intelligence to rapidly deploy protections to their customers and to systematically disrupt malicious cyber actors."
+        },
+        {
+            "id": "559",
+            "sources": [],
+            "text": "Learn more about the Cyber Threat Alliance."
+        },
+        {
+            "id": "560",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "561",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "562",
+            "sources": [],
+            "text": "Note that the Microsoft name and logo shown are an attempt to impersonate a legitimate organization and do not represent an actual affiliation with Microsoft."
+        },
+        {
+            "id": "563",
+            "sources": [],
+            "text": "This impersonation does not imply a vulnerability in Microsoft’s products or services."
+        },
+        {
+            "id": "564",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "565",
+            "sources": [],
+            "text": "\n"
+        }
+    ],
+    "summary": [
+        {
+            "id": "1",
+            "sources": [
+                "3",
+                "4",
+                "10",
+                "550"
+            ],
+            "text": "Brute Ratel C4, initially launched as a penetration testing tool in December 2020 by security engineer Chetan Nayak, has evolved significantly, gaining a substantial user base and improved functionalities over the years (3, 4, 7, 10, 550)."
+        },
+        {
+            "id": "2",
+            "sources": [
+                "18",
+                "19",
+                "26",
+                "29",
+                "544"
+            ],
+            "text": "The release of Brute Ratel v0.9.0 (Checkmate) introduced critical updates, designed specifically to evade detection by advanced security software, raising ethical concerns about its potential misuse by malicious actors (18, 19, 26, 29, 544)."
+        },
+        {
+            "id": "3",
+            "sources": [
+                "110",
+                "118",
+                "129",
+                "211",
+                "553"
+            ],
+            "text": "An analysis of a specific malicious campaign revealed that the tool was packaged within a non-malicious file, leading unsuspecting users to inadvertently install Brute Ratel on their devices (110, 118, 129, 211, 553)."
+        },
+        {
+            "id": "4",
+            "sources": [
+                "32",
+                "550",
+                "554"
+            ],
+            "text": "Brute Ratel's capabilities allow for sophisticated command and control, which has prompted concerns from the cybersecurity community regarding its implications for organizational security and how it has been adopted by bad actors (32, 550, 554)."
+        },
+        {
+            "id": "5",
+            "sources": [
+                "534",
+                "545",
+                "554"
+            ],
+            "text": "As a response, organizations are advised to implement strict security measures, and vendors are encouraged to develop detection solutions for Brute Ratel C4 to safeguard against its misuse (534, 545, 554)."
+        }
+    ]
+}

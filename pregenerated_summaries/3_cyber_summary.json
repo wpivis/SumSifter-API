@@ -1,0 +1,1323 @@
+{
+    "source": [
+        {
+            "id": "1",
+            "sources": [],
+            "text": "## Threat Brief: Ongoing Russia and Ukraine Cyber Conflict."
+        },
+        {
+            "id": "2",
+            "sources": [],
+            "text": " "
+        },
+        {
+            "id": "3",
+            "sources": [],
+            "text": "### HelloXD Malware Overview."
+        },
+        {
+            "id": "4",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "5",
+            "sources": [],
+            "text": "HelloXD is a ransomware family first observed in the wild on Nov."
+        },
+        {
+            "id": "6",
+            "sources": [],
+            "text": "30, 2021."
+        },
+        {
+            "id": "7",
+            "sources": [],
+            "text": "This ransomware family uses a modified ClamAV logo in their executables."
+        },
+        {
+            "id": "8",
+            "sources": [],
+            "text": "ClamAV is an open-source antivirus engine used to detect malware."
+        },
+        {
+            "id": "9",
+            "sources": [],
+            "text": "We also have observed additional samples with different versions of the logo, which led us to believe the ransomware developer may like using the ClamAV branding for their ransomware."
+        },
+        {
+            "id": "10",
+            "sources": [],
+            "text": "Additionally, some of the observed samples include properties information that can be observed in Figure 1."
+        },
+        {
+            "id": "11",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "12",
+            "sources": [],
+            "text": " "
+        },
+        {
+            "id": "13",
+            "sources": [],
+            "text": "The file description included the entry VlahmAV, a play on words on ClamAV, and the developer named the ransomware HelloXD and used another potential alias, uKnow, as the developer of HelloXD in the copyright section."
+        },
+        {
+            "id": "14",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "15",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "16",
+            "sources": [],
+            "text": "When executed, HelloXD tries to disable shadow copies to inhibit system recovery before encrypting files using the following commands embedded in the sample:."
+        },
+        {
+            "id": "17",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "18",
+            "sources": [],
+            "text": "HelloXD uses the commands shown to disable shadow copies."
+        },
+        {
+            "id": "19",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "20",
+            "sources": [],
+            "text": "Additionally the ransomware does a ping to 1."
+        },
+        {
+            "id": "21",
+            "sources": [],
+            "text": "1."
+        },
+        {
+            "id": "22",
+            "sources": [],
+            "text": "1[."
+        },
+        {
+            "id": "23",
+            "sources": [],
+            "text": "]1 and asks to wait a timeout of 3000 milliseconds between each reply, quickly followed with a delete command to delete the initial payload."
+        },
+        {
+            "id": "24",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "25",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "26",
+            "sources": [],
+            "text": "cmd."
+        },
+        {
+            "id": "27",
+            "sources": [],
+            "text": "exe /C ping 1."
+        },
+        {
+            "id": "28",
+            "sources": [],
+            "text": "1."
+        },
+        {
+            "id": "29",
+            "sources": [],
+            "text": "1[."
+        },
+        {
+            "id": "30",
+            "sources": [],
+            "text": "]1 -n 1 -w 3000 > Nul & Del /f /q."
+        },
+        {
+            "id": "31",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "32",
+            "sources": [],
+            "text": "\"C:\\Users\\admin\\Desktop\\xd."
+        },
+        {
+            "id": "33",
+            "sources": [],
+            "text": "exe\"."
+        },
+        {
+            "id": "34",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "35",
+            "sources": [],
+            "text": "Two of the initial set of samples identified create a unique mutex containing the following message:."
+        },
+        {
+            "id": "36",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "37",
+            "sources": [],
+            "text": "mutex: With best wishes And good intentions."
+        },
+        {
+            "id": "38",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "39",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "40",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "41",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "42",
+            "sources": [],
+            "text": "After those commands are executed, the ransomware finishes by appending the file extension."
+        },
+        {
+            "id": "43",
+            "sources": [],
+            "text": "hello, alongside a ransom note titled Hello."
+        },
+        {
+            "id": "44",
+            "sources": [],
+            "text": "txt (Figure 2)."
+        },
+        {
+            "id": "45",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "46",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "47",
+            "sources": [],
+            "text": "The ransom note was modified between the observed samples."
+        },
+        {
+            "id": "48",
+            "sources": [],
+            "text": "In the first sample we encountered (Figure 3, left), the ransom note only linked to a TOX ID, whereas a later observed sample (Figure 3, right) links to an onion domain as well as a TOX ID (different from the one in the first version)."
+        },
+        {
+            "id": "49",
+            "sources": [],
+            "text": "At the time of writing, this site is down."
+        },
+        {
+            "id": "50",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "51",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "52",
+            "sources": [],
+            "text": "The ransomware creates an ID for the victim which has to be sent to the threat actor to make it possible to identify the victim and provide a decryptor."
+        },
+        {
+            "id": "53",
+            "sources": [],
+            "text": "The ransom note also instructs victims to download Tox and provides a Tox Chat ID to reach the threat actor."
+        },
+        {
+            "id": "54",
+            "sources": [],
+            "text": "Tox is a peer-to-peer instant messaging protocol that offers end-to-end encryption and has been observed being used by other ransomware groups for negotiations."
+        },
+        {
+            "id": "55",
+            "sources": [],
+            "text": "For example, LockBit 2."
+        },
+        {
+            "id": "56",
+            "sources": [],
+            "text": "0 leverages Tox Chat for threat actor communications."
+        },
+        {
+            "id": "57",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "58",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "59",
+            "sources": [],
+            "text": "When observing both variants executing on virtual environments, we noted that the more recent variants changed the background to a ghost – a theme we’ve noticed in this threat actor’s work since our earliest observations of it."
+        },
+        {
+            "id": "60",
+            "sources": [],
+            "text": "However, the previous version didn’t change the background at all – it simply left the ransom note we observed previously (Figure 4)."
+        },
+        {
+            "id": "61",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "62",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "63",
+            "sources": [],
+            "text": "Packer Analyses."
+        },
+        {
+            "id": "64",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "65",
+            "sources": [],
+            "text": "During analysis and threat intel gathering, we discovered two main packers used for HelloXD ransomware binaries, as well as for other malware samples linked to the potential author (Figure 5)."
+        },
+        {
+            "id": "66",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "67",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "68",
+            "sources": [],
+            "text": "The first type of packer is a modified version of UPX."
+        },
+        {
+            "id": "69",
+            "sources": [],
+            "text": "The code is extremely similar between UPX-packed binaries and the custom packer, however the custom packer avoids using identifiable section names such as."
+        },
+        {
+            "id": "70",
+            "sources": [],
+            "text": "UPX0 and."
+        },
+        {
+            "id": "71",
+            "sources": [],
+            "text": "UPX1, and leaves the default."
+        },
+        {
+            "id": "72",
+            "sources": [],
+            "text": "text,."
+        },
+        {
+            "id": "73",
+            "sources": [],
+            "text": "data, and."
+        },
+        {
+            "id": "74",
+            "sources": [],
+            "text": "rsrc names unchanged."
+        },
+        {
+            "id": "75",
+            "sources": [],
+            "text": "There are also no magic bytes within the packed payload, unlike UPX-packed binaries, which contain the magic bytes UPX!."
+        },
+        {
+            "id": "76",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "77",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "78",
+            "sources": [],
+            "text": "However, a dead giveaway that the sample is packed is the raw size of the."
+        },
+        {
+            "id": "79",
+            "sources": [],
+            "text": "text section, which is zeroed out, while the virtual size is much larger, as expected; this is identical to a."
+        },
+        {
+            "id": "80",
+            "sources": [],
+            "text": "UPX0 section."
+        },
+        {
+            "id": "81",
+            "sources": [],
+            "text": "As there is no data within the."
+        },
+        {
+            "id": "82",
+            "sources": [],
+            "text": "text section on disk, the entry point of the unpacking stub is within the."
+        },
+        {
+            "id": "83",
+            "sources": [],
+            "text": "data section, which will unpack the malicious code into the."
+        },
+        {
+            "id": "84",
+            "sources": [],
+            "text": "text section on runtime."
+        },
+        {
+            "id": "85",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "86",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "87",
+            "sources": [],
+            "text": "All of these details point toward the threat actor having modified or copied certain elements from the UPX packer, which can be further confirmed by comparing a UPX-packed binary with a custom-packed HelloXD binary."
+        },
+        {
+            "id": "88",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "89",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "90",
+            "sources": [],
+            "text": "The second packer we discovered consists of two layers, with the second being the custom UPX packer discussed above."
+        },
+        {
+            "id": "91",
+            "sources": [],
+            "text": "This particular packer seems to be more common on x64 binaries and involves decrypting embedded blobs using a seemingly custom algorithm containing unconventional instructions such as XLAT (Figure 6)."
+        },
+        {
+            "id": "92",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "93",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "94",
+            "sources": [],
+            "text": "Aside from storing the encrypted second layer, there is little to no obfuscation within the packer; API calls such as VirtualAlloc and VirtualProtect are clearly visible, and there is no control flow obfuscation."
+        },
+        {
+            "id": "95",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "96",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "97",
+            "sources": [],
+            "text": "We have observed two different samples of the HelloXD ransomware publicly available, indicating it is still under development by the author(s)."
+        },
+        {
+            "id": "98",
+            "sources": [],
+            "text": "The first sample is fairly rudimentary, with minimal obfuscation and typically paired with an obfuscated loader responsible for decrypting it through the use of the WinCrypt API before injecting it into memory."
+        },
+        {
+            "id": "99",
+            "sources": [],
+            "text": "The second sample, on the other hand, is far more obfuscated, and is executed in memory by a packer rather than a full-scale loader."
+        },
+        {
+            "id": "100",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "101",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "102",
+            "sources": [],
+            "text": "While the obfuscation and execution may differ between the two, both samples contain very similar core functionality, due to the author copying the leaked Babuk/Babyk source code in order to develop the HelloXD ransomware (Figure 7)."
+        },
+        {
+            "id": "103",
+            "sources": [],
+            "text": "As a result, a lot of the function structure overlaps with Babuk, after getting past the obfuscation."
+        },
+        {
+            "id": "104",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "105",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "106",
+            "sources": [],
+            "text": "While there is a lot of overlap between HelloXD and Babuk, there are some small but crucial differences to take note of between Babuk and the two different variants."
+        },
+        {
+            "id": "107",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "108",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "109",
+            "sources": [],
+            "text": "HelloXD version 1 is the least modified, utilizing Curve25519-Donna and a modified HC-128 algorithm to encrypt file data, while also containing the same CRC hashing routine incorporating the string dong, possibly referencing Chuong Dong, who had previously analyzed and reported on the first version of Babuk (Figure 8)."
+        },
+        {
+            "id": "110",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "111",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "112",
+            "sources": [],
+            "text": "The HelloXD author(s) did modify the infamous file marker and mutex however, opting for dxunmgqehhehyrhtxywuhwrvzxqrcblo as the file marker and With best wishes And good intentions… as the mutex (Figure 9)."
+        },
+        {
+            "id": "113",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "114",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "115",
+            "sources": [],
+            "text": "With HelloXD version 2, the author(s) opted to alter the encryption routine, swapping out the modified HC-128 algorithm with the Rabbit symmetric cipher."
+        },
+        {
+            "id": "116",
+            "sources": [],
+            "text": "Additionally, the file marker changed again, this time to what seems to be random bytes rather than a coherent string."
+        },
+        {
+            "id": "117",
+            "sources": [],
+            "text": "The mutex is also modified, set to nqldslhumipyuzjnatqucmuycqkxjon in one of the samples (Figure 10)."
+        },
+        {
+            "id": "118",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "119",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "120",
+            "sources": [],
+            "text": "Both versions have been compiled with the same compiler (believed to be GCC 3."
+        },
+        {
+            "id": "121",
+            "sources": [],
+            "text": "x and above based on the mangling of export names), resulting in very similar exports between not only the ransomware variants, but also other malware that we have linked to the potential author (Figure 11)."
+        },
+        {
+            "id": "122",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "123",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "124",
+            "sources": [],
+            "text": "The biggest difference between the versions is the interesting addition of a secondary payload embedded within version 2."
+        },
+        {
+            "id": "125",
+            "sources": [],
+            "text": "This payload is encrypted using the WinCrypt API, in the same fashion as the obfuscated loader discussed above."
+        },
+        {
+            "id": "126",
+            "sources": [],
+            "text": "Once decrypted, the payload is dropped to System32 with the name userlogin."
+        },
+        {
+            "id": "127",
+            "sources": [],
+            "text": "exe before a service is created that points to it."
+        },
+        {
+            "id": "128",
+            "sources": [],
+            "text": "userlogin."
+        },
+        {
+            "id": "129",
+            "sources": [],
+            "text": "exe is then executed (Figure 12)."
+        },
+        {
+            "id": "130",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "131",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "132",
+            "sources": [],
+            "text": "What is peculiar about this file is it is a variant of the open-source MicroBackdoor, a backdoor allowing an attacker to browse the file system, upload and download files, execute commands and remove itself from the system (Figure 13)."
+        },
+        {
+            "id": "133",
+            "sources": [],
+            "text": "As the threat actor would normally have a foothold into the network prior to ransomware deployment, it raises the question of why this backdoor is part of the ransomware execution."
+        },
+        {
+            "id": "134",
+            "sources": [],
+            "text": "One possibility is that it is used to monitor ransomed systems for blue team and incident response (IR) activity, though even in that case it is unusual to see offensive tools dropped at this point in the infection."
+        },
+        {
+            "id": "135",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "136",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "137",
+            "sources": [],
+            "text": "WTFBBQ Pivots."
+        },
+        {
+            "id": "138",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "139",
+            "sources": [],
+            "text": "While analyzing the ransomware binaries, we discovered a unique string prevalent in almost all of the samples: :wtfbbq (stored as UTF-16LE)."
+        },
+        {
+            "id": "140",
+            "sources": [],
+            "text": "Querying VirusTotal with this string led to the discovery of eight files, six of which could be directly attributed to x4k through their own VirusTotal graph mapping out their infrastructure."
+        },
+        {
+            "id": "141",
+            "sources": [],
+            "text": "The discovered samples are primarily Cobalt Strike Beacons, utilizing heavy control flow obfuscation – unlike the HelloXD ransomware samples we had previously seen."
+        },
+        {
+            "id": "142",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "143",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "144",
+            "sources": [],
+            "text": "Unfortunately, this specific string is not completely unique to x4k, and is instead found on several GitHub repositories as part of a technique to allow a running executable to delete itself from disk through renaming primary data streams within the file to :wtfbbq."
+        },
+        {
+            "id": "145",
+            "sources": [],
+            "text": "Running a search for the non-UTF-16LE string results in multiple files, and filtering for executables yields 10 results, the majority of which are NIM-based binaries – potentially linked to this GitHub repository."
+        },
+        {
+            "id": "146",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "147",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "148",
+            "sources": [],
+            "text": "While the :wtfbbq string is not unique to x4k, by searching for the UTF-16LE version found inside the analyzed HelloXD ransomware samples, we only came across binaries linked to x4k’s infrastructure, providing a fairly strong link between HelloXD and x4k."
+        },
+        {
+            "id": "149",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "150",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "151",
+            "sources": [],
+            "text": "Hunting for Ransomware Attribution."
+        },
+        {
+            "id": "152",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "153",
+            "sources": [],
+            "text": "The backdoor provided extremely useful insight into the potential threat actor behind the ransomware, as it had the following hardcoded IP address to use as the command and control (C2): 193[."
+        },
+        {
+            "id": "154",
+            "sources": [],
+            "text": "]242[."
+        },
+        {
+            "id": "155",
+            "sources": [],
+            "text": "]145[."
+        },
+        {
+            "id": "156",
+            "sources": [],
+            "text": "]158."
+        },
+        {
+            "id": "157",
+            "sources": [],
+            "text": "Upon navigating to this IP address, we observed an email address – tebya@poime[."
+        },
+        {
+            "id": "158",
+            "sources": [],
+            "text": "]li – on the page title, the first link in the chain of attribution (Figure 14)."
+        },
+        {
+            "id": "159",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "160",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "161",
+            "sources": [],
+            "text": "Using the email address as a pivot, we identified additional domains that were linked to tebya@poime[."
+        },
+        {
+            "id": "162",
+            "sources": [],
+            "text": "]li."
+        },
+        {
+            "id": "163",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "164",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "165",
+            "sources": [],
+            "text": "Some of them historically resolved to some malicious IPs, which led us to discover additional infrastructure and malware being hosted in other domains (Table 3)."
+        },
+        {
+            "id": "166",
+            "sources": [],
+            "text": "Many of these also use the x4k name in the domain."
+        },
+        {
+            "id": "167",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "168",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "169",
+            "sources": [],
+            "text": "When looking at this infrastructure on VirusTotal, we observed that some of the domains we found were part of a VirusTotal graph called a."
+        },
+        {
+            "id": "170",
+            "sources": [],
+            "text": "y."
+        },
+        {
+            "id": "171",
+            "sources": [],
+            "text": "e/ created by the user x4k on June 30, 2021."
+        },
+        {
+            "id": "172",
+            "sources": [],
+            "text": "On this graph, we found his infrastructure mapped out and malicious files that were also linked to the domains."
+        },
+        {
+            "id": "173",
+            "sources": [],
+            "text": "This, however, was not the only graph we observed x4k creating."
+        },
+        {
+            "id": "174",
+            "sources": [],
+            "text": "We also encountered additional graphs, mapping different things such as “Russian Hosts,” “DDoS Guard” and others, dating back to August 10, 2020 (Figure 15)."
+        },
+        {
+            "id": "175",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "176",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "177",
+            "sources": [],
+            "text": "Additionally, we observed the initial email being linked to a GitHub account (Figure 16), as well as various forums including XSS, a known Russian-speaking hacking forum created to share knowledge about exploits, vulnerabilities, malware and network penetration."
+        },
+        {
+            "id": "178",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "179",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "180",
+            "sources": [],
+            "text": "From the GitHub page, we also observed a URL to a site – xn--90a5ai[."
+        },
+        {
+            "id": "181",
+            "sources": [],
+            "text": "]com(фсб[."
+        },
+        {
+            "id": "182",
+            "sources": [],
+            "text": "]com) – resolving to the previously mentioned IP 164[."
+        },
+        {
+            "id": "183",
+            "sources": [],
+            "text": "]68[."
+        },
+        {
+            "id": "184",
+            "sources": [],
+            "text": "]114[."
+        },
+        {
+            "id": "185",
+            "sources": [],
+            "text": "]29, which at this point in time only shows an animation of interconnecting points."
+        },
+        {
+            "id": "186",
+            "sources": [],
+            "text": "That being said, when looking at the HTML source code of the site, we discovered a couple of references to the user observed before – x4kme – and other aliases such as uKn0wn, which was observed in the HelloXD ransomware samples."
+        },
+        {
+            "id": "187",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "188",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "189",
+            "sources": [],
+            "text": "From the list of aliases used by the threat actor, we were able to observe another GitHub account with the name l4ckyguy, sharing the profile picture, location and URL in the description, with a link to the previously observed account (x4kme), and a name, Ivan Topor, which we believe may be another alias for this threat actor."
+        },
+        {
+            "id": "190",
+            "sources": [],
+            "text": "A further account, l4cky-control, was also discovered."
+        },
+        {
+            "id": "191",
+            "sources": [],
+            "text": "This repository contained a Python script that would decrypt a secondary Python script which reached out to the IP 167[."
+        },
+        {
+            "id": "192",
+            "sources": [],
+            "text": "]86[."
+        },
+        {
+            "id": "193",
+            "sources": [],
+            "text": "]87[."
+        },
+        {
+            "id": "194",
+            "sources": [],
+            "text": "]27 to download and execute another Python script."
+        },
+        {
+            "id": "195",
+            "sources": [],
+            "text": "This particular IP was linked to a Contabo server that x4k had also included within their VirusTotal graph discussed above."
+        },
+        {
+            "id": "196",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "197",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "198",
+            "sources": [],
+            "text": "We also found a YouTube account linked to the actor through the initial email tebya@poime[."
+        },
+        {
+            "id": "199",
+            "sources": [],
+            "text": "]li, using another alias, Vanya Topor."
+        },
+        {
+            "id": "200",
+            "sources": [],
+            "text": "It’s worth pointing out that “Vanya” is a diminutive for Ivan."
+        },
+        {
+            "id": "201",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "202",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "203",
+            "sources": [],
+            "text": "The YouTube account has no public videos, but we observed this threat actor sharing unlisted links in various hacking forums."
+        },
+        {
+            "id": "204",
+            "sources": [],
+            "text": "The content of the videos were tutorials and walkthroughs, where the threat actor showed his methodology of performing certain actions, depending on the video."
+        },
+        {
+            "id": "205",
+            "sources": [],
+            "text": "The videos had no sound, but the threat actor would type commentary on a terminal to address something the viewer was observing on screen."
+        },
+        {
+            "id": "206",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "207",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "208",
+            "sources": [],
+            "text": "The videos found gave us insight into x4k operations before moving into ransomware activity specifically."
+        },
+        {
+            "id": "209",
+            "sources": [],
+            "text": "We learned how this threat actor leverages Cobalt Strike for his operations, including how to set up Beacons as well as how to send files to compromised systems."
+        },
+        {
+            "id": "210",
+            "sources": [],
+            "text": "In one of the videos, we actually observed the threat actor performing a DNS leak test on his Android phone."
+        },
+        {
+            "id": "211",
+            "sources": [],
+            "text": "We also got to observe how the domain фсб[."
+        },
+        {
+            "id": "212",
+            "sources": [],
+            "text": "]com used to look in October 2020 – a blog of sorts titled “Ghost in the Wire."
+        },
+        {
+            "id": "213",
+            "sources": [],
+            "text": "” Where the threat actor keeps alluding to his “Ghost” theme, a similar theme was observed in the HelloXD ransomware samples (Figure 19)."
+        },
+        {
+            "id": "214",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "215",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "216",
+            "sources": [],
+            "text": "In another video instance, we observed the threat actor submit a LockBit 2."
+        },
+        {
+            "id": "217",
+            "sources": [],
+            "text": "0 sample on Cuckoo sandbox and compare the results with another presumably LockBit 2."
+        },
+        {
+            "id": "218",
+            "sources": [],
+            "text": "0 sample prior to the one submitted in the video."
+        },
+        {
+            "id": "219",
+            "sources": [],
+            "text": "At the time of writing, we don’t believe x4k is related to LockBit 2."
+        },
+        {
+            "id": "220",
+            "sources": [],
+            "text": "0 activity, but we did find the choice of this particular ransomware family interesting (Figure 20)."
+        },
+        {
+            "id": "221",
+            "sources": [],
+            "text": "We also noticed this threat actor leveraging the use of other sandboxes besides Cuckoo – such as ANY."
+        },
+        {
+            "id": "222",
+            "sources": [],
+            "text": "RUN and Hybrid Analysis – to test out verdicts and tooling, alongside the use of various virtual machines."
+        },
+        {
+            "id": "223",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "224",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "225",
+            "sources": [],
+            "text": "Additionally, this threat actor not only leverages open-source tooling, but also develops his own tools and scripts."
+        },
+        {
+            "id": "226",
+            "sources": [],
+            "text": "We were able to see this threat actor demonstrating some of his tools performing automated actions in his videos, such as obfuscating files, creating executables and code signing (Figure 21)."
+        },
+        {
+            "id": "227",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "228",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "229",
+            "sources": [],
+            "text": "Taking a closer look at x4k’s main OS, we believe it to be a customized Kali Linux instance, tailored to his needs."
+        },
+        {
+            "id": "230",
+            "sources": [],
+            "text": "Most of his videos, comments, configurations and tutorials are written in Russian – and when combined with knowledge gained from a few OPSEC mistakes – Russia is also where we believe x4k originates from."
+        },
+        {
+            "id": "231",
+            "sources": [],
+            "text": "Additionally, we encountered the ClamAV logo during one of the threat actor walkthrough videos – the same logo used on the HelloXD ransomware samples (Figure 22)."
+        },
+        {
+            "id": "232",
+            "sources": [],
+            "text": "This time around, x4k is using the logo as the start menu for his OS enviorment."
+        },
+        {
+            "id": "233",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "234",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "235",
+            "sources": [],
+            "text": "On the same taskbar, we also noticed the Telegram icon, which is a very popular messaging app for chatting – but is also used by threat actors such as LAPSUS$ to post news into specific channels."
+        },
+        {
+            "id": "236",
+            "sources": [],
+            "text": "Using his username and alias and pivot, we were able to identify two Telegram accounts sharing the same picture as observed before, and descriptions pointing to the threat actor’s main site фсб[."
+        },
+        {
+            "id": "237",
+            "sources": [],
+            "text": "]com."
+        },
+        {
+            "id": "238",
+            "sources": [],
+            "text": "We noticed that the x4k Telegram account is used actively versus the old account – which, according to Telegram, hasn’t been active in a while (Figure 23)."
+        },
+        {
+            "id": "239",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "240",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "241",
+            "sources": [],
+            "text": "x4k has a very solid online presence, which has enabled us to uncover much of his activity in these last two years."
+        },
+        {
+            "id": "242",
+            "sources": [],
+            "text": "This threat actor has done little to hide malicious activity, and is probably going to continue this behavior."
+        },
+        {
+            "id": "243",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "244",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "245",
+            "sources": [],
+            "text": "Unit 42 research encountered HelloXD, a ransomware family in its initial stages – but already intending to impact organizations."
+        },
+        {
+            "id": "246",
+            "sources": [],
+            "text": "While the ransomware functionality is nothing new, during our research, following the lines, we found out the ransomware is most likely developed by a threat actor named x4k."
+        },
+        {
+            "id": "247",
+            "sources": [],
+            "text": "This threat actor is well known on various hacking forums, and seems to be of Russian origin."
+        },
+        {
+            "id": "248",
+            "sources": [],
+            "text": "Unit 42 was able to uncover additional x4k activity being linked to malicious infrastructure, and additional malware besides the initial ransomware sample, going back to 2020."
+        },
+        {
+            "id": "249",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "250",
+            "sources": [],
+            "text": "\n"
+        },
+        {
+            "id": "251",
+            "sources": [],
+            "text": "Ransomware is a lucrative operation if done correctly."
+        },
+        {
+            "id": "252",
+            "sources": [],
+            "text": "Unit 42 has observed ransom demands and average payments going up in the latest Ransomware Threat Report."
+        },
+        {
+            "id": "253",
+            "sources": [],
+            "text": "Unit 42 believes that x4k, this threat actor, is now expanding into the ransomware business to capitalize on some of the gains other ransomware groups are making."
+        },
+        {
+            "id": "254",
+            "sources": [],
+            "text": ""
+        },
+        {
+            "id": "255",
+            "sources": [],
+            "text": "\n"
+        }
+    ],
+    "summary": [
+        {
+            "id": "1",
+            "sources": [
+                "5",
+                "6"
+            ],
+            "text": "The article discusses the HelloXD ransomware, which was first identified in the wild on November 30, 2021 (5, 6)."
+        },
+        {
+            "id": "2",
+            "sources": [
+                "7",
+                "9"
+            ],
+            "text": "HelloXD is characterized by its use of a modified ClamAV logo in its executables, indicating a potential branding preference by its developers (7, 9)."
+        },
+        {
+            "id": "3",
+            "sources": [
+                "16",
+                "35",
+                "42",
+                "43"
+            ],
+            "text": "The ransomware employs tactics such as disabling shadow copies, pinging external addresses, and creating unique mutex messages before encrypting files and demanding ransom (16, 35, 42, 43)."
+        },
+        {
+            "id": "4",
+            "sources": [
+                "245",
+                "246",
+                "247"
+            ],
+            "text": "The analysis reveals a connection to a threat actor named x4k, known for using multiple aliases and operating within Russian hacking communities (245, 246, 247)."
+        },
+        {
+            "id": "5",
+            "sources": [
+                "253"
+            ],
+            "text": "Unit 42 concludes that x4k is entering the ransomware market to capitalize on the lucrative opportunities present in the sector (253)."
+        }
+    ]
+}
