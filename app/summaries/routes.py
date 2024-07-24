@@ -179,7 +179,43 @@ def generate():
 
 
 SYSTEM_PROMPT_GLOBAL_SUMMARY = """
-You will be provided with multiple articles.
+You will be provided with multiple articles in JSON format. Each file will be in format below.
+{
+"source": [
+        {
+            "id": "1",
+            "sources": [],
+            "text": "## Sentence 1"
+        },
+        {
+            "id": "2",
+            "sources": [],
+            "text": "Sentence 2"
+        },
+        {
+            "id": "3",
+            "sources": [],
+            "text": "Sentence 3"
+        },
+        {
+            "id": "4",
+            "sources": [],
+            "text": "Sentence 5 "
+        },
+        {
+            "id": "5",
+            "sources": [],
+            "text": "Sentence 6"
+        }
+        ],
+	"summary": [
+    	{"text": "Block 1", "sources": ["1", "2"]},
+    	{"text": "Block 2", "sources": ["3", "4"]},
+    	{"text": "Block 3", "sources": ["5", "6"]},
+    	{"text": "Block 4", "sources": ["7", "8"]},
+    	{"text": "Block 5", "sources": ["9", "10"]}
+	]
+}
 
 You will be prompted to provide a single summary of the articles.
 The text blocks in the summary must be attributed to id of the article in the sources.
