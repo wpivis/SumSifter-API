@@ -198,7 +198,7 @@ Do not include sources inside the text block, but instead as a separate list of 
 	]
 }
 
-Do not include any text outside of the JSON format.
+Do not include any text outside of the JSON format. Ensure the JSON format provied is maintained. 
 """
 
 
