@@ -1,0 +1,86 @@
+{
+    "source": [
+        {
+            "id": "1",
+            "sources": [],
+            "text": "ID: 89565\nDate: 2021-09-28 04:33:20\nFrom: name: a56161d1a15c11e8, email: f7fd8a31c56d9199\nTo: name: ce19c726ab519046, email: b72e466bda7e74d0\n\nSubject: Fwd: Re: TemЫ Корса\n\nFull Text:\nГосподин Ядоллахи, доброе утро, мой дорогой друг! Это протокол СККО-10."
+        },
+        {
+            "id": "2",
+            "sources": [],
+            "text": "Пожалуйста, если можно, посмотрите."
+        },
+        {
+            "id": "3",
+            "sources": [],
+            "text": "Спасибо вам! ----Отправлено из Mail."
+        },
+        {
+            "id": "4",
+            "sources": [],
+            "text": "ru для AndroidГосподин Ядоллахи, доброе утро, мой дорогой друг! Это протокол СККО-10."
+        },
+        {
+            "id": "5",
+            "sources": [],
+            "text": "Пожалуйста, если можно, посмотрите."
+        },
+        {
+            "id": "6",
+            "sources": [],
+            "text": "Спасибо вам!  --   -- Отправлено из Mail."
+        },
+        {
+            "id": "7",
+            "sources": [],
+            "text": "ru для Android."
+        },
+        {
+            "id": "8",
+            "sources": [],
+            "text": "\n"
+        }
+    ],
+    "summary": [
+        {
+            "id": "1",
+            "sources": [
+                "1",
+                "4"
+            ],
+            "text": "The article includes an email correspondence addressed to Mr. Yadolahi, indicating a friendly greeting and the mention of a protocol called SKKO-10."
+        },
+        {
+            "id": "2",
+            "sources": [
+                "2",
+                "5"
+            ],
+            "text": "The sender requests the recipient to review the provided document."
+        },
+        {
+            "id": "3",
+            "sources": [
+                "3",
+                "6"
+            ],
+            "text": "The email concludes with a note of thanks from the sender."
+        },
+        {
+            "id": "4",
+            "sources": [
+                "1",
+                "4"
+            ],
+            "text": "The communication appears to be informal, suggesting a friendly relationship between the parties involved."
+        },
+        {
+            "id": "5",
+            "sources": [
+                "1",
+                "2"
+            ],
+            "text": "The context of the email suggests a professional interaction involving documentation."
+        }
+    ]
+}
