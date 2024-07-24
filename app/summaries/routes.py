@@ -339,8 +339,24 @@ def generate_multiple():
     # add new prompt to conversation list
     conversation["messages"].append({"role": "user", "content": prompt})
 
-    # call API
-    response = get_response(conversation["messages"])
+    api_success = False
+    attempt = 0
+    response = None
+    while True:
+        if attempt >= 2 or api_success:
+            break
+
+        attempt += 1
+
+        # call API
+        try:
+            print("MAKE CALL")
+            response = get_response(conversation["messages"])
+            response_text = response["choices"][0]["message"]["content"].strip()
+            formatted_response = json.loads(response_text)
+            break
+        except:
+            print("API call failed.")
 
     # update conversation list
     response_text = response["choices"][0]["message"]["content"].strip()
