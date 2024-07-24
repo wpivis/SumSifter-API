@@ -408,42 +408,39 @@
                 "1",
                 "40"
             ],
-            "text": "The article discusses various legislative acts and decisions issued by the Iranian government, including laws and regulations approved by the Islamic Consultative Assembly and the Cabinet's decisions from July 2021."
+            "text": "The article discusses various legislative decisions and regulations approved by the Iranian parliament and the Cabinet, including laws and guidelines related to multiple sectors."
         },
         {
             "id": "2",
             "sources": [
                 "5",
-                "9",
-                "22"
+                "6"
             ],
-            "text": "Important decisions include policies regarding the support of artists and artisans, and the establishment of guidelines related to tax exemptions and tariffs."
+            "text": "It mentions the approval of regulations regarding the support of artists and craftsmen, as well as the distribution of guaranteed income among telecom license holders."
         },
         {
             "id": "3",
             "sources": [
-                "16",
-                "56"
+                "7",
+                "22"
             ],
-            "text": "There are also mentions of funding allocations for infrastructure repairs and drought management initiatives in specific regions."
+            "text": "Furthermore, it covers fiscal policies, including customs duties and commercial profits for imported goods for the year 1400 (2021-2022)."
         },
         {
             "id": "4",
             "sources": [
-                "29",
-                "32",
-                "67"
+                "53",
+                "32"
             ],
-            "text": "The document outlines the need for various regulatory frameworks, including those for cultural and artistic activities, as well as tax regulations."
+            "text": "The summary includes the national development document for cultural technologies and the establishment of various guidelines for cultural and artistic activities."
         },
         {
             "id": "5",
             "sources": [
-                "18",
-                "19",
-                "20"
+                "16",
+                "56"
             ],
-            "text": "Overall, the article highlights the government's focus on economic policy, cultural support, and infrastructure development through a series of legislative measures."
+            "text": "Additionally, it highlights budgetary regulations and measures for disaster management and infrastructure recovery following severe weather events."
         }
     ]
 }
