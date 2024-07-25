@@ -43,6 +43,11 @@ class GenerateEmailRequestModel(BaseModel):
     prompt: str
 
 
+class ExplainChartRequestModel(BaseModel):
+    conversationId: Optional[str] = None
+    prompt: str
+
+
 @bp.route("/")
 def index():
     return "summaries : /"
@@ -61,13 +66,13 @@ You can use markdown within the text block in summary.
 Use the following json format to answer.
 Do not include sources inside the text block, but instead as a separate list of ids:
 {
-	"summary": [
-    	{"text": "Block 1", "sources": ["1", "2"]},
-    	{"text": "Block 2", "sources": ["3", "4"]},
-    	{"text": "Block 3", "sources": ["5", "6"]},
-    	{"text": "Block 4", "sources": ["7", "8"]},
-    	{"text": "Block 5", "sources": ["9", "10"]}
-	]
+    "summary": [
+        {"text": "Block 1", "sources": ["1", "2"]},
+        {"text": "Block 2", "sources": ["3", "4"]},
+        {"text": "Block 3", "sources": ["5", "6"]},
+        {"text": "Block 4", "sources": ["7", "8"]},
+        {"text": "Block 5", "sources": ["9", "10"]}
+    ]
 }
 
 Do not include any text outside of the JSON format.
@@ -88,6 +93,32 @@ The email should be structured as follows:
 
 """
 
+SYSTEM_PROMPT_EXPLAIN_CHART = """
+You will be provided with a chart data in a json format.
+
+The chart represents support from allies to Ukraine war for the year 2023 (in money).
+
+Chart1:
+{
+    "January": {"USA": 2.5, "EU": 1.8, "UK": 0.9, "Canada": 0.4, "Japan": 0.2},
+    "February": {"USA": 2.6, "EU": 1.9, "UK": 0.8, "Canada": 0.3, "Japan": 0.3},
+    "March": {"USA": 2.7, "EU": 2.0, "UK": 0.7, "Canada": 0.3, "Japan": 0.2},
+    "April": {"USA": 2.8, "EU": 2.1, "UK": 0.6, "Canada": 0.3, "Japan": 0.3},
+    "May": {"USA": 3.0, "EU": 2.2, "UK": 0.5, "Canada": 0.3, "Japan": 0.4},
+    "June": {"USA": 3.2, "EU": 2.3, "UK": 0.4, "Canada": 0.3, "Japan": 0.4},
+    "July": {"USA": 3.3, "EU": 2.4, "UK": 0.3, "Canada": 0.2, "Japan": 0.3},
+    "August": {"USA": 3.4, "EU": 2.5, "UK": 0.2, "Canada": 0.2, "Japan": 0.3},
+    "September": {"USA": 3.5, "EU": 2.6, "UK": 0.1, "Canada": 0.2, "Japan": 0.3},
+    "October": {"USA": 3.6, "EU": 2.7, "UK": 0.2, "Canada": 0.3, "Japan": 0.4},
+    "November": {"USA": 3.7, "EU": 2.8, "UK": 0.3, "Canada": 0.4, "Japan": 0.4},
+    "December": {"USA": 3.8, "EU": 2.9, "UK": 0.4, "Canada": 0.4, "Japan": 0.5}
+}
+
+You will be prompted to provide an explanation of the chart.
+The explanation should include key insights and highlight important trends.
+
+The reply should be in a string format.
+"""
 
 @bp.route("/generate/", methods=["POST"])
 def generate():
@@ -124,7 +155,6 @@ def generate():
             "document": {
                 "id": req.documentId,
                 "sentences": document.sentences,
-                # "sentence_sequence": document.sentence_sequence,
                 "markdown": markdown_content,  # Include markdown content
             },
             "messages": [
@@ -189,13 +219,13 @@ You can use markdown within the text block in summary.
 Use the following json format to answer.
 Do not include sources inside the text block, but instead as a separate list of ids:
 {
-	"summary": [
-    	{"text": "Block 1", "sources": ["1", "2"]},
-    	{"text": "Block 2", "sources": ["3", "4"]},
-    	{"text": "Block 3", "sources": ["5", "6"]},
-    	{"text": "Block 4", "sources": ["7", "8"]},
-    	{"text": "Block 5", "sources": ["9", "10"]}
-	]
+    "summary": [
+        {"text": "Block 1", "sources": ["1", "2"]},
+        {"text": "Block 2", "sources": ["3", "4"]},
+        {"text": "Block 3", "sources": ["5", "6"]},
+        {"text": "Block 4", "sources": ["7", "8"]},
+        {"text": "Block 5", "sources": ["9", "10"]}
+    ]
 }
 
 Do not include any text outside of the JSON format. Ensure the JSON format provided is maintained. 
@@ -222,7 +252,6 @@ def generate_multiple():
         conversationId = str(uuid.uuid4())
 
         # get documents
-        # pregenerated_summaries_response = []
         global_markdown_content = []
 
         idx = 0
@@ -230,15 +259,12 @@ def generate_multiple():
         # Add pre-generated responses to the conversations
         for doc_id in req.documentIds:
             print(doc_id)
-            # markdown_content = {}
 
             idx += 1
             with open(f"pregenerated_summaries/{doc_id}") as f:
                 docConversationId = str(uuid.uuid4())
                 r = json.load(f)
 
-                # for line in r["source"]:
-                #     markdown_content[line["id"]] = line["text"] if line["text"] != "\n" else ""
                 markdown_content = [
                     {"id": i["id"], "text": i["text"]} for i in r["source"]
                 ]
@@ -250,21 +276,13 @@ def generate_multiple():
                     }
                 )
 
-                # pregenerated_summaries_response.append({
-                #     "conversationId": docConversationId,
-                #     "summary": r["summary"],
-                #     "source": r["source"],
-                # })
-
                 conversation = {
                     "document": {
                         "id": doc_id,
-                        # "markdown": markdown_content,
                         "markdown": markdown_content,
                     },
                     "messages": [
                         {"role": "system", "content": SYSTEM_PROMPT},
-                        # {"role": "user", "content": f"Original Article:\n\n{markdown_content}"},
                         {
                             "role": "user",
                             "content": f"Original Article:\n\n{markdown_content}",
@@ -284,7 +302,6 @@ def generate_multiple():
                     }
                 )
 
-                print(docConversationId)
                 cache.set(docConversationId, conversation, timeout=3600)
 
         conversation = {
@@ -293,7 +310,6 @@ def generate_multiple():
                 "docConversationIds": [
                     i["conversationId"] for i in document_summary_source
                 ],
-                # "markdown": markdown_content,  # Include markdown content
             },
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT_GLOBAL_SUMMARY},
@@ -415,5 +431,45 @@ def generate_email():
         {
             "conversationId": conversationId,
             "emailContent": response_text,  # Return the response text as string
+        }
+    )
+
+@bp.route("/explain_chart/", methods=["POST"])
+def explain_chart():
+    try:
+        req = ExplainChartRequestModel.model_validate(request.json)
+    except ValidationError as e:
+        return jsonify(e.errors()), 400
+
+    # Now conversationId is always provided
+    conversationId = req.conversationId
+
+    # Get existing conversation from cache
+    conversation = cache.get(conversationId)
+
+    if conversation is None:
+        conversationId = str(uuid.uuid4())
+        conversation = {
+            "messages": [{"role": "system", "content": SYSTEM_PROMPT_EXPLAIN_CHART}]
+        }
+
+    prompt = f"Explain Chart1 based on the prompt:\n\n{req.prompt}"
+
+    messages = conversation["messages"] + [{"role": "user", "content": prompt}]
+
+    # call API
+    response = get_response(messages)
+
+    # update conversation list
+    response_text = response["choices"][0]["message"]["content"].strip()
+
+    conversation["messages"].append({"role": "assistant", "content": response_text})
+
+    cache.set(conversationId, conversation, timeout=3600)
+
+    return jsonify(
+        {
+            "conversationId": conversationId,
+            "explanation": response_text,
         }
     )
