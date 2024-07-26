@@ -118,12 +118,12 @@
         {
             "id": "24",
             "sources": [],
-            "text": ""
+            "text": "\n"
         },
         {
             "id": "25",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/1_source2.png)"
         },
         {
             "id": "26",
@@ -143,12 +143,12 @@
         {
             "id": "29",
             "sources": [],
-            "text": ""
+            "text": "\n"
         },
         {
             "id": "30",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/2_source2.png)"
         },
         {
             "id": "31",
@@ -193,12 +193,12 @@
         {
             "id": "39",
             "sources": [],
-            "text": ""
+            "text": "\n"
         },
         {
             "id": "40",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/3_source2.png)"
         },
         {
             "id": "41",
@@ -218,12 +218,12 @@
         {
             "id": "44",
             "sources": [],
-            "text": ""
+            "text": "\n"
         },
         {
             "id": "45",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/4_source2.png)"
         },
         {
             "id": "46",
@@ -273,12 +273,12 @@
         {
             "id": "55",
             "sources": [],
-            "text": ""
+            "text": "\n"
         },
         {
             "id": "56",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/5_source2.png)"
         },
         {
             "id": "57",
@@ -313,12 +313,12 @@
         {
             "id": "63",
             "sources": [],
-            "text": ""
+            "text": "\n"
         },
         {
             "id": "64",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/6_source2.png)"
         },
         {
             "id": "65",
@@ -348,12 +348,12 @@
         {
             "id": "70",
             "sources": [],
-            "text": ""
+            "text": "\n"
         },
         {
             "id": "71",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/7_source2.png)"
         },
         {
             "id": "72",
@@ -368,12 +368,12 @@
         {
             "id": "74",
             "sources": [],
-            "text": ""
+            "text": "\n"
         },
         {
             "id": "75",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/8_source2.png)"
         },
         {
             "id": "76",
@@ -413,12 +413,12 @@
         {
             "id": "83",
             "sources": [],
-            "text": ""
+            "text": "\n"
         },
         {
             "id": "84",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/9_source2.png)"
         },
         {
             "id": "85",
@@ -453,12 +453,12 @@
         {
             "id": "91",
             "sources": [],
-            "text": ""
+            "text": "\n"
         },
         {
             "id": "92",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/10_source2.png)"
         },
         {
             "id": "93",
@@ -478,12 +478,12 @@
         {
             "id": "96",
             "sources": [],
-            "text": ""
+            "text": "\n"
         },
         {
             "id": "97",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/11_source2.png)"
         },
         {
             "id": "98",
@@ -513,7 +513,7 @@
         {
             "id": "103",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/12_source2.png)"
         },
         {
             "id": "104",
@@ -528,12 +528,12 @@
         {
             "id": "106",
             "sources": [],
-            "text": "TXT record response."
+            "text": "TXT record response, as shown in Figure 13 below."
         },
         {
             "id": "107",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/13_source2.png)"
         },
         {
             "id": "108",
@@ -573,17 +573,17 @@
         {
             "id": "115",
             "sources": [],
-            "text": ""
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/14_source2.png)"
         },
         {
             "id": "116",
             "sources": [],
-            "text": "\n"
+            "text": "![Cobalt Strike Analysis and Tutorial: Identifying Beacon Team Servers in the Wild](static/images/15_source2.png)"
         },
         {
             "id": "117",
             "sources": [],
-            "text": "## Conclusion"
+            "text": "\n"
         },
         {
             "id": "118",
