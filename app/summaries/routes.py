@@ -43,6 +43,10 @@ class GenerateEmailRequestModel(BaseModel):
     prompt: str
 
 
+class ExplainChartRequestModel(BaseModel):
+    imageUrl: str
+
+
 @bp.route("/")
 def index():
     return "summaries : /"
@@ -61,13 +65,13 @@ You can use markdown within the text block in summary.
 Use the following json format to answer.
 Do not include sources inside the text block, but instead as a separate list of ids:
 {
-	"summary": [
-    	{"text": "Block 1", "sources": ["1", "2"]},
-    	{"text": "Block 2", "sources": ["3", "4"]},
-    	{"text": "Block 3", "sources": ["5", "6"]},
-    	{"text": "Block 4", "sources": ["7", "8"]},
-    	{"text": "Block 5", "sources": ["9", "10"]}
-	]
+    "summary": [
+        {"text": "Block 1", "sources": ["1", "2"]},
+        {"text": "Block 2", "sources": ["3", "4"]},
+        {"text": "Block 3", "sources": ["5", "6"]},
+        {"text": "Block 4", "sources": ["7", "8"]},
+        {"text": "Block 5", "sources": ["9", "10"]}
+    ]
 }
 
 Do not include any text outside of the JSON format.
@@ -124,7 +128,6 @@ def generate():
             "document": {
                 "id": req.documentId,
                 "sentences": document.sentences,
-                # "sentence_sequence": document.sentence_sequence,
                 "markdown": markdown_content,  # Include markdown content
             },
             "messages": [
@@ -189,13 +192,13 @@ You can use markdown within the text block in summary.
 Use the following json format to answer.
 Do not include sources inside the text block, but instead as a separate list of ids:
 {
-	"summary": [
-    	{"text": "Block 1", "sources": ["1", "2"]},
-    	{"text": "Block 2", "sources": ["3", "4"]},
-    	{"text": "Block 3", "sources": ["5", "6"]},
-    	{"text": "Block 4", "sources": ["7", "8"]},
-    	{"text": "Block 5", "sources": ["9", "10"]}
-	]
+    "summary": [
+        {"text": "Block 1", "sources": ["1", "2"]},
+        {"text": "Block 2", "sources": ["3", "4"]},
+        {"text": "Block 3", "sources": ["5", "6"]},
+        {"text": "Block 4", "sources": ["7", "8"]},
+        {"text": "Block 5", "sources": ["9", "10"]}
+    ]
 }
 
 Do not include any text outside of the JSON format. Ensure the JSON format provided is maintained. 
@@ -215,14 +218,12 @@ def generate_multiple():
             fake_response = json.load(f)
             return jsonify(fake_response)
 
-
     document_summary_source = []
     if req.conversationId is None:
         # New conversation
         conversationId = str(uuid.uuid4())
 
         # get documents
-        # pregenerated_summaries_response = []
         global_markdown_content = []
 
         idx = 0
@@ -230,15 +231,12 @@ def generate_multiple():
         # Add pre-generated responses to the conversations
         for doc_id in req.documentIds:
             print(doc_id)
-            # markdown_content = {}
 
             idx += 1
             with open(f"pregenerated_summaries/{doc_id}") as f:
                 docConversationId = str(uuid.uuid4())
                 r = json.load(f)
 
-                # for line in r["source"]:
-                #     markdown_content[line["id"]] = line["text"] if line["text"] != "\n" else ""
                 markdown_content = [
                     {"id": i["id"], "text": i["text"]} for i in r["source"]
                 ]
@@ -250,21 +248,13 @@ def generate_multiple():
                     }
                 )
 
-                # pregenerated_summaries_response.append({
-                #     "conversationId": docConversationId,
-                #     "summary": r["summary"],
-                #     "source": r["source"],
-                # })
-
                 conversation = {
                     "document": {
                         "id": doc_id,
-                        # "markdown": markdown_content,
                         "markdown": markdown_content,
                     },
                     "messages": [
                         {"role": "system", "content": SYSTEM_PROMPT},
-                        # {"role": "user", "content": f"Original Article:\n\n{markdown_content}"},
                         {
                             "role": "user",
                             "content": f"Original Article:\n\n{markdown_content}",
@@ -284,7 +274,6 @@ def generate_multiple():
                     }
                 )
 
-                print(docConversationId)
                 cache.set(docConversationId, conversation, timeout=3600)
 
         conversation = {
@@ -293,7 +282,6 @@ def generate_multiple():
                 "docConversationIds": [
                     i["conversationId"] for i in document_summary_source
                 ],
-                # "markdown": markdown_content,  # Include markdown content
             },
             "messages": [
                 {"role": "system", "content": SYSTEM_PROMPT_GLOBAL_SUMMARY},
@@ -378,6 +366,7 @@ def generate_multiple():
         }
     )
 
+
 @bp.route("/generate-email/", methods=["POST"])
 def generate_email():
     try:
@@ -415,5 +404,43 @@ def generate_email():
         {
             "conversationId": conversationId,
             "emailContent": response_text,  # Return the response text as string
+        }
+    )
+
+
+@bp.route("/explain_chart/", methods=["POST"])
+def explain_chart():
+    try:
+        req = ExplainChartRequestModel.model_validate(request.json)
+    except ValidationError as e:
+        return jsonify(e.errors()), 400
+
+    conversation = {
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Explain this chart in 5 sentences or less.",
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {"url": req.imageUrl},
+                    },
+                ],
+            }
+        ],
+    }
+
+    # call API
+    response = get_response(conversation["messages"])
+
+    # update conversation list
+    response_text = response["choices"][0]["message"]["content"].strip()
+
+    return jsonify(
+        {
+            "explanation": response_text,
         }
     )
