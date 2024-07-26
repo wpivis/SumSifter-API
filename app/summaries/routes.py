@@ -44,8 +44,7 @@ class GenerateEmailRequestModel(BaseModel):
 
 
 class ExplainChartRequestModel(BaseModel):
-    conversationId: Optional[str] = None
-    prompt: str
+    imageUrl: str
 
 
 @bp.route("/")
@@ -93,32 +92,6 @@ The email should be structured as follows:
 
 """
 
-SYSTEM_PROMPT_EXPLAIN_CHART = """
-You will be provided with a chart data in a json format.
-
-The chart represents support from allies to Ukraine war for the year 2023 (in money).
-
-Chart1:
-{
-    "January": {"USA": 2.5, "EU": 1.8, "UK": 0.9, "Canada": 0.4, "Japan": 0.2},
-    "February": {"USA": 2.6, "EU": 1.9, "UK": 0.8, "Canada": 0.3, "Japan": 0.3},
-    "March": {"USA": 2.7, "EU": 2.0, "UK": 0.7, "Canada": 0.3, "Japan": 0.2},
-    "April": {"USA": 2.8, "EU": 2.1, "UK": 0.6, "Canada": 0.3, "Japan": 0.3},
-    "May": {"USA": 3.0, "EU": 2.2, "UK": 0.5, "Canada": 0.3, "Japan": 0.4},
-    "June": {"USA": 3.2, "EU": 2.3, "UK": 0.4, "Canada": 0.3, "Japan": 0.4},
-    "July": {"USA": 3.3, "EU": 2.4, "UK": 0.3, "Canada": 0.2, "Japan": 0.3},
-    "August": {"USA": 3.4, "EU": 2.5, "UK": 0.2, "Canada": 0.2, "Japan": 0.3},
-    "September": {"USA": 3.5, "EU": 2.6, "UK": 0.1, "Canada": 0.2, "Japan": 0.3},
-    "October": {"USA": 3.6, "EU": 2.7, "UK": 0.2, "Canada": 0.3, "Japan": 0.4},
-    "November": {"USA": 3.7, "EU": 2.8, "UK": 0.3, "Canada": 0.4, "Japan": 0.4},
-    "December": {"USA": 3.8, "EU": 2.9, "UK": 0.4, "Canada": 0.4, "Japan": 0.5}
-}
-
-You will be prompted to provide an explanation of the chart.
-The explanation should include key insights and highlight important trends.
-
-The reply should be in a string format.
-"""
 
 @bp.route("/generate/", methods=["POST"])
 def generate():
@@ -244,7 +217,6 @@ def generate_multiple():
         with open("./fake_response/global_summary.json", "r") as f:
             fake_response = json.load(f)
             return jsonify(fake_response)
-
 
     document_summary_source = []
     if req.conversationId is None:
@@ -394,6 +366,7 @@ def generate_multiple():
         }
     )
 
+
 @bp.route("/generate-email/", methods=["POST"])
 def generate_email():
     try:
@@ -434,6 +407,7 @@ def generate_email():
         }
     )
 
+
 @bp.route("/explain_chart/", methods=["POST"])
 def explain_chart():
     try:
@@ -441,35 +415,32 @@ def explain_chart():
     except ValidationError as e:
         return jsonify(e.errors()), 400
 
-    # Now conversationId is always provided
-    conversationId = req.conversationId
-
-    # Get existing conversation from cache
-    conversation = cache.get(conversationId)
-
-    if conversation is None:
-        conversationId = str(uuid.uuid4())
-        conversation = {
-            "messages": [{"role": "system", "content": SYSTEM_PROMPT_EXPLAIN_CHART}]
-        }
-
-    prompt = f"Explain Chart1 based on the prompt:\n\n{req.prompt}"
-
-    messages = conversation["messages"] + [{"role": "user", "content": prompt}]
+    conversation = {
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Explain this chart in 5 sentences or less.",
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {"url": req.imageUrl},
+                    },
+                ],
+            }
+        ],
+    }
 
     # call API
-    response = get_response(messages)
+    response = get_response(conversation["messages"])
 
     # update conversation list
     response_text = response["choices"][0]["message"]["content"].strip()
 
-    conversation["messages"].append({"role": "assistant", "content": response_text})
-
-    cache.set(conversationId, conversation, timeout=3600)
-
     return jsonify(
         {
-            "conversationId": conversationId,
             "explanation": response_text,
         }
     )
